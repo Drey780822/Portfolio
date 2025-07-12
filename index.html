@@ -3,123 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thabang Dikotope - Home</title>
+  <title>Home</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <style>
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 1.5rem;
+      height: 100%;
+      width: 4px;
+      background: #00bfa5;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background: #00bfa5;
+      border: 2px solid #fff;
+    }
+
+    .skill-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 191, 165, 0.3);
+    }
+
+    .sticky-sidebar {
+      position: sticky;
+      top: 8rem;
+    }
+
+    .nav-link.active {
+      color: #00bfa5;
+    }
+
+    .card {
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .fancy-button {
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .fancy-button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 15px rgba(0, 191, 165, 0.5);
+      background-position: right center;
+      filter: brightness(1.1);
+    }
+  </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="bg-gray-900 text-white">
   <!-- Navbar -->
   <nav id="navbar" class="fixed top-0 w-full bg-gradient-to-r from-slate-700 to-slate-900 shadow-lg z-50 animate-slide-down">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="text-3xl font-bold text-white">Thabang's Portfolio</a>
-      <button id="hamburger" class="md:hidden text-white focus:outline-none">
-        <i class="fas fa-bars text-2xl"></i>
-      </button>
-      <div id="nav-links" class="hidden md:flex items-center space-x-6 ml-auto">
-        <a href="index.html" class="nav-link text-lg text-white hover:text-teal-500 active:text-teal-500 transition-colors active">Home</a>
-        <a href="about.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">About</a>
-        <a href="Skills.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">Skills</a>
-        <a href="experience.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">Experience</a>
-        <a href="projects.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">Projects</a>
-        <a href="testimonials.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">Testimonials</a>
-        <a href="achievements.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">Achievements</a>
-        <a href="contact.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">Contact</a>
+      <div class="hidden md:flex items-center space-x-6 ml-auto">
+        <a href="index.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors active">Home</a>
+        <a href="about.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">About me</a>
+        <a href="Skills.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">My Skills</a>
+        <a href="experience.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">My Experience</a>
+        <a href="projects.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">My Projects</a>
+        <a href="contact.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">Contact me</a>
         <a href="https://linkedin.com/in/thabang-dikotope-135437247" target="_blank" class="text-white hover:text-teal-500">
           <i class="fab fa-linkedin text-2xl"></i>
         </a>
         <a href="https://github.com/Drey780822" target="_blank" class="text-white hover:text-teal-500">
           <i class="fab fa-github text-2xl"></i>
         </a>
-        <button id="theme-toggle" class="focus:outline-none text-white hover:text-teal-500">
-          <i class="fas fa-moon text-2xl"></i>
-        </button>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden flex-col absolute top-full left-0 w-full bg-gradient-to-r from-slate-700 to-slate-900 shadow-lg">
-        <a href="index.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Home</a>
-        <a href="about.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">About</a>
-        <a href="Skills.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Skills</a>
-        <a href="experience.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Experience</a>
-        <a href="projects.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Projects</a>
-        <a href="testimonials.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Testimonials</a>
-        <a href="achievements.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Achievements</a>
-        <a href="contact.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Contact</a>
-        <a href="https://linkedin.com/in/thabang-dikotope-135437247" target="_blank" class="text-white hover:text-teal-500 py-2 px-4">
-          <i class="fab fa-linkedin text-2xl"></i> LinkedIn
-        </a>
-        <a href="https://github.com/Drey780822" target="_blank" class="text-white hover:text-teal-500 py-2 px-4">
-          <i class="fab fa-github text-2xl"></i> GitHub
-        </a>
-        <button id="theme-toggle-mobile" class="text-white hover:text-teal-500 py-2 px-4 text-left">
-          <i class="fas fa-moon text-2xl"></i> Theme
-        </button>
       </div>
     </div>
   </nav>
 
   <!-- Welcome Section -->
   <section id="welcome-section" class="min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed relative" style="background-image: url('./assets/images/bg00.jpg')">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 bg-black opacity-60"></div>
     <div class="text-center relative z-10 p-8 max-w-4xl mx-auto" data-aos="fade-up">
-      <img src="./assets/images/www.png" alt="Thabang Dikotope" class="w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto mb-6 border-4 border-teal-500 shadow-lg transform hover:scale-110 transition-transform duration-300" />
-      <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Thabang Dikotope</h1>
+      <img src="./assets/images/www.png" alt="Thabang Dikotope" class="w-64 h-64 rounded-full mx-auto mb-6 border-4 border-teal-500 shadow-lg transform hover:scale-110 transition-transform duration-300" />
+      <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white">Thabang Dikotope</h1>
       <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-teal-400">
         <span id="typed"></span>
       </h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="contact.html" class="fancy-button bg-gradient-to-r from-teal-500 to-teal-700 text-white px-6 py-3 rounded-full hover:bg-teal-600 transition-all">Contact Me</a>
-        <a href="projects.html" class="fancy-button bg-gradient-to-r from-teal-500 to-teal-700 text-white px-6 py-3 rounded-full hover:bg-teal-600 transition-all">View Projects</a>
-        <a href="./documentation/Dikotope T CV - Mergred.pdf" download class="fancy-button bg-gradient-to-r from-teal-500 to-teal-700 text-white px-6 py-3 rounded-full hover:bg-teal-600 transition-all">Download CV</a>
+      <div class="flex justify-center space-x-4">
+        <a href="contact.html" class="fancy-button bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full">Contact Me</a>
+        <a href="projects.html" class="fancy-button bg-gradient-to-r from-gray-600 to-gray-800 text-white px-8 py-4 rounded-full">View Projects</a>
+        <a href="./documentation/Dikotope T CV - Mergred.pdf" download class="fancy-button bg-gradient-to-r from-green-600 to-green-800 text-white px-8 py-4 rounded-full">Download CV</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gradient-to-r from-slate-700 to-slate-900 text-white py-8">
-    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <h3 class="text-xl font-semibold mb-4">Thabang Dikotope</h3>
-        <p>Software Developer & Computer Science Enthusiast</p>
-        <p class="mt-2">Email: <a href="mailto:thabangdikotope624@gmail.com" class="hover:text-teal-500">thabangdikotope624@gmail.com</a></p>
-        <p>Phone: <a href="tel:+27797692900" class="hover:text-teal-500">+27 79 769 2900</a></p>
-        <p>Address: 452 Sisulu St, Pretoria Central, Pretoria, 0002</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
-        <ul class="space-y-2">
-          <li><a href="index.html" class="hover:text-teal-500">Home</a></li>
-          <li><a href="about.html" class="hover:text-teal-500">About</a></li>
-          <li><a href="projects.html" class="hover:text-teal-500">Projects</a></li>
-          <li><a href="contact.html" class="hover:text-teal-500">Contact</a></li>
-          <li><a href="#top" class="hover:text-teal-500">Back to Top</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
-        <p>Stay updated with my latest projects and updates.</p>
-        <form class="mt-4">
-          <input type="email" placeholder="Enter your email" class="w-full p-3 rounded-lg bg-slate-700 text-white mb-2" />
-          <button type="submit" class="bg-teal-500 text-white px-4 py-2 rounded-full hover:bg-teal-600">Subscribe</button>
-        </form>
-      </div>
+  <footer class="w-full py-8 text-center bg-gradient-to-r from-slate-700 to-slate-900">
+    <h2 class="text-2xl font-semibold text-white mb-4">Let's Connect</h2>
+    <div class="flex justify-center space-x-6 mb-4">
+      <a href="https://linkedin.com/in/thabang-dikotope-135437247" target="_blank" class="text-white text-2xl hover:text-teal-400 transition-all">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/Drey780822" target="_blank" class="text-white text-2xl hover:text-teal-400 transition-all">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:thabangdikotope624@gmail.com" class="text-white text-2xl hover:text-teal-400 transition-all">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://wa.me/27797692900" target="_blank" class="text-white text-2xl hover:text-teal-400 transition-all">
+        <i class="fab fa-whatsapp"></i>
+      </a>
     </div>
-    <div class="container mx-auto px-4 mt-8 text-center">
-      <div class="flex justify-center space-x-4">
-        <a href="https://linkedin.com/in/thabang-dikotope-135437247" target="_blank" class="hover:text-teal-500"><i class="fab fa-linkedin text-2xl"></i></a>
-        <a href="https://github.com/Drey780822" target="_blank" class="hover:text-teal-500"><i class="fab fa-github text-2xl"></i></a>
-        <a href="mailto:thabangdikotope624@gmail.com" class="hover:text-teal-500"><i class="fas fa-envelope text-2xl"></i></a>
-        <a href="https://wa.me/27797692900" target="_blank" class="hover:text-teal-500"><i class="fab fa-whatsapp text-2xl"></i></a>
-      </div>
-      <p class="mt-4">© 2025 Thabang Dikotope. All rights reserved.</p>
-    </div>
+    <p class="text-gray-400 text-sm">© 2025 Thabang Dikotope. All rights reserved.</p>
   </footer>
-
-  <!-- Back to Top Button -->
-  <button id="back-to-top" class="fixed bottom-4 right-4 bg-teal-500 text-white p-3 rounded-full shadow-lg hover:bg-teal-600">
-    <i class="fas fa-arrow-up"></i>
-  </button>
 
   <!-- Vendor Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
