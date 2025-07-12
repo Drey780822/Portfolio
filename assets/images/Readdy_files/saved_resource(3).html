@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59 -->
+<html style="overflow: hidden;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>
+(function(){
+  let proxyEcharts = null;
+
+  let originInit = null;
+
+  const DefaultFontOptions = [
+      { key: 'xAxis', stylePath: 'xAxis.axisLabel' },
+      { key: 'yAxis', stylePath: 'yAxis.axisLabel' },
+      { key: 'legend', stylePath: 'legend.textStyle' },
+      { key: 'tooltip', stylePath: 'tooltip.textStyle' },
+      { key: 'title', stylePath: 'title.textStyle' },
+      { key: 'series', stylePath: 'series.n.label', isArray: true },
+  ];
+
+  function setVal(source, keys, val, setFn) {
+      if (!Array.isArray(keys)) {
+          keys = keys.split('.');
+      }
+      keys = [...keys];
+      const valKey = keys.pop();
+      while (keys.length) {
+          const parentKey = keys.shift();
+          if (typeof source[parentKey] !== 'object' && typeof source[parentKey] !== 'function') {
+              const childKey = keys[0] === undefined ? valKey : keys[0];
+              let newVal = {};
+              if (!isNaN(childKey * 1)) {
+                  newVal = [];
+              }
+              if (setFn) {
+                  setFn(source, parentKey, newVal);
+              } else {
+                  source[parentKey] = newVal;
+              }
+          }
+          source = source[parentKey];
+      }
+      if (setFn) {
+          setFn(source, valKey, val);
+      } else {
+          source[valKey] = val;
+      }
+  }
+
+  function setFontFamily(options) {
+      return options;
+  }
+
+  function setSeriesFamily(options) {
+      if (options.series) {
+          options.series = options.series.map(item => {
+              item.label = { ...item.label };
+              return item;
+          });
+      }
+      return options;
+  }
+
+
+  function addResizeListener(echartsInstance) {
+      const mountDom = echartsInstance.getDom();
+      const resizeObserver = new ResizeObserver(() => {
+          echartsInstance.resize();
+      });
+      resizeObserver.observe(mountDom);
+      return resizeObserver;
+  }
+
+  function proxyInit(...arg) {
+      if (!originInit) return null;
+      let instance = null;
+      try {
+        instance = originInit.apply(this, arg);
+      } catch (e) {
+        console.error(e);
+        const div = document.createElement('div');
+        div.style.display = 'none';
+        document.body.appendChild(div);
+        instance = originInit.call(this, div);
+        document.body.removeChild(div);
+      }
+      const originSetOption = instance.setOption;
+      addResizeListener(instance);
+      instance.setOption = async function setOptionProxy(options) {
+          options = options || {};
+          options.animation = false;
+          try {
+            return originSetOption.call(this, options);
+          } catch (e) {
+            console.error(e);
+            return originSetOption.call(this, {});
+          }
+      };
+      return instance;
+  }
+
+  Object.defineProperty(globalThis, 'echarts', {
+      get() {
+          return proxyEcharts;
+      },
+      set(value) {
+          originInit = value.init;
+          defineInit(value);
+          proxyEcharts = value;
+      },
+      configurable: true,
+  });
+
+  function defineInit(value) {
+      Object.defineProperty(value, 'init', {
+          get() {
+              return proxyInit;
+          },
+          set(v) {
+              originInit = v;
+          },
+          enumerable: true,
+      });
+  }
+})()
+</script><script>console.warn = () => {};console.log = () => {};</script><script>
+    // window.setInterval = () => {};
+    // window.clearInterval = () => {};
+    // window.setTimeout = () => {};
+    // window.clearTimeout = () => {};
+  </script><style>
+  html {
+    -ms-overflow-style: none;  /* 适用于 IE 和 Edge */
+    scrollbar-width: none;     /* 适用于 Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* 隐藏滚动条 */
+    }
+  }
+</style><style>
+    /* 自定义滚动条样式 */
+    /* WebKit 浏览器 (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+        width: 0; /* 滚动条宽度 */
+        height: 0; /* 水平滚动条高度 */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent; /* 轨道透明，使内容可见 */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.5); /* 滚动条滑块颜色 */
+        border-radius: 4px; /* 滑块圆角 */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.7); /* 悬停时颜色 */
+    }
+  </style><script>
+  window.addEventListener('load', () => {
+    if (typeof AOS !== 'undefined' && AOS) {
+      AOS.refresh?.();
+    }
+  });
+</script><script>(function () {
+  // 内存存储
+  const memoryStorage = {
+    local: new Map(),
+    session: new Map()
+  };
+
+  // 保存原始方法
+  // const originalLocalStorage = {
+  //   setItem: localStorage.setItem.bind(localStorage),
+  //   getItem: localStorage.getItem.bind(localStorage),
+  //   removeItem: localStorage.removeItem.bind(localStorage),
+  //   clear: localStorage.clear.bind(localStorage),
+  //   key: localStorage.key.bind(localStorage)
+  // };
+
+  // const originalSessionStorage = {
+  //   setItem: sessionStorage.setItem.bind(sessionStorage),
+  //   getItem: sessionStorage.getItem.bind(sessionStorage),
+  //   removeItem: sessionStorage.removeItem.bind(sessionStorage),
+  //   clear: sessionStorage.clear.bind(sessionStorage),
+  //   key: sessionStorage.key.bind(sessionStorage)
+  // };
+
+  // 只重写方法，不动属性
+  localStorage.setItem = function (key, value) {
+    memoryStorage.local.set(key, value);
+  };
+
+  localStorage.getItem = function (key) {
+    return memoryStorage.local.get(key) ?? null;
+  };
+
+  localStorage.removeItem = function (key) {
+    memoryStorage.local.delete(key);
+  };
+
+  localStorage.clear = function () {
+    memoryStorage.local.clear();
+  };
+
+  localStorage.key = function (n) {
+    return Array.from(memoryStorage.local.keys())[n] ?? null;
+  };
+
+  // sessionStorage 同样的处理
+  sessionStorage.setItem = function (key, value) {
+    memoryStorage.session.set(key, value);
+  };
+
+  sessionStorage.getItem = function (key) {
+    return memoryStorage.session.get(key) ?? null;
+  };
+
+  sessionStorage.removeItem = function (key) {
+    memoryStorage.session.delete(key);
+  };
+
+  sessionStorage.clear = function () {
+    memoryStorage.session.clear();
+  };
+
+  sessionStorage.key = function (n) {
+    return Array.from(memoryStorage.session.keys())[n] ?? null;
+  };
+})();
+</script></head><body style="transform-origin: left top;"><script>
+      (function () {
+  'use strict';
+
+  const originalWindowOpen = window.originalWindowOpen ?? window.open;
+
+  function processAnchor(url) {
+    // 查找锚点，平滑滚动
+    const anchor = document.querySelector(url);
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth' });
+    }
+    // 发送 hashchange 事件
+    const event = new Event('hashchange');
+    event.newURL = url;
+    event.oldURL = window.location.href;
+    // 因为预览 iframe 没有 url，所以需要手动设置
+    window.location.hash = url;
+    window.dispatchEvent(event);
+  }
+
+  // 重写 window.open
+  window.open = function (url, target, features) {
+    if (url.startsWith('#')) {
+      // 查找锚点，平滑滚动
+      processAnchor(url);
+      return;
+    }
+    originalWindowOpen(url, '_blank', features);
+    return null;
+  };
+})();
+
+      
+  window.addEventListener('click', (event) => {
+    const target = event.target;
+    const closest = target.closest('a');
+    if (!closest) return;
+    if (closest.tagName === 'A') {
+      event.preventDefault();
+      const href = closest.getAttribute('href');
+      if (!href) return;
+      // check is void link
+      if (['#', 'javascript:void(0)', ''].includes(href)) {
+        return;
+      }
+      // 锚点链接也不处理
+      if (href.startsWith('#')) {
+        return;
+      }
+      window.open(closest.href, '_blank');
+    }
+  });
+
+      
+  document.addEventListener('submit', (event) => {
+    event.preventDefault();
+  }, true);
+
+    </script></body></html>

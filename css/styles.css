@@ -1,0 +1,174 @@
+body {
+  font-family: 'Arial', sans-serif;
+  scroll-behavior: smooth;
+  background-color: #f7f8fa;
+  color: #2d2d2d;
+}
+
+body.dark {
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+#navbar {
+  transition: background-color 0.3s, transform 0.5s, box-shadow 0.3s;
+}
+
+#navbar.scrolled {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #2dd4bf;
+}
+
+.skill-card {
+  transition: transform 0.3s;
+}
+
+.project-tile {
+  background-color: #ffffff;
+  color: #1f2937;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dark .project-tile {
+  background-color: #1f2937;
+  color: #f3f4f6;
+}
+
+.project-tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top {
+  display: none;
+  transition: opacity 0.3s;
+}
+
+#back-to-top.show {
+  display: block;
+}
+
+.swiper-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #2dd4bf;
+}
+
+.swiper-pagination-bullet {
+  background: #64748b;
+}
+
+.swiper-pagination-bullet-active {
+  background: #2dd4bf;
+}
+
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+input:invalid + p,
+textarea:invalid + p {
+  display: block;
+}
+
+#submit-spinner.show {
+  display: inline-block;
+}
+
+#submit-text.hide {
+  display: none;
+}
+
+button:hover, a.button:hover {
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  #navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #nav-links {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(to bottom, #334155, #1e293b);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem;
+  }
+  #nav-links.show {
+    display: flex;
+  }
+  #nav-links a, #nav-links button {
+    margin: 0.5rem 0;
+    color: white;
+  }
+  #welcome-section .text-center {
+    padding: 1rem;
+  }
+  #contact .text-center {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-cols-3, .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  #welcome-section h1 {
+    font-size: 2.5rem;
+  }
+  #welcome-section img {
+    width: 160px;
+    height: 160px;
+  }
+  .swiper-container {
+    padding: 0 10px;
+  }
+}

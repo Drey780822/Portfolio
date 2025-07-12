@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thabang Dikotope - Testimonials</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .nav-link.active { color: #00bfa5; }
+    .testimonial-card { transition: transform 0.3s, box-shadow 0.3s; }
+    .testimonial-card:hover { transform: scale(1.02); box-shadow: 0 4px 20px rgba(0, 191, 165, 0.3); }
+    @media (max-width: 600px) {
+      .text-3xl { font-size: 1.875rem; }
+      .testimonial-card { padding: 1rem; }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <!-- Particles Background (Fallback) -->
+  <div id="tsparticles" class="fixed top-0 left-0 w-full h-full -z-10 hidden"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full bg-gradient-to-r from-slate-700 to-slate-900 shadow-lg z-50 animate-slide-down">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-3xl font-bold text-white">Thabang's Portfolio</a>
+      <button id="hamburger" class="md:hidden text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+      <div id="nav-links" class="hidden md:flex items-center space-x-6 ml-auto">
+        <a href="index.html" class="nav-link text-lg text-white hover:text-teal-500 active:text-teal-500 transition-colors">Home</a>
+        <a href="about.html" class="nav-link text-lg text-white hover:text-teal-500 active:text-teal-500 transition-colors">About</a>
+        <a href="skills.html" class="nav-link text-lg text-white hover:text-teal-500 active:text-teal-500 transition-colors">Skills</a>
+        <a href="experience.html" class="nav-link text-lg text-white hover:text-teal-500 active:text-teal-500 transition-colors">Experience</a>
+        <a href="projects.html" class="nav-link text-lg text-white hover:text-teal-500 active:text-teal-500 transition-colors">Projects</a>
+        <a href="testimonials.html" class="nav-link text-lg text-white hover:text-teal-500 active:text-teal-500 transition-colors active">Testimonials</a>
+        <a href="achievements.html" class="nav-link text-lg text-white hover:text-teal-500 active:text-teal-500 transition-colors">Achievements</a>
+        <a href="contact.html" class="nav-link text-lg text-white hover:text-teal-500 active:text-teal-500 transition-colors">Contact</a>
+        <a href="https://linkedin.com/in/thabang-dikotope-135437247" target="_blank" class="text-white hover:text-teal-500">
+          <i class="fab fa-linkedin text-2xl"></i>
+        </a>
+        <a id="profile-link" href="https://github.com/Drey780822" target="_blank" class="text-white hover:text-teal-500">
+          <i class="fab fa-github text-2xl"></i>
+        </a>
+        <button id="theme-toggle" class="focus:outline-none text-white hover:text-teal-500">
+          <i class="fas fa-moon text-2xl"></i>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden flex-col absolute top-full left-0 w-full bg-gradient-to-r from-slate-700 to-slate-900 shadow-lg">
+        <a href="index.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Home</a>
+        <a href="about.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">About</a>
+        <a href="skills.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Skills</a>
+        <a href="experience.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Experience</a>
+        <a href="projects.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Projects</a>
+        <a href="testimonials.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4 active">Testimonials</a>
+        <a href="achievements.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Achievements</a>
+        <a href="contact.html" class="nav-link text-lg text-white hover:text-teal-500 py-2 px-4">Contact</a>
+        <a href="https://linkedin.com/in/thabang-dikotope-135437247" target="_blank" class="text-white hover:text-teal-500 py-2 px-4">
+          <i class="fab fa-linkedin text-2xl"></i> LinkedIn
+        </a>
+        <a id="profile-link-mobile" href="https://github.com/Drey780822" target="_blank" class="text-white hover:text-teal-500 py-2 px-4">
+          <i class="fab fa-github text-2xl"></i> GitHub
+        </a>
+        <button id="theme-toggle-mobile" class="text-white hover:text-teal-500 py-2 px-4 text-left">
+          <i class="fas fa-moon text-2xl"></i> Theme
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-16 bg-gray-900 text-white min-h-screen flex items-center">
+    <div class="container mx-auto px-4" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-center mb-8"><i class="fas fa-quote-left text-teal-400"></i> Testimonials</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="testimonial-card bg-gray-800 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+          <p class="italic">"Thabang's leadership in our gym management system project was exceptional. His ability to coordinate the team and deliver on time was impressive."</p>
+          <p class="mt-4 font-semibold">— Project Team Member, Tshwane University of Technology</p>
+        </div>
+        <div class="testimonial-card bg-gray-800 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+          <p class="italic">"Working with Thabang at MLAB was a pleasure. His front-end skills and collaborative mindset made our event management system a success."</p>
+          <p class="mt-4 font-semibold">— Internship Supervisor, MLAB</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-slate-700 to-slate-900 text-white py-8">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Thabang Dikotope</h3>
+        <p>Software Developer & Computer Science Enthusiast</p>
+        <p class="mt-2">Email: <a href="mailto:thabangdikotope624@gmail.com" class="hover:text-teal-500">thabangdikotope624@gmail.com</a></p>
+        <p>Phone: <a href="tel:+27797692900" class="hover:text-teal-500">+27 79 769 2900</a></p>
+        <p>Address: 452 Sisulu St, Pretoria Central, Pretoria, 0002</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-teal-500">Home</a></li>
+          <li><a href="about.html" class="hover:text-teal-500">About</a></li>
+          <li><a href="skills.html" class="hover:text-teal-500">Skills</a></li>
+          <li><a href="experience.html" class="hover:text-teal-500">Experience</a></li>
+          <li><a href="projects.html" class="hover:text-teal-500">Projects</a></li>
+          <li><a href="testimonials.html" class="hover:text-teal-500">Testimonials</a></li>
+          <li><a href="achievements.html" class="hover:text-teal-500">Achievements</a></li>
+          <li><a href="contact.html" class="hover:text-teal-500">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container mx-auto px-4 mt-8 text-center">
+      <div class="flex justify-center space-x-4">
+        <a href="https://linkedin.com/in/thabang-dikotope-135437247" target="_blank" class="hover:text-teal-500"><i class="fab fa-linkedin text-2xl"></i></a>
+        <a href="https://github.com/Drey780822" target="_blank" class="hover:text-teal-500"><i class="fab fa-github text-2xl"></i></a>
+      </div>
+      <p class="mt-4">© 2025 Thabang Dikotope. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed bottom-6 right-6 bg-teal-500 hover:bg-teal-600 text-white rounded-full p-3 shadow-lg z-50">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    AOS.init();
+    document.getElementById('tsparticles').classList.remove('hidden');
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      background: { color: "transparent" },
+      particles: {
+        number: { value: 50 },
+        size: { value: 3 },
+        color: { value: "#00bfa5" },
+        move: { enable: true, speed: 1 },
+        links: { enable: true, distance: 120, color: "#00bfa5", opacity: 0.4 }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        if (link.href === window.location.href) {
+          link.classList.add('active');
+        }
+      });
+
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+      const toggleTheme = () => {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        themeToggle.innerHTML = `<i class="fas ${isDark ? 'fa-sun' : 'fa-moon'} text-2xl"></i>`;
+        themeToggleMobile.innerHTML = `<i class="fas ${isDark ? 'fa-sun' : 'fa-moon'} text-2xl"></i> Theme`;
+      };
+      themeToggle.addEventListener('click', toggleTheme);
+      themeToggleMobile.addEventListener('click', toggleTheme);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Thabang Dikotope</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <style>
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 1.5rem;
+      height: 100%;
+      width: 4px;
+      background: #00bfa5;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background: #00bfa5;
+      border: 2px solid #fff;
+    }
+    .skill-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .skill-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 191, 165, 0.3);
+    }
+    .sticky-sidebar {
+      position: sticky;
+      top: 8rem;
+    }
+    .nav-link.active {
+      color: #00bfa5;
+    }
+    .card {
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full bg-gradient-to-r from-slate-700 to-slate-900 shadow-lg z-50 animate-slide-down">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-3xl font-bold text-white">Thabang's Portfolio</a>
+      <div class="hidden md:flex items-center space-x-6 ml-auto">
+        <a href="index.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">Home</a>
+        <a href="about.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors active">About Me</a>
+        <a href="skills.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">My Skills</a>
+        <a href="experience.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">My Experience</a>
+        <a href="projects.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">My Projects</a>
+       <a href="contact.html" class="nav-link text-lg text-white hover:text-teal-500 transition-colors">Contact me</a>
+        <a href="https://linkedin.com/in/thabang-dikotope-135437247" target="_blank" class="text-white hover:text-teal-500">
+          <i class="fab fa-linkedin text-2xl"></i>
+        </a>
+        <a href="https://github.com/Drey780822" target="_blank" class="text-white hover:text-teal-500">
+          <i class="fab fa-github text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Particles Background -->
+  <div id="tsparticles" class="fixed top-0 left-0 w-full h-full -z-10"></div>
+
+  <!-- Main Section -->
+  <section class="pt-32 pb-20 min-h-screen px-6 container mx-auto flex flex-col lg:flex-row">
+    <!-- Content -->
+    <div class="lg:w-3/4 lg:pr-8">
+      <h2 class="text-5xl font-extrabold text-center mb-12" id="typewriter"></h2>
+
+      <!-- Summary -->
+      <div class="mb-16" data-aos="fade-up">
+        <h3 class="text-3xl font-bold mb-4"><i class="fas fa-user text-teal-400"></i> Summary</h3>
+        <p class="text-lg leading-relaxed">
+           I'm Thabang Dikotope, a passionate software developer dedicated to crafting clean, efficient, and impactful solutions. 
+      With hands-on experience in web development, mobile programming, and database design, I bring a practical approach to problem-solving and continuous learning. 
+      I value growth, simplicity, and creating meaningful digital experiences.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="mb-16" data-aos="fade-up">
+        <h3 class="text-3xl font-bold mb-4"><i class="fas fa-graduation-cap text-teal-400"></i> Education</h3>
+        <div class="bg-gray-800 p-6 rounded-xl card">
+          <h4 class="text-xl font-semibold">Tshwane University of Technology</h4>
+          <p>Diploma in Computer Science (Software Development Focus)</p>
+          <p class="text-sm text-gray-400">Credits Completed: 300/360 | Expected Graduation: May 2026</p>
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="mb-16" data-aos="fade-up">
+        <h3 class="text-3xl font-bold mb-6"><i class="fas fa-briefcase text-teal-400"></i> Experience</h3>
+        <div class="timeline relative">
+          <div class="timeline-item">
+            <div class="bg-gray-800 p-4 rounded-xl card">
+              <h4 class="text-xl font-semibold">TUT - Programmer & DB Designer</h4>
+              <p class="text-sm text-gray-400">Jan 2022 – Jun 2022</p>
+              <ul class="list-disc ml-6 text-sm text-gray-300">
+                <li>Designed and tested software using Java & PHP.</li>
+                <li>Built database schemas for academic/personal projects.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="bg-gray-800 p-4 rounded-xl card">
+              <h4 class="text-xl font-semibold">TUT - Mobile Device Programmer</h4>
+              <p class="text-sm text-gray-400">Mar – May 2025</p>
+              <ul class="list-disc ml-6 text-sm text-gray-300">
+                <li>Developed basic Android apps using Kotlin & Android Studio.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="bg-gray-800 p-4 rounded-xl card">
+              <h4 class="text-xl font-semibold">MLAB - Frontend Intern</h4>
+              <p class="text-sm text-gray-400">Oct 2024 – Feb 2025</p>
+              <ul class="list-disc ml-6 text-sm text-gray-300">
+                <li>Contributed to event management system using Git/GitHub.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="bg-gray-800 p-4 rounded-xl card">
+              <h4 class="text-xl font-semibold">Rocomamas - Waiter</h4>
+              <p class="text-sm text-gray-400">Jun 2023 – Present</p>
+              <ul class="list-disc ml-6 text-sm text-gray-300">
+                <li>Handled 50+ clients daily, trained and offered a contract.</li>
+                <li>Balanced part-time work with academics.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="mb-16" data-aos="fade-up">
+        <h3 class="text-3xl font-bold mb-6"><i class="fas fa-code text-teal-400"></i> Projects</h3>
+        <div class="timeline relative">
+          <div class="timeline-item">
+            <div class="bg-gray-800 p-4 rounded-xl card">
+              <h4 class="text-xl font-semibold">Gym Management System (PHP, MySQL)</h4>
+              <p class="text-sm text-gray-300">Full-stack site with member and admin roles, deployed using InfinityFree server.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="bg-gray-800 p-4 rounded-xl card">
+              <h4 class="text-xl font-semibold">Lifestyle Preferences Survey (HTML, JS, SQLite)</h4>
+              <p class="text-sm text-gray-300">Web-based form with in-browser SQLite (sql.js) data storage.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="bg-gray-800 p-4 rounded-xl card">
+              <h4 class="text-xl font-semibold">Event Management System</h4>
+              <p class="text-sm text-gray-300">Front-end site designed in Figma and deployed on GitHub.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="mb-16" data-aos="fade-up">
+        <h3 class="text-3xl font-bold mb-6"><i class="fas fa-cogs text-teal-400"></i> Technical Skills</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="skill-card bg-gray-800 p-4 rounded-xl">
+            <h4 class="text-lg font-semibold mb-2"><i class="fas fa-code text-teal-400"></i> Languages</h4>
+            <ul class="text-sm text-gray-300 space-y-1">
+              <li><i class="devicon-java-plain text-teal-400"></i> Java</li>
+              <li><i class="devicon-php-plain text-teal-400"></i> PHP</li>
+              <li><i class="devicon-python-plain text-teal-400"></i> Python</li>
+              <li><i class="devicon-javascript-plain text-teal-400"></i> JavaScript</li>
+              <li><i class="devicon-html5-plain text-teal-400"></i> HTML</li>
+              <li><i class="devicon-css3-plain text-teal-400"></i> CSS</li>
+            </ul>
+          </div>
+          <div class="skill-card bg-gray-800 p-4 rounded-xl">
+            <h4 class="text-lg font-semibold mb-2"><i class="fas fa-layer-group text-teal-400"></i> Frameworks</h4>
+            <ul class="text-sm text-gray-300 space-y-1">
+              <li><i class="devicon-flask-original text-teal-400"></i> Flask</li>
+              <li><i class="devicon-django-plain text-teal-400"></i> Django</li>
+              <li><i class="devicon-java-plain text-teal-400"></i> JEE</li>
+              <li><i class="fas fa-plug text-teal-400"></i> REST APIs</li>
+            </ul>
+          </div>
+          <div class="skill-card bg-gray-800 p-4 rounded-xl">
+            <h4 class="text-lg font-semibold mb-2"><i class="fas fa-paint-brush text-teal-400"></i> Frontend/UI</h4>
+            <ul class="text-sm text-gray-300 space-y-1">
+              <li><i class="devicon-bootstrap-plain text-teal-400"></i> Bootstrap</li>
+              <li><i class="devicon-figma-plain text-teal-400"></i> Figma</li>
+              <li><i class="fas fa-mobile-alt text-teal-400"></i> Responsive Design</li>
+            </ul>
+          </div>
+          <div class="skill-card bg-gray-800 p-4 rounded-xl">
+            <h4 class="text-lg font-semibold mb-2"><i class="fas fa-database text-teal-400"></i> Database</h4>
+            <ul class="text-sm text-gray-300 space-y-1">
+              <li><i class="devicon-mysql-plain text-teal-400"></i> MySQL</li>
+              <li><i class="devicon-oracle-original text-teal-400"></i> Oracle SQL</li>
+              <li><i class="fas fa-code text-teal-400"></i> PL/SQL</li>
+              <li><i class="fas fa-link text-teal-400"></i> JDBC</li>
+            </ul>
+          </div>
+          <div class="skill-card bg-gray-800 p-4 rounded-xl">
+            <h4 class="text-lg font-semibold mb-2"><i class="fas fa-tools text-teal-400"></i> Tools</h4>
+            <ul class="text-sm text-gray-300 space-y-1">
+              <li><i class="devicon-git-plain text-teal-400"></i> Git</li>
+              <li><i class="devicon-github-original text-teal-400"></i> GitHub</li>
+              <li><i class="devicon-netbeans-plain text-teal-400"></i> NetBeans</li>
+              <li><i class="devicon-vscode-plain text-teal-400"></i> VS Code</li>
+              <li><i class="devicon-androidstudio-plain text-teal-400"></i> Android Studio</li>
+            </ul>
+          </div>
+          <div class="skill-card bg-gray-800 p-4 rounded-xl">
+            <h4 class="text-lg font-semibold mb-2"><i class="fas fa-server text-teal-400"></i> Others</h4>
+            <ul class="text-sm text-gray-300 space-y-1">
+              <li><i class="fas fa-server text-teal-400"></i> XAMPP</li>
+              <li><i class="fas fa-database text-teal-400"></i> PHPMyAdmin</li>
+              <li><i class="fas fa-code text-teal-400"></i> SQL Developer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Sidebar -->
+    <div class="lg:w-1/4 mt-16 lg:mt-0 sticky-sidebar" data-aos="fade-left">
+      <div class="bg-gray-800 p-6 rounded-xl card">
+        <h3 class="text-2xl font-bold mb-4"><i class="fas fa-envelope text-teal-400"></i> Contact Me</h3>
+        <p class="text-sm"><i class="fas fa-envelope text-teal-400 mr-2"></i><a href="mailto:thabangdikotope624@gmail.com" class="text-teal-400 hover:underline">thabangdikotope624@gmail.com</a></p>
+        <p class="text-sm"><i class="fas fa-phone text-teal-400 mr-2"></i><a href="tel:+27797692900" class="text-teal-400 hover:underline">+27 79 769 2900</a></p>
+        <p class="text-sm"><i class="fab fa-linkedin text-teal-400 mr-2"></i><a href="https://linkedin.com/in/thabang-dikotope-135437247" target="_blank" class="text-teal-400 hover:underline">linkedin.com/in/thabang-dikotope</a></p>
+        <p class="text-sm"><i class="fab fa-github text-teal-400 mr-2"></i><a href="https://github.com/Drey780822" target="_blank" class="text-teal-400 hover:underline">Drey780822</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll to Top -->
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed bottom-6 right-6 bg-teal-500 hover:bg-teal-600 text-white rounded-full p-3 shadow-lg z-50">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      background: { color: "transparent" },
+      particles: {
+        number: { value: 50 },
+        size: { value: 3 },
+        color: { value: "#00bfa5" },
+        move: { enable: true, speed: 1 },
+        links: { enable: true, distance: 120, color: "#00bfa5", opacity: 0.4 }
+      }
+    });
+
+    const words = ["About Me", "Software Developer", "Team Player", "Innovator", "Problem Solver"];
+    let i = 0, j = 0, isDeleting = false;
+    function typeEffect() {
+      const title = document.getElementById("typewriter");
+      if (!title) return;
+      const current = words[i];
+      title.textContent = isDeleting ? current.substring(0, j--) : current.substring(0, j++);
+      if (!isDeleting && j === current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1200);
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        setTimeout(typeEffect, 200);
+      } else {
+        setTimeout(typeEffect, isDeleting ? 40 : 100);
+      }
+    }
+
+    // Highlight active nav link
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        if (link.href === window.location.href) {
+          link.classList.add('active');
+        }
+      });
+      typeEffect();
+    });
+  </script>

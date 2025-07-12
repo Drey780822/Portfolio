@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59 -->
+<html lang="en" style="overflow: hidden;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>
+(function(){
+  let proxyEcharts = null;
+
+  let originInit = null;
+
+  const DefaultFontOptions = [
+      { key: 'xAxis', stylePath: 'xAxis.axisLabel' },
+      { key: 'yAxis', stylePath: 'yAxis.axisLabel' },
+      { key: 'legend', stylePath: 'legend.textStyle' },
+      { key: 'tooltip', stylePath: 'tooltip.textStyle' },
+      { key: 'title', stylePath: 'title.textStyle' },
+      { key: 'series', stylePath: 'series.n.label', isArray: true },
+  ];
+
+  function setVal(source, keys, val, setFn) {
+      if (!Array.isArray(keys)) {
+          keys = keys.split('.');
+      }
+      keys = [...keys];
+      const valKey = keys.pop();
+      while (keys.length) {
+          const parentKey = keys.shift();
+          if (typeof source[parentKey] !== 'object' && typeof source[parentKey] !== 'function') {
+              const childKey = keys[0] === undefined ? valKey : keys[0];
+              let newVal = {};
+              if (!isNaN(childKey * 1)) {
+                  newVal = [];
+              }
+              if (setFn) {
+                  setFn(source, parentKey, newVal);
+              } else {
+                  source[parentKey] = newVal;
+              }
+          }
+          source = source[parentKey];
+      }
+      if (setFn) {
+          setFn(source, valKey, val);
+      } else {
+          source[valKey] = val;
+      }
+  }
+
+  function setFontFamily(options) {
+      return options;
+  }
+
+  function setSeriesFamily(options) {
+      if (options.series) {
+          options.series = options.series.map(item => {
+              item.label = { ...item.label };
+              return item;
+          });
+      }
+      return options;
+  }
+
+
+  function addResizeListener(echartsInstance) {
+      const mountDom = echartsInstance.getDom();
+      const resizeObserver = new ResizeObserver(() => {
+          echartsInstance.resize();
+      });
+      resizeObserver.observe(mountDom);
+      return resizeObserver;
+  }
+
+  function proxyInit(...arg) {
+      if (!originInit) return null;
+      let instance = null;
+      try {
+        instance = originInit.apply(this, arg);
+      } catch (e) {
+        console.error(e);
+        const div = document.createElement('div');
+        div.style.display = 'none';
+        document.body.appendChild(div);
+        instance = originInit.call(this, div);
+        document.body.removeChild(div);
+      }
+      const originSetOption = instance.setOption;
+      addResizeListener(instance);
+      instance.setOption = async function setOptionProxy(options) {
+          options = options || {};
+          options.animation = false;
+          try {
+            return originSetOption.call(this, options);
+          } catch (e) {
+            console.error(e);
+            return originSetOption.call(this, {});
+          }
+      };
+      return instance;
+  }
+
+  Object.defineProperty(globalThis, 'echarts', {
+      get() {
+          return proxyEcharts;
+      },
+      set(value) {
+          originInit = value.init;
+          defineInit(value);
+          proxyEcharts = value;
+      },
+      configurable: true,
+  });
+
+  function defineInit(value) {
+      Object.defineProperty(value, 'init', {
+          get() {
+              return proxyInit;
+          },
+          set(v) {
+              originInit = v;
+          },
+          enumerable: true,
+      });
+  }
+})()
+</script><script>console.warn = () => {};console.log = () => {};</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<script src="./3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./css2" rel="stylesheet">
+<link href="./remixicon.min.css" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#0EA5E9',
+secondary: '#64748B'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body { font-family: 'Inter', sans-serif; }
+.gradient-text {
+background: linear-gradient(135deg, #0EA5E9 0%, #64748B 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+</style>
+<script>
+    // window.setInterval = () => {};
+    // window.clearInterval = () => {};
+    // window.setTimeout = () => {};
+    // window.clearTimeout = () => {};
+  </script><style>
+  html {
+    -ms-overflow-style: none;  /* 适用于 IE 和 Edge */
+    scrollbar-width: none;     /* 适用于 Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* 隐藏滚动条 */
+    }
+  }
+</style><style>
+    /* 自定义滚动条样式 */
+    /* WebKit 浏览器 (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+        width: 0; /* 滚动条宽度 */
+        height: 0; /* 水平滚动条高度 */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent; /* 轨道透明，使内容可见 */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.5); /* 滚动条滑块颜色 */
+        border-radius: 4px; /* 滑块圆角 */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.7); /* 悬停时颜色 */
+    }
+  </style><script>
+  window.addEventListener('load', () => {
+    if (typeof AOS !== 'undefined' && AOS) {
+      AOS.refresh?.();
+    }
+  });
+</script><script>(function () {
+  // 内存存储
+  const memoryStorage = {
+    local: new Map(),
+    session: new Map()
+  };
+
+  // 保存原始方法
+  // const originalLocalStorage = {
+  //   setItem: localStorage.setItem.bind(localStorage),
+  //   getItem: localStorage.getItem.bind(localStorage),
+  //   removeItem: localStorage.removeItem.bind(localStorage),
+  //   clear: localStorage.clear.bind(localStorage),
+  //   key: localStorage.key.bind(localStorage)
+  // };
+
+  // const originalSessionStorage = {
+  //   setItem: sessionStorage.setItem.bind(sessionStorage),
+  //   getItem: sessionStorage.getItem.bind(sessionStorage),
+  //   removeItem: sessionStorage.removeItem.bind(sessionStorage),
+  //   clear: sessionStorage.clear.bind(sessionStorage),
+  //   key: sessionStorage.key.bind(sessionStorage)
+  // };
+
+  // 只重写方法，不动属性
+  localStorage.setItem = function (key, value) {
+    memoryStorage.local.set(key, value);
+  };
+
+  localStorage.getItem = function (key) {
+    return memoryStorage.local.get(key) ?? null;
+  };
+
+  localStorage.removeItem = function (key) {
+    memoryStorage.local.delete(key);
+  };
+
+  localStorage.clear = function () {
+    memoryStorage.local.clear();
+  };
+
+  localStorage.key = function (n) {
+    return Array.from(memoryStorage.local.keys())[n] ?? null;
+  };
+
+  // sessionStorage 同样的处理
+  sessionStorage.setItem = function (key, value) {
+    memoryStorage.session.set(key, value);
+  };
+
+  sessionStorage.getItem = function (key) {
+    return memoryStorage.session.get(key) ?? null;
+  };
+
+  sessionStorage.removeItem = function (key) {
+    memoryStorage.session.delete(key);
+  };
+
+  sessionStorage.clear = function () {
+    memoryStorage.session.clear();
+  };
+
+  sessionStorage.key = function (n) {
+    return Array.from(memoryStorage.session.keys())[n] ?? null;
+  };
+})();
+</script><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.left-0{left:0px}.right-0{right:0px}.top-0{top:0px}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.aspect-\[3\/2\]{aspect-ratio:3/2}.aspect-\[3\/4\]{aspect-ratio:3/4}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.\!rounded-button{border-radius:8px !important}.rounded-button{border-radius:8px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:16px}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(14 165 233 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-white\/95{--tw-gradient-from:rgb(255 255 255 / 0.95) var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 255 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-white\/30{--tw-gradient-to:rgb(255 255 255 / 0.3) var(--tw-gradient-to-position)}.bg-cover{background-size:cover}.bg-center{background-position:center}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pt-16{padding-top:4rem}.text-center{text-align:center}.font-\[\'Pacifico\'\]{font-family:'Pacifico'}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(14 165 233 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.outline-none{outline:2px solid transparent;outline-offset:2px}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-shadow{transition-property:box-shadow;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.hover\:bg-primary\/90:hover{background-color:rgb(14 165 233 / 0.9)}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(14 165 233 / var(--tw-text-opacity, 1))}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:border-primary:focus{--tw-border-opacity:1;border-color:rgb(14 165 233 / var(--tw-border-opacity, 1))}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-primary:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(14 165 233 / var(--tw-ring-opacity, 1))}</style></head>
+<body class="bg-white" style="transform-origin: left top;">
+<header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+<nav class="flex items-center justify-between px-8 h-16">
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#" class="text-2xl font-[&#39;Pacifico&#39;] text-primary">logo</a>
+<div class="flex items-center gap-8">
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#home" class="text-gray-900 hover:text-primary transition-colors">Home</a>
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#about" class="text-gray-900 hover:text-primary transition-colors">About</a>
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#projects" class="text-gray-900 hover:text-primary transition-colors">Projects</a>
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#skills" class="text-gray-900 hover:text-primary transition-colors">Skills</a>
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#contact" class="text-gray-900 hover:text-primary transition-colors">Contact</a>
+</div>
+</nav>
+</header>
+<section id="home" class="min-h-screen pt-16 relative overflow-hidden" style="background-image: url(&#39;https://readdy.ai/api/search-image?query=modern%20abstract%20geometric%20background%20with%20soft%20gradient%20colors%2C%20minimalist%20design%20with%20subtle%20patterns%2C%20professional%20and%20elegant%20atmosphere%2C%20light%20color%20scheme%20with%20gentle%20blue%20accents%2C%20clean%20and%20sophisticated%20visual%20style%2C%20perfect%20for%20hero%20section&amp;width=1920&amp;height=1080&amp;seq=1&amp;orientation=landscape&#39;); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-white/95 to-white/30"></div>
+<div class="container mx-auto px-8 py-24 relative">
+<div class="max-w-2xl">
+<h1 class="text-5xl font-bold mb-6 leading-tight">Hi, I'm James Anderson</h1>
+<p class="text-2xl font-medium mb-8 gradient-text">Full Stack Developer &amp; UI/UX Designer</p>
+<p class="text-gray-600 text-lg mb-12 leading-relaxed">Crafting digital experiences that combine elegant design with powerful functionality. With 8 years of experience in web development and a passion for creating intuitive user interfaces.</p>
+<div class="flex gap-4">
+<button class="!rounded-button bg-primary text-white px-8 py-3 font-medium hover:bg-primary/90 transition-colors">View Projects</button>
+<button class="!rounded-button border border-gray-200 px-8 py-3 font-medium hover:bg-gray-50 transition-colors">Download Resume</button>
+</div>
+</div>
+</div>
+</section>
+<section id="about" class="py-24 bg-gray-50">
+<div class="container mx-auto px-8">
+<h2 class="text-3xl font-bold mb-16 text-center">About Me</h2>
+<div class="grid grid-cols-2 gap-16 items-center">
+<div style="background-image: url(&#39;https://readdy.ai/api/search-image?query=professional%20software%20developer%20workspace%20with%20multiple%20monitors%20showing%20code%2C%20modern%20office%20setup%20with%20ambient%20lighting%2C%20clean%20and%20organized%20desk%20with%20development%20tools%2C%20stylish%20and%20minimalist%20environment%2C%20high-end%20photography&amp;width=600&amp;height=800&amp;seq=2&amp;orientation=portrait&#39;);" class="aspect-[3/4] rounded-lg bg-cover bg-center"></div>
+<div>
+<h3 class="text-2xl font-semibold mb-6">Passionate About Creating Digital Solutions</h3>
+<p class="text-gray-600 mb-8 leading-relaxed">With a background in both design and development, I bring a unique perspective to every project. I believe in creating solutions that not only look beautiful but also solve real problems effectively.</p>
+<div class="space-y-4 mb-8">
+<div class="flex gap-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<p class="text-gray-600">8+ years of professional development experience</p>
+</div>
+<div class="flex gap-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<p class="text-gray-600">Led 20+ successful enterprise projects</p>
+</div>
+<div class="flex gap-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-check-line"></i>
+</div>
+<p class="text-gray-600">Expertise in modern web technologies and frameworks</p>
+</div>
+</div>
+<div class="flex gap-6">
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#" class="!rounded-button flex items-center gap-2 px-4 py-2 border border-gray-200 hover:bg-gray-50 transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+LinkedIn
+</a>
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#" class="!rounded-button flex items-center gap-2 px-4 py-2 border border-gray-200 hover:bg-gray-50 transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-github-fill"></i>
+</div>
+GitHub
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="projects" class="py-24">
+<div class="container mx-auto px-8">
+<h2 class="text-3xl font-bold mb-16 text-center">Featured Projects</h2>
+<div class="grid grid-cols-3 gap-8">
+<div class="group rounded-lg overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+<div style="background-image: url(&#39;https://readdy.ai/api/search-image?query=modern%20tech%20interface%20with%20holographic%20data%20visualization%2C%20futuristic%20dashboard%20design%20with%20glowing%20elements%2C%20clean%20and%20minimal%20UI%20design%2C%20professional%20analytics%20display%20with%203D%20elements%2C%20light%20color%20scheme%20with%20blue%20accents&amp;width=600&amp;height=400&amp;seq=3&amp;orientation=landscape&#39;);" class="aspect-[3/2] bg-cover bg-center"></div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Analytics Dashboard</h3>
+<p class="text-gray-600 mb-4">A comprehensive analytics dashboard for enterprise data visualization</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 text-sm bg-gray-100 rounded-full">React</span>
+<span class="px-3 py-1 text-sm bg-gray-100 rounded-full">TypeScript</span>
+<span class="px-3 py-1 text-sm bg-gray-100 rounded-full">D3.js</span>
+</div>
+<button class="!rounded-button w-full bg-primary text-white py-2 font-medium hover:bg-primary/90 transition-colors">View Project</button>
+</div>
+</div>
+<div class="group rounded-lg overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+<div style="background-image: url(&#39;https://readdy.ai/api/search-image?query=luxury%20e-commerce%20platform%20interface%20with%20elegant%20product%20display%2C%20modern%20minimalist%20web%20design%2C%20premium%20shopping%20experience%20layout%2C%20sophisticated%20UI%20elements%20with%20subtle%20animations%2C%20professional%20and%20clean%20visual%20style&amp;width=600&amp;height=400&amp;seq=4&amp;orientation=landscape&#39;);" class="aspect-[3/2] bg-cover bg-center"></div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
+<p class="text-gray-600 mb-4">A full-featured e-commerce solution with advanced filtering</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 text-sm bg-gray-100 rounded-full">Next.js</span>
+<span class="px-3 py-1 text-sm bg-gray-100 rounded-full">Node.js</span>
+<span class="px-3 py-1 text-sm bg-gray-100 rounded-full">MongoDB</span>
+</div>
+<button class="!rounded-button w-full bg-primary text-white py-2 font-medium hover:bg-primary/90 transition-colors">View Project</button>
+</div>
+</div>
+<div class="group rounded-lg overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+<div style="background-image: url(&#39;https://readdy.ai/api/search-image?query=modern%20social%20media%20app%20interface%20floating%20in%20space%2C%20innovative%20mobile%20UI%20design%20with%20gradient%20elements%2C%20cutting-edge%20features%20visualization%2C%20sleek%20and%20minimalist%20layout%20with%20dynamic%20elements%2C%20professional%20mobile%20application%20showcase&amp;width=600&amp;height=400&amp;seq=5&amp;orientation=landscape&#39;);" class="aspect-[3/2] bg-cover bg-center"></div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Social Media App</h3>
+<p class="text-gray-600 mb-4">A modern social networking platform with real-time features</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 text-sm bg-gray-100 rounded-full">React Native</span>
+<span class="px-3 py-1 text-sm bg-gray-100 rounded-full">Firebase</span>
+<span class="px-3 py-1 text-sm bg-gray-100 rounded-full">WebSocket</span>
+</div>
+<button class="!rounded-button w-full bg-primary text-white py-2 font-medium hover:bg-primary/90 transition-colors">View Project</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="skills" class="py-24 bg-gray-50">
+<div class="container mx-auto px-8">
+<h2 class="text-3xl font-bold mb-16 text-center">Skills &amp; Expertise</h2>
+<div class="grid grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-lg border border-gray-100">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-6">
+<i class="ri-code-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">React / Next.js</span>
+<span class="text-primary">95%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">TypeScript</span>
+<span class="text-primary">90%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Tailwind CSS</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-lg border border-gray-100">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-6">
+<i class="ri-server-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">Backend Development</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Node.js</span>
+<span class="text-primary">90%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Python</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">SQL</span>
+<span class="text-primary">80%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-lg border border-gray-100">
+<div class="w-12 h-12 flex items-center justify-center text-primary mb-6">
+<i class="ri-tools-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">Tools &amp; Others</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Git</span>
+<span class="text-primary">95%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Docker</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">AWS</span>
+<span class="text-primary">80%</span>
+</div>
+<div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="py-24">
+<div class="container mx-auto px-8">
+<h2 class="text-3xl font-bold mb-16 text-center">Get in Touch</h2>
+<div class="max-w-2xl mx-auto">
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+<input type="text" class="w-full px-4 py-2 rounded-button border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Your name">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+<input type="email" class="w-full px-4 py-2 rounded-button border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Your email">
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+<input type="text" class="w-full px-4 py-2 rounded-button border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Message subject">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+<textarea rows="6" class="w-full px-4 py-2 rounded-button border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Your message"></textarea>
+</div>
+<button type="submit" class="!rounded-button w-full bg-primary text-white py-3 font-medium hover:bg-primary/90 transition-colors">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+<footer class="bg-gray-50 py-12">
+<div class="container mx-auto px-8">
+<div class="flex justify-between items-center">
+<p class="text-gray-600">© 2025 James Anderson. All rights reserved.</p>
+<div class="flex gap-6">
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#" class="text-gray-600 hover:text-primary transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-github-fill"></i>
+</div>
+</a>
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#" class="text-gray-600 hover:text-primary transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-linkedin-fill"></i>
+</div>
+</a>
+<a href="https://readdy.ai/home/87d8e0f7-cd45-4255-a57d-06c4894193c4/1936b508-bb8f-4cc0-87aa-39160b72ae59#" class="text-gray-600 hover:text-primary transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-twitter-fill"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script id="scroll-spy">
+document.addEventListener('DOMContentLoaded', function() {
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+let current = '';
+sections.forEach(section => {
+const sectionTop = section.offsetTop;
+const sectionHeight = section.clientHeight;
+if (scrollY >= sectionTop - 180) {
+current = section.getAttribute('id');
+}
+});
+navLinks.forEach(link => {
+link.classList.remove('text-primary');
+if (link.getAttribute('href').slice(1) === current) {
+link.classList.add('text-primary');
+}
+});
+});
+});
+</script>
+<script id="smooth-scroll">
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+window.scrollTo({
+top: target.offsetTop - 64,
+behavior: 'smooth'
+});
+});
+});
+});
+</script>
+
+<script>
+      (function () {
+  'use strict';
+
+  const originalWindowOpen = window.originalWindowOpen ?? window.open;
+
+  function processAnchor(url) {
+    // 查找锚点，平滑滚动
+    const anchor = document.querySelector(url);
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth' });
+    }
+    // 发送 hashchange 事件
+    const event = new Event('hashchange');
+    event.newURL = url;
+    event.oldURL = window.location.href;
+    // 因为预览 iframe 没有 url，所以需要手动设置
+    window.location.hash = url;
+    window.dispatchEvent(event);
+  }
+
+  // 重写 window.open
+  window.open = function (url, target, features) {
+    if (url.startsWith('#')) {
+      // 查找锚点，平滑滚动
+      processAnchor(url);
+      return;
+    }
+    originalWindowOpen(url, '_blank', features);
+    return null;
+  };
+})();
+
+      
+  window.addEventListener('click', (event) => {
+    const target = event.target;
+    const closest = target.closest('a');
+    if (!closest) return;
+    if (closest.tagName === 'A') {
+      event.preventDefault();
+      const href = closest.getAttribute('href');
+      if (!href) return;
+      // check is void link
+      if (['#', 'javascript:void(0)', ''].includes(href)) {
+        return;
+      }
+      // 锚点链接也不处理
+      if (href.startsWith('#')) {
+        return;
+      }
+      window.open(closest.href, '_blank');
+    }
+  });
+
+      
+  document.addEventListener('submit', (event) => {
+    event.preventDefault();
+  }, true);
+
+    </script></body></html>
