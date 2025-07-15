@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website!  
 Built to showcase my skills, projects, and experience as an aspiring Software Developer.
 
-> 🔗 Live Site: [https://drey780822.github.io/Portfolio](thabangs-portfolio.netlify.app)
+> 🔗 Live Site: [thabangs-portfolio.netlify.app](Check out my Portfolio)
 
 ---
 
