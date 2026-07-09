@@ -648,6 +648,47 @@
     }
     .footer-socials a:hover{ border-color:var(--cyan); color:var(--cyan); }
 
+    /* ─── SCROLL PROGRESS ───────────────────────── */
+    #scrollProgress{
+      position:fixed; top:0; left:0; height:3px; width:0%;
+      background:linear-gradient(90deg,var(--cyan),var(--orange));
+      z-index:1001; transition:width .1s linear;
+    }
+
+    /* ─── SCANLINE TEXTURE ──────────────────────── */
+    .scanlines{
+      position:fixed; inset:0; z-index:2; pointer-events:none;
+      background:repeating-linear-gradient(
+        to bottom,
+        rgba(0,212,255,.025) 0px, rgba(0,212,255,.025) 1px,
+        transparent 1px, transparent 3px
+      );
+    }
+
+    /* ─── COPY BUTTON ───────────────────────────── */
+    .copy-btn{
+      background:transparent; border:1px solid var(--border);
+      color:var(--muted); width:30px; height:30px; flex-shrink:0;
+      border-radius:6px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.72rem; transition:all .25s;
+    }
+    .copy-btn:hover{ border-color:var(--cyan); color:var(--cyan); }
+    .copy-btn.copied{ border-color:var(--green); color:var(--green); }
+
+    /* ─── TOAST ─────────────────────────────────── */
+    .toast{
+      position:fixed; bottom:1.6rem; left:50%;
+      transform:translateX(-50%) translateY(20px);
+      background:rgba(10,15,30,.96); backdrop-filter:blur(16px);
+      border:1px solid var(--cyan); color:var(--cyan);
+      padding:.75rem 1.4rem; border-radius:8px;
+      font-family:var(--mono); font-size:.72rem; letter-spacing:.04em;
+      z-index:10002; opacity:0; pointer-events:none;
+      transition:all .35s cubic-bezier(.4,0,.2,1); white-space:nowrap;
+    }
+    .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
     /* ─── REVEAL ANIMATIONS ─────────────────────── */
     .reveal{ opacity:0; transform:translateY(28px); transition:all .7s cubic-bezier(.4,0,.2,1); }
     .reveal.visible{ opacity:1; transform:translateY(0); }
@@ -658,7 +699,23 @@
 
     /* ─── RESPONSIVE ────────────────────────────── */
     @media(max-width:1024px){
-      .hero-img-wrap{ display:none; }
+      .hero{
+        flex-direction:column;
+        gap:2.2rem;
+        padding-top:calc(var(--nav-h) + 2.5rem);
+        padding-bottom:5rem;
+      }
+      .hero-content{ max-width:100%; }
+      .hero-img-wrap{
+        display:block;
+        position:relative;
+        right:auto; top:auto; transform:none;
+        width:clamp(150px,40vw,230px);
+        height:clamp(150px,40vw,230px);
+        margin:0 auto;
+        order:-1;
+      }
+      .hero-img-wrap img{ width:100%; height:100%; }
     }
     @media(max-width:860px){
       .about-grid{ grid-template-columns:1fr; gap:2.4rem; }
@@ -707,6 +764,13 @@
 
 <!-- BG CANVAS -->
 <canvas id="bgCanvas"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scrollProgress"></div>
+
+<!-- TOAST -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <!-- BACK TO TOP -->
 <a href="#home" id="btt" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
@@ -742,6 +806,9 @@
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
   <div class="hero-content">
+    <div class="availability-pulse" id="heroAvailability" style="opacity:0;">
+      <span class="pulse-dot"></span> Open to Opportunities · Immediate Start
+    </div>
     <div class="hero-tag" id="heroTag">Graduate Software Engineer</div>
     <h1 class="hero-name" id="heroName">
       <div class="line1">Thabang</div>
@@ -777,7 +844,7 @@
 <!-- ═══ STATS ═══ -->
 <div class="stats" id="stats">
   <div class="stats-grid">
-    <div class="stat-item reveal"><div class="stat-num" data-target="3">0</div><div class="stat-label">Live Client Systems</div></div>
+    <div class="stat-item reveal"><div class="stat-num" data-target="3">0</div><div class="stat-label">Client Systems Built</div></div>
     <div class="stat-item reveal"><div class="stat-num" data-target="5">0</div><div class="stat-label">Production Users</div></div>
     <div class="stat-item reveal"><div class="stat-num" data-target="360">0</div><div class="stat-label">Credits Completed</div></div>
     <div class="stat-item reveal"><div class="stat-num" data-target="10">0</div><div class="stat-label">Devs Led @ Hackathon</div></div>
@@ -796,7 +863,7 @@
       <div class="availability-pulse">
         <span class="pulse-dot"></span> Open to Opportunities · Immediate Start
       </div>
-      <p>I'm a <strong>Computer Science graduate</strong> from Tshwane University of Technology (360/360 credits) and a practicing freelance software engineer who builds real systems for real paying clients — not just portfolio demos.</p>
+      <p>I'm a <strong>Computer Science graduate</strong> from Tshwane University of Technology (360/360 credits) who builds real, production-grade systems for paying clients — not just portfolio demos.</p>
       <p>My background spans <strong>full-stack development, backend systems, cloud infrastructure, and cybersecurity</strong>. I've shipped a live fuel delivery platform, a business services platform, an e-commerce system, and led a 10-person team to Top 4 at a national AI hackathon.</p>
       <p>Based in <strong>Johannesburg, Gauteng</strong> and actively seeking a graduate engineering role where I can contribute meaningfully, grow within a team, and build systems that matter at scale.</p>
       <div class="about-tags">
@@ -809,9 +876,10 @@
       </div>
     </div>
     <div class="about-info reveal-right">
-      <div class="info-card"><div class="info-label">Email</div><div class="info-value"><a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a></div></div>
+      <div class="info-card"><div class="info-label">Email</div><div class="info-value" style="display:flex;align-items:center;justify-content:space-between;gap:.6rem;"><a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a><button class="copy-btn" data-copy="thabangdikotope624@gmail.com" aria-label="Copy email address"><i class="fas fa-copy"></i></button></div></div>
       <div class="info-card"><div class="info-label">Phone</div><div class="info-value"><a href="tel:+27795948790">+27 79 594 8790</a></div></div>
-      <div class="info-card"><div class="info-label">Location</div><div class="info-value">Auckland Avenue, Johannesburg, 2092</div></div>
+      <div class="info-card"><div class="info-label">Location</div><div class="info-value">Johannesburg, Gauteng</div></div>
+      <div class="info-card"><div class="info-label">Local Time</div><div class="info-value" id="localTime">--:--:--</div></div>
       <div class="info-card"><div class="info-label">LinkedIn</div><div class="info-value"><a href="https://linkedin.com/in/drey780822" target="_blank" rel="noopener">linkedin.com/in/drey780822</a></div></div>
       <div class="info-card"><div class="info-label">GitHub</div><div class="info-value"><a href="https://github.com/Drey780822" target="_blank" rel="noopener">github.com/Drey780822</a></div></div>
       <div class="info-card"><div class="info-label">Portfolio</div><div class="info-value"><a href="https://thabangs-portfolio.netlify.app" target="_blank" rel="noopener">thabangs-portfolio.netlify.app</a></div></div>
@@ -858,43 +926,16 @@
   <div class="section-divider reveal"></div>
   <div class="timeline-wrap">
 
-    <div class="tl-item reveal">
-      <div class="tl-dot"></div>
-      <div class="tl-period">June 2026 – Present</div>
-      <div class="tl-card">
-        <div class="tl-role">Software Engineering Intern</div>
-        <div class="tl-org">Kion Consulting — Fintech-Technical Programme</div>
-        <ul class="tl-list">
-          <li>Participating in Kion's structured fintech graduate programme, working on real client-facing technical deliverables</li>
-          <li>Applying backend and cloud skills within a professional fintech engineering environment</li>
-          <li>Building industry exposure in financial technology systems, regulatory frameworks (POPIA, PCI-DSS), and enterprise software practices</li>
-        </ul>
-      </div>
-    </div>
+
 
     <div class="tl-item reveal">
       <div class="tl-dot orange"></div>
-      <div class="tl-period">2025 – Present</div>
+      <div class="tl-period">September 2025 – February 2026</div>
       <div class="tl-card">
-        <div class="tl-role">Freelance Full-Stack Software Engineer</div>
-        <div class="tl-org">Self-Employed</div>
+        <div class="tl-role">Software Development & IT Support Intern</div>
+        <div class="tl-org">MTP IT Solutions / T&T Group (PTY) LTD — WIL</div>
         <ul class="tl-list">
-          <li>Architected and delivered 3 production-grade web applications across service, e-commerce, and business management sectors</li>
-          <li>Managed end-to-end SDLC — requirements, architecture, development, testing, deployment, and post-launch support as a solo engineer</li>
-          <li>Integrated PayFast and Ozow payment gateways handling live financial transactions in production</li>
-          <li>Established CD pipelines via Vercel, Render, and AWS with environment-based config management</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="tl-item reveal">
-      <div class="tl-dot orange"></div>
-      <div class="tl-period">August 2025 – February 2026</div>
-      <div class="tl-card">
-        <div class="tl-role">Software Development & Technical Support Intern</div>
-        <div class="tl-org">MTP IT Solutions & T&T Group (PTY) LTD — WIL</div>
-        <ul class="tl-list">
-          <li>Developed client-facing websites for law firm clients, translating business requirements into functional web solutions</li>
+          <li>Developed client-facing websites, translating business requirements into functional web solutions</li>
           <li>Resolved Microsoft Outlook authentication failures across multiple client environments, minimising downtime</li>
           <li>Performed root cause analysis on workstation incidents, building a reusable support knowledge base</li>
         </ul>
@@ -903,7 +944,7 @@
 
     <div class="tl-item reveal">
       <div class="tl-dot purple"></div>
-      <div class="tl-period">January 2023 – December 2024</div>
+      <div class="tl-period">June 2023 – December 2024</div>
       <div class="tl-card">
         <div class="tl-role">Peer Tutor & Lab Instructor</div>
         <div class="tl-org">Tshwane University of Technology</div>
@@ -1012,9 +1053,9 @@
   <div class="edu-grid">
     <div class="edu-card reveal-left">
       <div class="edu-icon">🎓</div>
-      <div class="edu-degree">National Diploma — Computer Science</div>
+      <div class="edu-degree">Diploma in Computer Science</div>
       <div class="edu-school">Tshwane University of Technology</div>
-      <div class="edu-period">January 2022 – September 2026 (Graduation)</div>
+      <div class="edu-period">Jan 2022 – Mar 2026 · Ceremony Oct 2026</div>
       <div class="edu-badge">360 / 360 Credits Completed</div>
       <ul class="edu-list">
         <li>Software Programming, Mobile Device Programming, Database Design & Systems Analysis</li>
@@ -1064,9 +1105,14 @@
       <h3>Open to Opportunities</h3>
       <p>I'm actively seeking graduate engineering programmes and junior software engineer roles in Johannesburg. If you're looking for someone who ships real production code, let's talk.</p>
       <div class="contact-links">
-        <a href="mailto:thabangdikotope624@gmail.com" class="contact-link">
-          <i class="fas fa-envelope"></i><span>thabangdikotope624@gmail.com</span>
-        </a>
+        <div style="display:flex;align-items:stretch;gap:.5rem;">
+          <a href="mailto:thabangdikotope624@gmail.com" class="contact-link" style="flex:1;">
+            <i class="fas fa-envelope"></i><span>thabangdikotope624@gmail.com</span>
+          </a>
+          <button class="copy-btn" data-copy="thabangdikotope624@gmail.com" aria-label="Copy email address" style="width:auto;padding:0 .9rem;border-radius:10px;">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
         <a href="tel:+27795948790" class="contact-link">
           <i class="fas fa-phone"></i><span>+27 79 594 8790</span>
         </a>
@@ -1181,6 +1227,9 @@ const navbar = document.getElementById('navbar');
 window.addEventListener('scroll',()=>{
   navbar.classList.toggle('scrolled', window.scrollY > 50);
   document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+  document.getElementById('scrollProgress').style.width = pct + '%';
 }, { passive:true });
 
 /* ── HAMBURGER ── */
@@ -1203,7 +1252,7 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&mob.classList.cont
 
 /* ── HERO ANIMATIONS (pure CSS + class toggle, no GSAP dep) ── */
 function initHero(){
-  const els = ['#heroTag','#heroName','#heroTyped','#heroBio','#heroActions','#heroImg'];
+  const els = ['#heroAvailability','#heroTag','#heroName','#heroTyped','#heroBio','#heroActions','#heroImg'];
   els.forEach((sel,i)=>{
     const el=document.querySelector(sel);
     if(!el)return;
@@ -1292,6 +1341,42 @@ const secObs=new IntersectionObserver(entries=>{
   });
 },{ threshold:.4 });
 sections.forEach(s=>secObs.observe(s));
+
+/* ── COPY TO CLIPBOARD + TOAST ── */
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t=setTimeout(()=>t.classList.remove('show'),2200);
+}
+document.querySelectorAll('.copy-btn').forEach(btn=>{
+  btn.addEventListener('click', async ()=>{
+    const val=btn.dataset.copy;
+    try{
+      await navigator.clipboard.writeText(val);
+    }catch(err){
+      const ta=document.createElement('textarea');
+      ta.value=val; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); }catch(e){}
+      document.body.removeChild(ta);
+    }
+    btn.classList.add('copied');
+    showToast('Copied: '+val);
+    setTimeout(()=>btn.classList.remove('copied'),1500);
+  });
+});
+
+/* ── LIVE LOCAL TIME (Johannesburg / SAST) ── */
+function updateLocalTime(){
+  const el=document.getElementById('localTime');
+  if(!el)return;
+  const opts={ timeZone:'Africa/Johannesburg', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false };
+  el.textContent = new Date().toLocaleTimeString('en-ZA', opts) + ' SAST';
+}
+updateLocalTime();
+setInterval(updateLocalTime, 1000);
 </script>
 </body>
 </html>
