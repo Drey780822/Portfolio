@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case Study: Darkroom DataForge — Structured Data Extraction, Cross-Page Table Reconstruction, and Dataset Generation with Full Provenance." />
+  <title>Darkroom DataForge Case Study — Thabang Dikotope</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../../index.html" class="brand-link" aria-label="Thabang Dikotope Home">
+        <span class="brand-name">Thabang Dikotope</span>
+        <span class="brand-title">Software Systems</span>
+      </a>
+
+      <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="../../work/index.html" class="nav-item-link active">Work</a></li>
+          <li><a href="../../research/index.html" class="nav-item-link">Research & AI</a></li>
+          <li><a href="../../experience/index.html" class="nav-item-link">Experience</a></li>
+          <li><a href="../../about/index.html" class="nav-item-link">About</a></li>
+          <li><a href="../../contact/index.html" class="nav-item-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
+            <span class="nav-pulse"></span>
+            <span>Ask Assistant</span>
+            <kbd class="nav-kbd">⌘K</kbd>
+          </button>
+          <a href="../../contact/index.html" class="btn btn-outline btn-sm">Get in Touch</a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <a href="../../index.html" class="mobile-drawer-link">Home</a>
+      <a href="../../work/index.html" class="mobile-drawer-link active">Work</a>
+      <a href="../../research/index.html" class="mobile-drawer-link">Research & AI</a>
+      <a href="../../experience/index.html" class="mobile-drawer-link">Experience</a>
+      <a href="../../about/index.html" class="mobile-drawer-link">About</a>
+      <a href="../../contact/index.html" class="mobile-drawer-link">Contact</a>
+      <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
+        <span class="nav-pulse"></span>
+        <span>Ask Portfolio Assistant</span>
+        <kbd class="nav-kbd" style="margin-left:auto;">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <article class="case-study-hero">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../../work/index.html">Work</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Darkroom DataForge</span>
+        </nav>
+
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <span class="badge badge-active">Under Engineering</span>
+          <span class="mono-tag" style="font-size:0.75rem;">Data Engineering</span>
+        </div>
+
+        <h1 class="case-study-title">Darkroom DataForge</h1>
+        <p class="case-study-lead">
+          Structured data extraction, cross-page table reconstruction, and dataset generation engineered around the foundational principle: <em>"Every extracted record should be traceable to its source."</em>
+        </p>
+
+        <div class="case-study-meta-grid">
+          <div class="meta-box">
+            <h5>Role</h5>
+            <p>Software Systems Developer</p>
+          </div>
+          <div class="meta-box">
+            <h5>Focus</h5>
+            <p>Parsing Pipelines & Provenance Modeling</p>
+          </div>
+          <div class="meta-box">
+            <h5>Core Pipeline</h5>
+            <p>8-Stage Auditable Ingestion Workflow</p>
+          </div>
+          <div class="meta-box">
+            <h5>Architecture</h5>
+            <p>React, FastAPI, SQLAlchemy, PostgreSQL</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="case-study-body">
+      <div class="container container-narrow">
+        <div class="case-study-content">
+
+          <!-- Section 1: The Problem -->
+          <section class="study-section">
+            <h2>1. The Problem Context</h2>
+            <p>
+              In academic research, public policy, and institutional analytics, critical statistical records are frequently locked inside complex unstructured documents: scanned government reports, multi-column survey evaluations, and technical manuals.
+            </p>
+            <p>
+              Standard Optical Character Recognition (OCR) tools fail catastrophically on these formats: tables spanning across page boundaries lose header coherence, numeric figures in adjacent columns merge together, and footnotes corrupt row records. Worse, once a table is extracted to a spreadsheet, there is rarely any machine-readable audit trail linking a specific cell back to its original page coordinates in the source PDF.
+            </p>
+          </section>
+
+          <!-- Section 2: Guiding Principle -->
+          <section class="study-section">
+            <h2>2. The Guiding Architectural Principle</h2>
+            <div class="project-problem-callout" style="font-size:1.05rem; padding:1.25rem;">
+              <strong>Foundational Rule:</strong> <em>"Every extracted record should be traceable to its source."</em>
+            </div>
+            <p>
+              Rather than assuming an extraction algorithm will achieve 100% autonomous accuracy, DataForge treats data extraction as an evidence-gathering discipline. Every cell, row, and table entity maintains a foreign key pointer to its source document ID, page index, and bounding-box coordinates (<code>[x0, y0, x1, y1]</code>). This allows researchers to immediately inspect the source document directly beside the extracted record.
+            </p>
+          </section>
+
+          <!-- Section 3: The 8-Stage Pipeline -->
+          <section class="study-section">
+            <h2>3. The 8-Stage Extraction & Validation Workflow</h2>
+            <p>
+              DataForge structures document transformation into eight discrete, auditable stages:
+            </p>
+
+            <!-- Rich Architectural Schematic -->
+            <div class="architecture-schematic" aria-label="Darkroom DataForge 8-Stage Pipeline Schematic">
+              <div class="schematic-header">
+                <span class="schematic-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  8-Stage Extraction, Multi-Page Stitching & Provenance Pipeline
+                </span>
+                <div class="schematic-legend">
+                  <span class="legend-item"><span class="legend-dot" style="background:#3B82F6;"></span> Ingestion & OCR</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#10B981;"></span> Cross-Page Stitching</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#F59E0B;"></span> Bounding-Box Overlay</span>
+                </div>
+              </div>
+
+              <div class="schematic-layers-container">
+                <!-- Layer 1: Ingestion & OCR -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// Stage 01 - 03: Ingestion, Classification & Token Extraction</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">1. Cryptographic Ingest</span>
+                      <span class="node-tech">SHA-256 Checksum</span>
+                      <span class="node-desc">Upload validation & document tamper prevention</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">2. Layout Classifier</span>
+                      <span class="node-tech">Optical Density Analysis</span>
+                      <span class="node-desc">Multi-column detection & rotation orientation check</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">3. Token Extractor</span>
+                      <span class="node-tech">PyMuPDF / Layout Analyzer</span>
+                      <span class="node-desc">Extract raw text tokens with exact [x0, y0, x1, y1] bboxes</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">Spatial Graph Representation</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 2: Cross-Page Reconstruction & Normalization -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// Stage 04 - 06: Cross-Page Reconstruction, Normalization & Rules</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">4. Table Stitcher</span>
+                      <span class="node-tech">Heuristic Continuity Engine</span>
+                      <span class="node-desc">Stitches tables across page breaks via header pattern matching</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">5. Normalizer</span>
+                      <span class="node-tech">FastAPI Python Worker</span>
+                      <span class="node-desc">ISO 8601 dates, numeric sanitization, whitespace trim</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">6. Rule Validator</span>
+                      <span class="node-tech">Deterministic Arithmetic Checks</span>
+                      <span class="node-desc">Row sum validation & non-null database constraints</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">SQLAlchemy Provenance Foreign Keys</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 3: Review & Verified Export -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// Stage 07 - 08: Human Review UI & Audit Export</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">7. Split-Pane Reviewer</span>
+                      <span class="node-tech">React + TypeScript Overlay</span>
+                      <span class="node-desc">Interactive canvas highlights bounding box on source PDF</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">8. Multi-Format Export</span>
+                      <span class="node-tech">Pandas · OpenPyXL</span>
+                      <span class="node-desc">CSV, JSON, and Excel generation with audit metadata sheet</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="schematic-interactive-footer">
+                <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Document Provenance Active · 100% Traceability Rule</span>
+                <button type="button" class="schematic-ask-btn" data-ask-assistant="How does Darkroom DataForge ensure bounding-box provenance and cross-page table reconstruction?">
+                  Ask Assistant About This Pipeline →
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 4: Architecture & Design -->
+          <section class="study-section">
+            <h2>4. Technical Decisions & System Architecture</h2>
+            <div class="table-container">
+              <table class="decision-table">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>Technology</th>
+                    <th>Technical Rationale</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>User Interface</td>
+                    <td>React + TypeScript + Vite</td>
+                    <td>Fast client rendering and responsive canvas overlays for rendering interactive bounding-box highlights over PDF document viewports.</td>
+                  </tr>
+                  <tr>
+                    <td>Backend Engine</td>
+                    <td>FastAPI (Python 3.11)</td>
+                    <td>Asynchronous endpoints capable of streaming document ingestion and processing tabular extraction algorithms efficiently.</td>
+                  </tr>
+                  <tr>
+                    <td>Database Layer</td>
+                    <td>SQLAlchemy with Dual Engine</td>
+                    <td>Standardized on PostgreSQL for containerized team deployments and SQLite for isolated local developer testing without setup overhead.</td>
+                  </tr>
+                  <tr>
+                    <td>Export Engine</td>
+                    <td>Pandas & OpenPyXL</td>
+                    <td>Provides type-safe dataset generation with metadata sheets containing provenance hashes.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Section 5: My Role & Contribution -->
+          <section class="study-section">
+            <h2>5. My Role & Engineering Contribution</h2>
+            <p>
+              As a Systems Developer on this initiative:
+            </p>
+            <ul>
+              <li><strong>Cross-Page Heuristics:</strong> Designed table stitching algorithms that detect continuation headers, repeated column patterns, and page-split table boundaries.</li>
+              <li><strong>Provenance Modeling:</strong> Engineered the SQLAlchemy relational schema linking <code>DocumentPage</code>, <code>TableEntity</code>, <code>RowRecord</code>, and <code>ProvenanceCoordinate</code>.</li>
+              <li><strong>Audit Trail System:</strong> Implemented a review log that records every human editor correction, timestamps edits, and tracks changes before final dataset commitment.</li>
+              <li><strong>Export Pipeline:</strong> Built the multi-format export module allowing researchers to export verified data into clean CSV, JSON, or Excel files.</li>
+            </ul>
+          </section>
+
+          <!-- Section 6: Limitations & Human-in-the-Loop -->
+          <section class="study-section">
+            <h2>6. Limitations & Human-in-the-Loop Reality</h2>
+            <p>
+              We explicitly treat human review as an essential architectural component, not a temporary fallback:
+            </p>
+            <ul>
+              <li>Automated parsers can misinterpret complex multi-tier headers or skewed scans.</li>
+              <li>By providing researchers with an interactive review screen showing the source document side-by-side with extracted cells, anomalies are caught in seconds rather than contaminating published research datasets.</li>
+            </ul>
+          </section>
+
+          <!-- Section 7: Technology Stack -->
+          <section class="study-section">
+            <h2>7. Technology Stack</h2>
+            <div class="tech-tags" style="gap:0.75rem; margin-top:1rem;">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Vite</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQLAlchemy</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">SQLite</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Pandas</span>
+            </div>
+          </section>
+
+          <!-- Navigation -->
+          <div style="border-top:1px solid var(--border-subtle); padding-top:2rem; margin-top:2rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+            <a href="../../work/skills-mapping/index.html" class="text-link">← Previous Case Study: Wits Skills Mapping</a>
+            <a href="../../work/verifysa/index.html" class="text-link">Next Case Study: VerifySA →</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Thabang Dikotope</h3>
+          <p>Graduate Software Engineer focused on backend systems, full-stack applications, and AI integrations.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="../../index.html">Home</a>
+            <a href="../../work/index.html">Work</a>
+            <a href="../../research/index.html">Research & AI</a>
+            <a href="../../experience/index.html">Experience</a>
+            <a href="../../about/index.html">About</a>
+            <a href="../../contact/index.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-links">
+            <a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a>
+            <a href="https://www.linkedin.com/in/drey780822" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/Drey780822" target="_blank" rel="noopener" class="text-link">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thabang Dikotope. Darkroom DataForge Case Study.</div>
+        <div class="footer-sast-badge">Local Time: <span class="live-sast-time">--:--:-- SAST</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/assistant.js"></script>
+</body>
+</html>

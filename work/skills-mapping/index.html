@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case Study: Wits Skills Mapping Platform — AI-enabled occupational discovery, CV parsing, and cognitive assessment telemetry engineered by Thabang Dikotope." />
+  <title>Wits Skills Mapping Platform Case Study — Thabang Dikotope</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../../index.html" class="brand-link" aria-label="Thabang Dikotope Home">
+        <span class="brand-name">Thabang Dikotope</span>
+        <span class="brand-title">Software Systems</span>
+      </a>
+
+      <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="../../work/index.html" class="nav-item-link active">Work</a></li>
+          <li><a href="../../research/index.html" class="nav-item-link">Research & AI</a></li>
+          <li><a href="../../experience/index.html" class="nav-item-link">Experience</a></li>
+          <li><a href="../../about/index.html" class="nav-item-link">About</a></li>
+          <li><a href="../../contact/index.html" class="nav-item-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
+            <span class="nav-pulse"></span>
+            <span>Ask Assistant</span>
+            <kbd class="nav-kbd">⌘K</kbd>
+          </button>
+          <a href="../../contact/index.html" class="btn btn-outline btn-sm">Get in Touch</a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <a href="../../index.html" class="mobile-drawer-link">Home</a>
+      <a href="../../work/index.html" class="mobile-drawer-link active">Work</a>
+      <a href="../../research/index.html" class="mobile-drawer-link">Research & AI</a>
+      <a href="../../experience/index.html" class="mobile-drawer-link">Experience</a>
+      <a href="../../about/index.html" class="mobile-drawer-link">About</a>
+      <a href="../../contact/index.html" class="mobile-drawer-link">Contact</a>
+      <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
+        <span class="nav-pulse"></span>
+        <span>Ask Portfolio Assistant</span>
+        <kbd class="nav-kbd" style="margin-left:auto;">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <article class="case-study-hero">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../../work/index.html">Work</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Skills Mapping</span>
+        </nav>
+
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <span class="badge badge-active">Active Research & Prototyping</span>
+          <span class="mono-tag" style="font-size:0.75rem;">Wits Enterprise</span>
+        </div>
+
+        <h1 class="case-study-title">Wits Skills Mapping Platform</h1>
+        <p class="case-study-lead">
+          An AI-enabled occupational discovery and competency analysis platform. Bridges vocational research taxonomies with candidate CV data through telemetry collection and structured relational modeling.
+        </p>
+
+        <div class="case-study-meta-grid">
+          <div class="meta-box">
+            <h5>Role</h5>
+            <p>AI & Software Systems Developer Intern</p>
+          </div>
+          <div class="meta-box">
+            <h5>Institutional Context</h5>
+            <p>Wits–merSETA Darkroom Project</p>
+          </div>
+          <div class="meta-box">
+            <h5>Domain</h5>
+            <p>Future of Learning / Skills Ontologies</p>
+          </div>
+          <div class="meta-box">
+            <h5>Status</h5>
+            <p>Internal Prototyping & Validation</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="case-study-body">
+      <div class="container container-narrow">
+        <div class="case-study-content">
+
+          <!-- Section 1: Overview & Context -->
+          <section class="study-section">
+            <h2>1. Project Overview & Institutional Context</h2>
+            <p>
+              Under the <strong>Future of Learning stream</strong> at Wits Enterprise (in collaboration with the merSETA Darkroom Project), researchers and software engineers investigate how emerging technologies can address South Africa's critical skills gap.
+            </p>
+            <p>
+              Traditional career guidance models rely on rigid occupational classifications that fail to reflect fast-changing technological competencies. The <strong>Skills Mapping Platform</strong> is designed to bridge this divide by parsing unstructured candidate curriculum vitae, mapping competencies to live occupational ontologies, and measuring candidate interaction patterns during skill evaluations.
+            </p>
+          </section>
+
+          <!-- Section 2: Problem Statement -->
+          <section class="study-section">
+            <h2>2. The Engineering Challenge</h2>
+            <p>
+              Converting unstructured human text into actionable, auditable skills intelligence presents three core software challenges:
+            </p>
+            <ul>
+              <li><strong>Taxonomy Semantic Drift:</strong> Job titles and skill descriptions vary wildly across industries, demanding fuzzy matching and ontology mapping rather than naive keyword search.</li>
+              <li><strong>Telemetry Recording:</strong> Evaluating how candidates interact with skill-matching assessments requires lightweight, low-latency telemetry logging that does not disrupt the user interface.</li>
+              <li><strong>Institutional Governance & Privacy:</strong> Candidate data must be rigorously sanitized. No student records or proprietary research datasets can ever be exposed to unauthorized endpoints or third-party training pipelines.</li>
+            </ul>
+          </section>
+
+          <!-- Section 3: My Role & Responsibilities -->
+          <section class="study-section">
+            <h2>3. My Role & Individual Contribution</h2>
+            <p>
+              As an <strong>AI & Software Systems Developer Intern</strong> within the engineering team, my core contributions encompass:
+            </p>
+            <ul>
+              <li><strong>Backend API Integration:</strong> Developing RESTful endpoints using FastAPI and Next.js Route Handlers to receive CV documents, trigger parsing jobs, and return normalized competency structures.</li>
+              <li><strong>Data Modeling:</strong> Designing relational schemas in PostgreSQL (via Supabase) to represent skills graphs, occupational hierarchies, and candidate session profiles.</li>
+              <li><strong>Telemetry Instrumentation:</strong> Building database-backed logging structures to capture cognitive assessment milestones and user exploration journeys.</li>
+              <li><strong>AI Integration Boundaries:</strong> Helping design prompts and schema validation contracts that enforce strict JSON output formatting from language model endpoints.</li>
+            </ul>
+          </section>
+
+          <!-- Section 4: Architecture & Workflow -->
+          <section class="study-section">
+            <h2>4. System Architecture</h2>
+            <p>
+              The platform decouples the interactive presentation layer from compute-heavy parsing and database operations:
+            </p>
+
+            <!-- Rich Architectural Schematic -->
+            <div class="architecture-schematic" aria-label="Wits Skills Mapping System Architecture Schematic">
+              <div class="schematic-header">
+                <span class="schematic-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M3 12h3m12 0h3M12 3v3m0 12v3"></path></svg>
+                  Competency Parsing, Vector Alignment & Taxonomy Graph Architecture
+                </span>
+                <div class="schematic-legend">
+                  <span class="legend-item"><span class="legend-dot" style="background:#3B82F6;"></span> Client / SSR</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#10B981;"></span> Ingestion Engine</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#8B5CF6;"></span> Vector Alignment</span>
+                </div>
+              </div>
+
+              <div class="schematic-layers-container">
+                <!-- Layer 1: Client & Presentation -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 01 Presentation & Candidate Portal</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">Next.js Candidate Portal</span>
+                      <span class="node-tech">React 19 · TypeScript</span>
+                      <span class="node-desc">Interactive CV upload, radar gap charts, pathway explorer</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Assessment Telemetry</span>
+                      <span class="node-tech">Client Instrumentation</span>
+                      <span class="node-desc">Low-latency exploration milestone logging</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">Next.js Route Handlers · Bearer Auth</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 2: Ingestion & API -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 02 Ingestion Microservice & Structured Validation</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">FastAPI Parser Service</span>
+                      <span class="node-tech">Python · Async Worker</span>
+                      <span class="node-desc">Multi-format resume ingest (PDF, DOCX, TXT)</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Schema Validation Guard</span>
+                      <span class="node-tech">Pydantic V2 Models</span>
+                      <span class="node-desc">Enforces strict typed JSON schema on LLM outputs</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">Vector Embedding · Graph Traversal</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 3: Taxonomy & Vector Matcher -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 03 Ontology Graph & Storage Engine</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">Supabase (PostgreSQL)</span>
+                      <span class="node-tech">ACID Relational · JSONB</span>
+                      <span class="node-desc">Candidate profiles, RLS policies, telemetry store</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">OFO Taxonomy Graph</span>
+                      <span class="node-tech">pgvector · Semantic Cosine</span>
+                      <span class="node-desc">Organising Framework for Occupations vector alignment</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="schematic-interactive-footer">
+                <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Wits Future of Learning Stream · Research Prototype</span>
+                <button type="button" class="schematic-ask-btn" data-ask-assistant="How does the Wits Skills Mapping platform extract competencies and align them to occupational taxonomies?">
+                  Ask Assistant About This Pipeline →
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 5: Technical Decisions -->
+          <section class="study-section">
+            <h2>5. Key Technical Decisions</h2>
+            <div class="table-container">
+              <table class="decision-table">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>Choice</th>
+                    <th>Rationale</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Frontend</td>
+                    <td>Next.js & TypeScript</td>
+                    <td>Provides type safety across complex occupational graph data structures, combined with fast server-side rendering for data visualization.</td>
+                  </tr>
+                  <tr>
+                    <td>Microservices</td>
+                    <td>FastAPI (Python)</td>
+                    <td>High-throughput asynchronous request handling and natural ecosystem compatibility with data processing and NLP libraries.</td>
+                  </tr>
+                  <tr>
+                    <td>Database</td>
+                    <td>Supabase (PostgreSQL)</td>
+                    <td>Combines powerful relational capabilities (constraints, foreign keys, JSONB columns) with managed Row-Level Security (RLS) policies.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Section 6: Security, Ethics & Privacy -->
+          <section class="study-section">
+            <h2>6. Security, Privacy & Institutional Governance</h2>
+            <p>
+              Because this project operates within an academic research institution, privacy is engineered into the system architecture:
+            </p>
+            <ul>
+              <li><strong>Zero External Data Leakage:</strong> Candidate resumes and personally identifiable information (PII) are scrubbed before any analytical inference occurs.</li>
+              <li><strong>Protected Endpoints:</strong> Supabase Row-Level Security policies ensure that candidate session telemetry is accessible strictly by authorized researchers.</li>
+              <li><strong>Clean Public Boundary:</strong> Public case study documentation strictly omits internal research datasets, private repository URLs, internal staging keys, and confidential institutional materials.</li>
+            </ul>
+          </section>
+
+          <!-- Section 7: Current Status & Next Steps -->
+          <section class="study-section">
+            <h2>7. Current Status & Future Engineering</h2>
+            <p>
+              The system is currently undergoing active prototyping and internal evaluation within the Future of Learning laboratory. Current capabilities include CV skill parsing, occupational taxonomy navigation, and backend telemetry storage. Ongoing engineering focuses on refining graph visualization components and evaluating retrieval accuracy against benchmark occupational dictionaries.
+            </p>
+          </section>
+
+          <!-- Section 8: Technology Stack -->
+          <section class="study-section">
+            <h2>8. Technology Stack</h2>
+            <div class="tech-tags" style="gap:0.75rem; margin-top:1rem;">
+              <span class="tech-tag">Next.js 14+</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </section>
+
+          <!-- Navigation -->
+          <div style="border-top:1px solid var(--border-subtle); padding-top:2rem; margin-top:2rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+            <a href="../../work/fuellinkpro/index.html" class="text-link">← Previous Case Study: FuelLinkPro</a>
+            <a href="../../work/darkroom-dataforge/index.html" class="text-link">Next Case Study: Darkroom DataForge →</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Thabang Dikotope</h3>
+          <p>Graduate Software Engineer focused on backend systems, full-stack applications, and AI integrations.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="../../index.html">Home</a>
+            <a href="../../work/index.html">Work</a>
+            <a href="../../research/index.html">Research & AI</a>
+            <a href="../../experience/index.html">Experience</a>
+            <a href="../../about/index.html">About</a>
+            <a href="../../contact/index.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-links">
+            <a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a>
+            <a href="https://www.linkedin.com/in/drey780822" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/Drey780822" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thabang Dikotope. Wits Skills Mapping Case Study.</div>
+        <div class="footer-sast-badge">Local Time: <span class="live-sast-time">--:--:-- SAST</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/assistant.js"></script>
+</body>
+</html>

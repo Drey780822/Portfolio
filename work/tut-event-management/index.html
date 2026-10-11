@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case Study: TUT Event Management System — Campus event discovery, automated QR-code ticketing, and WhatsApp notifications engineered by Thabang Dikotope." />
+  <title>TUT Event Management Case Study — Thabang Dikotope</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../../index.html" class="brand-link" aria-label="Thabang Dikotope Home">
+        <span class="brand-name">Thabang Dikotope</span>
+        <span class="brand-title">Software Systems</span>
+      </a>
+
+      <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="../../work/index.html" class="nav-item-link active">Work</a></li>
+          <li><a href="../../research/index.html" class="nav-item-link">Research & AI</a></li>
+          <li><a href="../../experience/index.html" class="nav-item-link">Experience</a></li>
+          <li><a href="../../about/index.html" class="nav-item-link">About</a></li>
+          <li><a href="../../contact/index.html" class="nav-item-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
+            <span class="nav-pulse"></span>
+            <span>Ask Assistant</span>
+            <kbd class="nav-kbd">⌘K</kbd>
+          </button>
+          <a href="../../contact/index.html" class="btn btn-outline btn-sm">Get in Touch</a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <a href="../../index.html" class="mobile-drawer-link">Home</a>
+      <a href="../../work/index.html" class="mobile-drawer-link active">Work</a>
+      <a href="../../research/index.html" class="mobile-drawer-link">Research & AI</a>
+      <a href="../../experience/index.html" class="mobile-drawer-link">Experience</a>
+      <a href="../../about/index.html" class="mobile-drawer-link">About</a>
+      <a href="../../contact/index.html" class="mobile-drawer-link">Contact</a>
+      <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
+        <span class="nav-pulse"></span>
+        <span>Ask Portfolio Assistant</span>
+        <kbd class="nav-kbd" style="margin-left:auto;">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <article class="case-study-hero">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../../work/index.html">Work</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">TUT Event Hub</span>
+        </nav>
+
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <span class="badge badge-live">Deployed & Live</span>
+          <span class="mono-tag" style="font-size:0.75rem;">Campus Systems</span>
+        </div>
+
+        <h1 class="case-study-title">TUT Event Management System</h1>
+        <p class="case-study-lead">
+          A centralized campus event discovery platform featuring tamper-evident QR-code e-ticketing and automated confirmation notifications via WhatsApp and email.
+        </p>
+
+        <div class="case-study-meta-grid">
+          <div class="meta-box">
+            <h5>Role</h5>
+            <p>Team Leader & Backend Developer</p>
+          </div>
+          <div class="meta-box">
+            <h5>Team</h5>
+            <p>3 Developers (TriTech Solutions)</p>
+          </div>
+          <div class="meta-box">
+            <h5>Deployment</h5>
+            <p>Vercel Edge & Cloud PostgreSQL</p>
+          </div>
+          <div class="meta-box">
+            <h5>Live Platform</h5>
+            <p><a href="https://mytutevents.vercel.app/" target="_blank" rel="noopener" class="text-link">mytutevents.vercel.app ↗</a></p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="case-study-body">
+      <div class="container container-narrow">
+        <div class="case-study-content">
+
+          <!-- Section 1: Overview & Motivation -->
+          <section class="study-section">
+            <h2>1. Problem Statement & Campus Motivation</h2>
+            <p>
+              At Tshwane University of Technology (eMalahleni campus), student event announcements were historically dispersed across paper noticeboard posters, informal social media pages, and crowded WhatsApp group chats.
+            </p>
+            <p>
+              This fragmentation caused numerous recurring problems:
+            </p>
+            <ul>
+              <li>Students frequently missed academic workshops, career fairs, and departmental hackathons.</li>
+              <li>Event organizers had no mechanism to accurately forecast attendance or enforce venue safety capacities.</li>
+              <li>Paper admission tickets were easily duplicated, leading to gate security disputes and unauthorized venue access.</li>
+            </ul>
+          </section>
+
+          <!-- Section 2: Solution Architecture -->
+          <section class="study-section">
+            <h2>2. The TriTech Solutions Architecture</h2>
+            <p>
+              As team leader of TriTech Solutions, I identified this structural bottleneck and led a 3-developer team to engineer a unified web portal:
+            </p>
+            <ul>
+              <li><strong>Event Discovery & Filtering:</strong> Students can explore upcoming verified university events, filter by academic faculty or social category, and view real-time seat availability.</li>
+              <li><strong>Authenticated Student Registration:</strong> Students reserve tickets using verified university emails, establishing attendance accountability.</li>
+              <li><strong>Cryptographic QR E-Ticketing:</strong> Each ticket reservation generates a uniquely signed QR code containing a cryptographically verifiable token. Gate marshals scan tickets with smartphone cameras to invalidate single-use passes instantly.</li>
+              <li><strong>Omnichannel Alerts:</strong> Automated booking confirmations and calendar invites are dispatched via SMTP email and WhatsApp webhook integrations.</li>
+            </ul>
+          </section>
+
+          <!-- Section 3: Architecture Diagram -->
+          <section class="study-section">
+            <h2>3. System Architecture</h2>
+            <!-- Rich Architectural Schematic -->
+            <div class="architecture-schematic" aria-label="TUT Event Management System Architecture Schematic">
+              <div class="schematic-header">
+                <span class="schematic-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  Cryptographic QR Ticketing, Capacity Locking & Notification Rails Architecture
+                </span>
+                <div class="schematic-legend">
+                  <span class="legend-item"><span class="legend-dot" style="background:#3B82F6;"></span> Web & Scanner Client</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#10B981;"></span> Flask Concurrency Gate</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#F59E0B;"></span> QR Token Engine</span>
+                </div>
+              </div>
+
+              <div class="schematic-layers-container">
+                <!-- Layer 1: Client & Gate Scanning -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 01 Presentation & Gate Validation Layer</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">Student Discovery Portal</span>
+                      <span class="node-tech">Responsive Web UI</span>
+                      <span class="node-desc">Faculty event filtering, seat availability, RSVP registration</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Gate Marshal Scanner</span>
+                      <span class="node-tech">HTML5 Camera QR Scanner</span>
+                      <span class="node-desc">Instant offline HMAC validation & attendance status flip</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">TLS 1.3 / HTTPS · Session Auth</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 2: Flask API & QR Generation -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 02 Backend Engine & Cryptographic Token Generator</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">Flask RESTful Engine</span>
+                      <span class="node-tech">Python · SQLAlchemy ORM</span>
+                      <span class="node-desc">Authentication, role access rules, RSVP state machine</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Capacity Concurrency Lock</span>
+                      <span class="node-tech">PostgreSQL SELECT FOR UPDATE</span>
+                      <span class="node-desc">Guarantees zero overbooking under simultaneous registrations</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">HMAC-SHA256 QR Generator</span>
+                      <span class="node-tech">Cryptographic Ticketing</span>
+                      <span class="node-desc">Generates tamper-evident single-use QR ticket tokens</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">SQLAlchemy Pool · Async Webhooks</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 3: Persistence & Notification Rails -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 03 Persistence & Multi-Channel Notification Rails</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">PostgreSQL Database</span>
+                      <span class="node-tech">ACID Relational Storage</span>
+                      <span class="node-desc">Event catalogs, ticket ledgers, attendee check-in audit</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">SMTP Email Notification</span>
+                      <span class="node-tech">Automated Ticket Dispatch</span>
+                      <span class="node-desc">Sends printable QR pass & calendar invitation (.ics)</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">WhatsApp Cloud API</span>
+                      <span class="node-tech">Webhook Alert Dispatch</span>
+                      <span class="node-desc">Mobile booking receipt & gate entrance reminders</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="schematic-interactive-footer">
+                <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Live on Vercel · mytutevents.vercel.app · TriTech Solutions</span>
+                <button type="button" class="schematic-ask-btn" data-ask-assistant="Explain the cryptographic QR ticket generation and concurrency lock in the TUT Event Hub">
+                  Ask Assistant About This Architecture →
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 4: My Role & Contribution -->
+          <section class="study-section">
+            <h2>4. My Role & Leadership Contribution</h2>
+            <p>
+              I acted in a dual capacity as <strong>Team Leader</strong> and <strong>Primary Backend Engineer</strong>:
+            </p>
+            <ul>
+              <li><strong>Backend Development:</strong> Designed the complete relational schema in PostgreSQL, written with SQLAlchemy models enforcing capacity thresholds through database row-level locks to prevent overbooking race conditions.</li>
+              <li><strong>QR Token Engine:</strong> Engineered the cryptographic ticketing service generating HMAC-signed tokens embedded into SVG and PNG QR representations.</li>
+              <li><strong>Team Leadership:</strong> Facilitated sprint planning, established git feature-branching conventions, and conducted technical reviews on our front-end JavaScript implementations.</li>
+            </ul>
+          </section>
+
+          <!-- Section 5: Verified Results & Production Status -->
+          <section class="study-section">
+            <h2>5. Verified Results & Deployment Status</h2>
+            <p>
+              The application is deployed live in production on Vercel at <a href="https://mytutevents.vercel.app/" target="_blank" rel="noopener" class="text-link">mytutevents.vercel.app</a>. It provides a real-world working template for modern campus logistics, eliminating physical printing costs while ensuring gate ticket validation integrity.
+            </p>
+          </section>
+
+          <!-- Section 6: Technology Stack -->
+          <section class="study-section">
+            <h2>6. Technology Stack</h2>
+            <div class="tech-tags" style="gap:0.75rem; margin-top:1rem;">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">HTML5 / CSS3</span>
+              <span class="tech-tag">QR Code Engine</span>
+              <span class="tech-tag">SMTP Email</span>
+              <span class="tech-tag">WhatsApp Webhook</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+          </section>
+
+          <!-- Navigation -->
+          <div style="border-top:1px solid var(--border-subtle); padding-top:2rem; margin-top:2rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+            <a href="../../work/verifysa/index.html" class="text-link">← Previous Case Study: VerifySA</a>
+            <a href="../../work/index.html" class="text-link">Return to All Projects →</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Thabang Dikotope</h3>
+          <p>Graduate Software Engineer focused on backend systems, full-stack applications, and AI integrations.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="../../index.html">Home</a>
+            <a href="../../work/index.html">Work</a>
+            <a href="../../research/index.html">Research & AI</a>
+            <a href="../../experience/index.html">Experience</a>
+            <a href="../../about/index.html">About</a>
+            <a href="../../contact/index.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-links">
+            <a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a>
+            <a href="https://www.linkedin.com/in/drey780822" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/Drey780822" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thabang Dikotope. TUT Event Management Case Study.</div>
+        <div class="footer-sast-badge">Local Time: <span class="live-sast-time">--:--:-- SAST</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/assistant.js"></script>
+</body>
+</html>

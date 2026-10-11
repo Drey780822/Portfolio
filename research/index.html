@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Research & AI Systems Focus of Thabang Dikotope — Future of Learning, Responsible AI Retrieval, Document Extraction Provenance, and Computer Vision." />
+  <title>Research & AI Systems — Thabang Dikotope</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-link" aria-label="Thabang Dikotope Home">
+        <span class="brand-name">Thabang Dikotope</span>
+        <span class="brand-title">Software Systems</span>
+      </a>
+
+      <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="../work/index.html" class="nav-item-link">Work</a></li>
+          <li><a href="../research/index.html" class="nav-item-link active">Research & AI</a></li>
+          <li><a href="../experience/index.html" class="nav-item-link">Experience</a></li>
+          <li><a href="../about/index.html" class="nav-item-link">About</a></li>
+          <li><a href="../contact/index.html" class="nav-item-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
+            <span class="nav-pulse"></span>
+            <span>Ask Assistant</span>
+            <kbd class="nav-kbd">⌘K</kbd>
+          </button>
+          <a href="../contact/index.html" class="btn btn-outline btn-sm">Get in Touch</a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <a href="../index.html" class="mobile-drawer-link">Home</a>
+      <a href="../work/index.html" class="mobile-drawer-link">Work</a>
+      <a href="../research/index.html" class="mobile-drawer-link active">Research & AI</a>
+      <a href="../experience/index.html" class="mobile-drawer-link">Experience</a>
+      <a href="../about/index.html" class="mobile-drawer-link">About</a>
+      <a href="../contact/index.html" class="mobile-drawer-link">Contact</a>
+      <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
+        <span class="nav-pulse"></span>
+        <span>Ask Portfolio Assistant</span>
+        <kbd class="nav-kbd" style="margin-left:auto;">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <section class="case-study-hero">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Research & AI</span>
+        </nav>
+        <span class="mono-tag">Applied Research & AI Engineering</span>
+        <h1 class="case-study-title">AI, Systems & Emerging Technology</h1>
+        <p class="case-study-lead">
+          Investigating how AI models, document extraction pipelines, and computer vision can be grounded in reliable software architectures. Bridging theoretical machine learning with production reality.
+        </p>
+      </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section class="section-padding">
+      <div class="container container-narrow">
+        <div class="case-study-content">
+
+          <!-- Pillar 1: Future of Learning -->
+          <section class="study-section">
+            <span class="mono-tag">Current Institutional Context</span>
+            <h2>1. The Future of Learning & Skills Intelligence</h2>
+            <p>
+              Within the <strong>Wits–merSETA Darkroom Project</strong> at Wits Enterprise, I contribute to the <em>Future of Learning</em> stream. Our work investigates how technology-enabled systems can systematically analyze evolving industrial competencies, track learner telemetry, and match educational outcomes with labor market realities.
+            </p>
+            <p>
+              Rather than viewing artificial intelligence as an autonomous substitute for educators, our engineering approach focuses on <strong>augmenting human decision-making</strong>:
+            </p>
+            <ul>
+              <li><strong>Competency Extraction:</strong> Designing parsing microservices that extract technical skills from unstructured resumes without semantic drift.</li>
+              <li><strong>Taxonomy Graph Modeling:</strong> Connecting disparate occupational codes to dynamic international skills ontologies.</li>
+              <li><strong>Assessment Telemetry:</strong> Engineering high-throughput database schemas in PostgreSQL and Supabase to capture student interaction telemetry during diagnostic evaluations.</li>
+            </ul>
+          </section>
+
+          <!-- Pillar 2: Grounded LLM Architectures -->
+          <section class="study-section">
+            <span class="mono-tag">Applied LLM Engineering</span>
+            <h2>2. Grounded AI & Retrieval-Augmented Generation (RAG)</h2>
+            <p>
+              Off-the-shelf generative language models are notorious for hallucinations, sycophancy, and uncalibrated confidence. In academic, medical, and legal contexts, an unsupported hallucination can render an application unusable.
+            </p>
+            <p>
+              My engineering approach prioritizes <strong>defensive grounding</strong>:
+            </p>
+            <ul>
+              <li><strong>Strict Structured Output:</strong> Forcing language models to respond exclusively in typed JSON matching schema validators, eliminating erratic natural language formatting.</li>
+              <li><strong>Deterministic Verification Filters:</strong> As demonstrated in the <a href="../work/verifysa/index.html" class="assistant-inline-link">VerifySA</a> case study, raw model outputs are never trusted unconditionally; they are piped into deterministic algorithmic checks (e.g. checksum verification, regex constraints, mathematical integrity).</li>
+              <li><strong>Bounded Knowledge Repositories:</strong> Restricting the model's query scope strictly to approved, verified context documents rather than relying on internal model weights.</li>
+            </ul>
+          </section>
+
+          <!-- Pillar 3: Document Provenance -->
+          <section class="study-section">
+            <span class="mono-tag">Data Engineering</span>
+            <h2>3. Document Extraction & Record-Level Provenance</h2>
+            <p>
+              Through our engineering on <a href="../work/darkroom-dataforge/index.html" class="assistant-inline-link">Darkroom DataForge</a>, we focus on the challenge of extracting structured tables from messy, scanned, multi-page PDFs.
+            </p>
+            <p>
+              Our guiding rule — <em>"Every extracted record should be traceable to its source"</em> — ensures that every database cell maintains an immutable link to its source document page and bounding-box coordinates. This allows human research auditors to instantly verify evidence without combing through multi-hundred-page paper documents.
+            </p>
+          </section>
+
+          <!-- Pillar 4: Computer Vision in Agriculture -->
+          <section class="study-section">
+            <span class="mono-tag">Computer Vision Showcase</span>
+            <h2>4. Computer Vision: PestVisionAI 2.1</h2>
+            <p>
+              At the <strong>3rd Annual Mpumalanga AI Student Hackathon</strong> (October 2025), I led a 10-developer team to achieve <strong>Top 4 Nationally</strong> among competing universities.
+            </p>
+            <p>
+              <strong>The Challenge & Solution:</strong>
+            </p>
+            <ul>
+              <li>Invasive crop pests cause catastrophic financial losses for smallholder farmers who lack access to agricultural scientists.</li>
+              <li>We built an automated pest detection system using Convolutional Neural Networks and OpenCV. The pipeline ingests live video or mobile camera frames, detects pest classifications, and serves localized agricultural mitigation recommendations via a lightweight Flask API.</li>
+              <li><em>Honest Placement:</em> 4th place national finalist among participating student teams. Model performance was demonstrated on competition datasets and represents an applied prototype.</li>
+            </ul>
+          </section>
+
+          <!-- Pillar 5: Ethical Boundaries -->
+          <section class="study-section">
+            <span class="mono-tag">Ethics & Safety</span>
+            <h2>5. Responsible AI & Institutional Privacy Boundaries</h2>
+            <p>
+              Working with educational records and research datasets requires uncompromising ethical discipline:
+            </p>
+            <ul>
+              <li><strong>Data Sanitization:</strong> Personally Identifiable Information (PII) is masked before parsing or LLM interaction.</li>
+              <li><strong>Confidentiality Protection:</strong> Institutional servers, private endpoints, internal research documents, and staging credentials remain strictly isolated from public repositories.</li>
+              <li><strong>Human-in-the-Loop Safeguards:</strong> High-stakes algorithmic decisions must always provide transparent audit logs and human intervention controls.</li>
+            </ul>
+          </section>
+
+          <div style="border-top:1px solid var(--border-subtle); padding-top:2rem; margin-top:2rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+            <a href="../work/index.html" class="text-link">← Explore Case Studies</a>
+            <a href="../experience/index.html" class="text-link">View Professional Experience →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Thabang Dikotope</h3>
+          <p>Graduate Software Engineer focused on backend systems, full-stack applications, and AI integrations.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../work/index.html">Work</a>
+            <a href="../research/index.html">Research & AI</a>
+            <a href="../experience/index.html">Experience</a>
+            <a href="../about/index.html">About</a>
+            <a href="../contact/index.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-links">
+            <a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a>
+            <a href="https://www.linkedin.com/in/drey780822" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/Drey780822" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thabang Dikotope. Research & AI Section.</div>
+        <div class="footer-sast-badge">Local Time: <span class="live-sast-time">--:--:-- SAST</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/assistant.js"></script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Engineering Work & Systems Architecture Portfolio of Thabang Dikotope — Full-Stack Applications, Distributed Systems, and AI-Enabled Software." />
+  <title>Work & Systems Showcase — Thabang Dikotope</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-link" aria-label="Thabang Dikotope Home">
+        <span class="brand-name">Thabang Dikotope</span>
+        <span class="brand-title">Software Systems</span>
+      </a>
+
+      <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="../work/index.html" class="nav-item-link active">Work</a></li>
+          <li><a href="../research/index.html" class="nav-item-link">Research & AI</a></li>
+          <li><a href="../experience/index.html" class="nav-item-link">Experience</a></li>
+          <li><a href="../about/index.html" class="nav-item-link">About</a></li>
+          <li><a href="../contact/index.html" class="nav-item-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
+            <span class="nav-pulse"></span>
+            <span>Ask Assistant</span>
+            <kbd class="nav-kbd">⌘K</kbd>
+          </button>
+          <a href="../contact/index.html" class="btn btn-outline btn-sm">Get in Touch</a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <a href="../index.html" class="mobile-drawer-link">Home</a>
+      <a href="../work/index.html" class="mobile-drawer-link active">Work</a>
+      <a href="../research/index.html" class="mobile-drawer-link">Research & AI</a>
+      <a href="../experience/index.html" class="mobile-drawer-link">Experience</a>
+      <a href="../about/index.html" class="mobile-drawer-link">About</a>
+      <a href="../contact/index.html" class="mobile-drawer-link">Contact</a>
+      <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
+        <span class="nav-pulse"></span>
+        <span>Ask Portfolio Assistant</span>
+        <kbd class="nav-kbd" style="margin-left:auto;">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <section class="case-study-hero">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Work</span>
+        </nav>
+        <span class="mono-tag">Engineering Portfolio</span>
+        <h1 class="case-study-title">Systems, Applications & Case Studies</h1>
+        <p class="case-study-lead">
+          Detailed technical analyses of commercial platforms, research systems, and competition projects. Each case study documents the problem, architectural decisions, individual contributions, and verified evidence.
+        </p>
+      </div>
+    </section>
+
+    <!-- Project List -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="project-features-list">
+
+          <!-- 1. FuelLinkPro -->
+          <article class="project-feature" id="fuellinkpro">
+            <div class="project-feature-main">
+              <div>
+                <div class="project-status-bar">
+                  <span class="badge badge-live">Live in Production</span>
+                  <span class="mono-tag" style="font-size:0.7rem;">Distributed Logistics</span>
+                </div>
+                <h2 class="project-name">FuelLinkPro</h2>
+                <p class="project-tagline">On-Demand Fuel Delivery Platform & Real-Time Logistics Service</p>
+
+                <div class="project-problem-callout">
+                  <strong>Core Challenge:</strong> Enabling an on-demand fuel marketplace connecting customers, drivers, and admins with GPS dispatch, cryptographic payment validation, and automated timeout reconciliation.
+                </div>
+
+                <div class="project-desc-block">
+                  <p>
+                    Sole-engineered the backend platform in Python/Flask with PostgreSQL. Engineered real-time driver tracking using Socket.IO, payment webhooks via PayFast with SHA-256 signature verification, and Celery/Redis background worker queues.
+                  </p>
+                  <p>
+                    <em>Supplied Traction:</em> 10+ registered customers and 15+ onboarded drivers ready for fulfillment during initial market testing.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="fuellinkpro/index.html" class="btn btn-primary btn-sm">Full Case Study →</a>
+                <a href="https://fuellinkpro.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Visit Platform ↗</a>
+              </div>
+            </div>
+
+            <div class="project-meta-sidebar">
+              <div class="project-meta-group">
+                <h4>Role</h4>
+                <p>Co-Founder & Sole Backend Engineer</p>
+              </div>
+              <div class="project-meta-group">
+                <h4>Key Technologies</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Flask</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Socket.IO</span>
+                  <span class="tech-tag">Celery</span>
+                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">PayFast</span>
+                  <span class="tech-tag">Docker</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Wits Skills Mapping Platform -->
+          <article class="project-feature" id="skills-mapping">
+            <div class="project-feature-main">
+              <div>
+                <div class="project-status-bar">
+                  <span class="badge badge-active">Active Research & Prototyping</span>
+                  <span class="mono-tag" style="font-size:0.7rem;">Future of Learning</span>
+                </div>
+                <h2 class="project-name">Wits Skills Mapping Platform</h2>
+                <p class="project-tagline">AI-Enabled Skills Discovery & Occupational Exploration Platform</p>
+
+                <div class="project-problem-callout">
+                  <strong>Core Challenge:</strong> Transforming static, outdated vocational taxonomies into dynamic skills graphs connecting CV competencies with real market demand.
+                </div>
+
+                <div class="project-desc-block">
+                  <p>
+                    Built at Wits Enterprise within the Future of Learning stream. Architected backend microservices in FastAPI, Next.js frontend interfaces, and relational PostgreSQL/Supabase schemas to record candidate interaction telemetry and extract skills with strict privacy boundaries.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="skills-mapping/index.html" class="btn btn-primary btn-sm">Full Case Study →</a>
+                <a href="../research/index.html" class="btn btn-outline btn-sm">Research Context →</a>
+              </div>
+            </div>
+
+            <div class="project-meta-sidebar">
+              <div class="project-meta-group">
+                <h4>Role</h4>
+                <p>AI & Software Systems Developer Intern</p>
+              </div>
+              <div class="project-meta-group">
+                <h4>Key Technologies</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Supabase</span>
+                  <span class="tech-tag">REST APIs</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Darkroom DataForge -->
+          <article class="project-feature" id="darkroom-dataforge">
+            <div class="project-feature-main">
+              <div>
+                <div class="project-status-bar">
+                  <span class="badge badge-active">Under Engineering</span>
+                  <span class="mono-tag" style="font-size:0.7rem;">Data Engineering</span>
+                </div>
+                <h2 class="project-name">Darkroom DataForge</h2>
+                <p class="project-tagline">Structured Data Extraction, Validation, and Dataset Generation</p>
+
+                <div class="project-problem-callout">
+                  <strong>Core Challenge:</strong> Complex multi-page documents break OCR tools, corrupting table splits and losing source coordinates required for academic audits.
+                </div>
+
+                <div class="project-desc-block">
+                  <p>
+                    Engineered around the principle: <em>"Every extracted record should be traceable to its source."</em> Builds an 8-stage extraction pipeline with cross-page table reconstruction and record-level bounding box provenance.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="darkroom-dataforge/index.html" class="btn btn-primary btn-sm">Full Case Study →</a>
+              </div>
+            </div>
+
+            <div class="project-meta-sidebar">
+              <div class="project-meta-group">
+                <h4>Role</h4>
+                <p>Software Systems Developer (Parsing Pipelines)</p>
+              </div>
+              <div class="project-meta-group">
+                <h4>Key Technologies</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">SQLAlchemy</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Docker</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. VerifySA -->
+          <article class="project-feature" id="verifysa">
+            <div class="project-feature-main">
+              <div>
+                <div class="project-status-bar">
+                  <span class="badge badge-hackathon">5-Hour Hackathon Build</span>
+                  <span class="mono-tag" style="font-size:0.7rem;">AI & Document Security</span>
+                </div>
+                <h2 class="project-name">VerifySA</h2>
+                <p class="project-tagline">AI-Assisted Document Verification & Trust Scoring</p>
+
+                <div class="project-problem-callout">
+                  <strong>Core Challenge:</strong> Rapidly building a multi-tenant document verification SaaS combining LLM multimodal extraction with deterministic compliance validation.
+                </div>
+
+                <div class="project-desc-block">
+                  <p>
+                    Led a 10-person engineering team during the Soweto AI App Development Challenge. Delivered a working Next.js 15 / Supabase platform pairing GPT-4o analysis with programmatic business rules and downloadable audit summaries.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="verifysa/index.html" class="btn btn-primary btn-sm">Full Case Study →</a>
+                <a href="https://verify-sa.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Open Hackathon Demo ↗</a>
+              </div>
+            </div>
+
+            <div class="project-meta-sidebar">
+              <div class="project-meta-group">
+                <h4>Role & Leadership</h4>
+                <p>Team Lead (10-Person Team, 5-Hour Sprint)</p>
+              </div>
+              <div class="project-meta-group">
+                <h4>Key Technologies</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Next.js 15</span>
+                  <span class="tech-tag">React 19</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Supabase</span>
+                  <span class="tech-tag">GPT-4o</span>
+                  <span class="tech-tag">Tailwind CSS</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. TUT Event Management -->
+          <article class="project-feature" id="tut-event-management">
+            <div class="project-feature-main">
+              <div>
+                <div class="project-status-bar">
+                  <span class="badge badge-live">Deployed & Live</span>
+                  <span class="mono-tag" style="font-size:0.7rem;">Campus Logistics</span>
+                </div>
+                <h2 class="project-name">TUT Event Management System</h2>
+                <p class="project-tagline">Campus Event Hub & Tamper-Evident QR-Code Ticketing</p>
+
+                <div class="project-problem-callout">
+                  <strong>Core Challenge:</strong> Overcoming campus event communication fragmentation and physical gate ticketing fraud.
+                </div>
+
+                <div class="project-desc-block">
+                  <p>
+                    Led the TriTech Solutions team (3 members) to design, build, and deploy a full event platform. Engineered the Flask backend, PostgreSQL schema, cryptographic QR token generator, and automated RSVP dispatch via WhatsApp and email.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="tut-event-management/index.html" class="btn btn-primary btn-sm">Full Case Study →</a>
+                <a href="https://mytutevents.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Visit Platform ↗</a>
+              </div>
+            </div>
+
+            <div class="project-meta-sidebar">
+              <div class="project-meta-group">
+                <h4>Role</h4>
+                <p>Team Leader & Backend Developer</p>
+              </div>
+              <div class="project-meta-group">
+                <h4>Key Technologies</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Flask</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">QR Engine</span>
+                  <span class="tech-tag">WhatsApp API</span>
+                  <span class="tech-tag">Vercel</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Secondary Systems: PestVisionAI, FitZone, VSM Digital -->
+          <article class="project-feature" id="additional-systems">
+            <div class="project-feature-main">
+              <div>
+                <div class="project-status-bar">
+                  <span class="badge badge-live">Secondary Portfolio Entries</span>
+                  <span class="mono-tag" style="font-size:0.7rem;">Applied Engineering</span>
+                </div>
+                <h2 class="project-name">Additional Software Systems</h2>
+                <p class="project-tagline">Academic Distinctions, Competition Finalists, and Commercial Integrations</p>
+
+                <div class="project-desc-block">
+                  <p>
+                    <strong>• PestVisionAI 2.1:</strong> Led a 10-developer team to <strong>Top 4 Nationally</strong> at the 3rd Annual Mpumalanga AI Student Hackathon. Engineered the computer vision streaming pipeline and Flask API for automated agricultural pest identification.
+                  </p>
+                  <p>
+                    <strong>• FitZone Gym Management:</strong> Led a 6-person team through the full SDLC for a final-year academic software engineering project at TUT. Graded with <strong>Distinction</strong>. Built using PHP, MySQL, and responsive frontend architecture.
+                  </p>
+                  <p>
+                    <strong>• VSM Digital Services:</strong> Full-stack platform combining loan application review workflows and event photography packages with PayFast payment integration.
+                  </p>
+                  <p>
+                    <strong>• Lifestyle Preferences Survey:</strong> In-browser SQLite data analysis utility running relational queries via WebAssembly (sql.js).
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Drey780822" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Explore Repositories on GitHub ↗</a>
+              </div>
+            </div>
+
+            <div class="project-meta-sidebar">
+              <div class="project-meta-group">
+                <h4>Leadership Highlights</h4>
+                <p>Led teams of 3, 6, and 10 developers across academic, hackathon, and commercial settings.</p>
+              </div>
+              <div class="project-meta-group">
+                <h4>Technologies Spanned</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">OpenCV</span>
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">PayFast</span>
+                  <span class="tech-tag">sql.js / WASM</span>
+                  <span class="tech-tag">Git / GitHub</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Thabang Dikotope</h3>
+          <p>Graduate Software Engineer focused on backend systems, full-stack applications, and AI integrations.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../work/index.html">Work</a>
+            <a href="../research/index.html">Research & AI</a>
+            <a href="../experience/index.html">Experience</a>
+            <a href="../about/index.html">About</a>
+            <a href="../contact/index.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Contact & Connect</h4>
+          <div class="footer-links">
+            <a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a>
+            <a href="https://www.linkedin.com/in/drey780822" target="_blank" rel="noopener">LinkedIn Profile ↗</a>
+            <a href="https://github.com/Drey780822" target="_blank" rel="noopener">GitHub Profile ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thabang Dikotope. All rights reserved.</div>
+        <div class="footer-sast-badge">Local Time: <span class="live-sast-time">--:--:-- SAST</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/assistant.js"></script>
+</body>
+</html>

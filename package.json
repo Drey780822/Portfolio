@@ -1,0 +1,25 @@
+{
+  "name": "thabang-dikotope-portfolio",
+  "version": "2.0.0",
+  "description": "Industrial-Grade Engineering, AI & Research Portfolio of Thabang Dikotope",
+  "main": "api/chat.js",
+  "scripts": {
+    "test": "node scripts/verify-site.js && node scripts/test-assistant.js",
+    "test:assistant": "node scripts/test-assistant.js",
+    "build": "node scripts/verify-site.js",
+    "serve": "node scripts/serve.js",
+    "start": "node scripts/serve.js"
+  },
+  "keywords": [
+    "portfolio",
+    "software-engineer",
+    "full-stack",
+    "python",
+    "fastapi",
+    "nextjs",
+    "postgresql",
+    "ai-systems"
+  ],
+  "author": "Thabang Dikotope <thabangdikotope624@gmail.com>",
+  "license": "MIT"
+}

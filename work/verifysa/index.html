@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case Study: VerifySA — AI-Assisted Document Verification & Fraud Detection built in a 5-hour hackathon sprint by a 10-person team led by Thabang Dikotope." />
+  <title>VerifySA Case Study — Thabang Dikotope</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../../index.html" class="brand-link" aria-label="Thabang Dikotope Home">
+        <span class="brand-name">Thabang Dikotope</span>
+        <span class="brand-title">Software Systems</span>
+      </a>
+
+      <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="../../work/index.html" class="nav-item-link active">Work</a></li>
+          <li><a href="../../research/index.html" class="nav-item-link">Research & AI</a></li>
+          <li><a href="../../experience/index.html" class="nav-item-link">Experience</a></li>
+          <li><a href="../../about/index.html" class="nav-item-link">About</a></li>
+          <li><a href="../../contact/index.html" class="nav-item-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
+            <span class="nav-pulse"></span>
+            <span>Ask Assistant</span>
+            <kbd class="nav-kbd">⌘K</kbd>
+          </button>
+          <a href="../../contact/index.html" class="btn btn-outline btn-sm">Get in Touch</a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <a href="../../index.html" class="mobile-drawer-link">Home</a>
+      <a href="../../work/index.html" class="mobile-drawer-link active">Work</a>
+      <a href="../../research/index.html" class="mobile-drawer-link">Research & AI</a>
+      <a href="../../experience/index.html" class="mobile-drawer-link">Experience</a>
+      <a href="../../about/index.html" class="mobile-drawer-link">About</a>
+      <a href="../../contact/index.html" class="mobile-drawer-link">Contact</a>
+      <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
+        <span class="nav-pulse"></span>
+        <span>Ask Portfolio Assistant</span>
+        <kbd class="nav-kbd" style="margin-left:auto;">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <article class="case-study-hero">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../../work/index.html">Work</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">VerifySA</span>
+        </nav>
+
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <span class="badge badge-hackathon">5-Hour Hackathon Build</span>
+          <span class="mono-tag" style="font-size:0.75rem;">Soweto AI Challenge</span>
+        </div>
+
+        <h1 class="case-study-title">VerifySA: AI-Assisted Document Verification</h1>
+        <p class="case-study-lead">
+          A document verification and trust-scoring prototype combining multimodal LLM extraction with deterministic business-rule validation, built in an intensive 5-hour hackathon sprint.
+        </p>
+
+        <div class="case-study-meta-grid">
+          <div class="meta-box">
+            <h5>Role</h5>
+            <p>Team Lead (10-Person Team)</p>
+          </div>
+          <div class="meta-box">
+            <h5>Sprint Duration</h5>
+            <p>5-Hour Hackathon Sprint</p>
+          </div>
+          <div class="meta-box">
+            <h5>Event</h5>
+            <p>Soweto AI App Dev Challenge</p>
+          </div>
+          <div class="meta-box">
+            <h5>Live Prototype</h5>
+            <p><a href="https://verify-sa.vercel.app/" target="_blank" rel="noopener" class="text-link">verify-sa.vercel.app ↗</a></p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="case-study-body">
+      <div class="container container-narrow">
+        <div class="case-study-content">
+
+          <!-- Section 1: Overview & Hackathon Context -->
+          <section class="study-section">
+            <h2>1. Project Overview & Hackathon Sprint</h2>
+            <p>
+              At the <strong>Soweto AI App Development Challenge</strong> (June 2026), teams were challenged to conceptualize, architect, code, and deploy an impactful AI-enabled solution within a single <strong>five-hour sprint</strong>.
+            </p>
+            <p>
+              As <strong>Team Lead of a 10-person developer team</strong>, I coordinated task allocation, system architecture, repository branching, and deployment orchestration to build <strong>VerifySA</strong>: a document authentication prototype designed for small businesses and institutions plagued by forged certificates, falsified utility bills, and altered invoices.
+            </p>
+          </section>
+
+          <!-- Section 2: Hybrid Architecture -->
+          <section class="study-section">
+            <h2>2. The Core Concept: Multimodal AI + Deterministic Rules</h2>
+            <p>
+              A fundamental engineering principle guided our design: <strong>Large Language Models are powerful at extracting unstructured data, but they must never be the sole authority for fraud detection.</strong>
+            </p>
+            <p>
+              VerifySA employs a two-tier verification pipeline:
+            </p>
+            <ul>
+              <li><strong>Tier 1 — Multimodal Semantic Extraction (OpenAI GPT-4o):</strong> Ingests high-resolution document scans, extracts structural metadata (names, national ID numbers, tax references, issue dates, institution letterheads), and detects visual tampering anomalies.</li>
+              <li><strong>Tier 2 — Deterministic Rule Validation Engine:</strong> Pipes the extracted JSON structure through hard-coded deterministic rules (Luhn algorithm validation on South African ID numbers, date sequencing sanity checks, tax number length checks, and known institution registry lookups).</li>
+            </ul>
+          </section>
+
+          <!-- Section 3: Architecture Diagram -->
+          <section class="study-section">
+            <h2>3. System Architecture</h2>
+            <!-- Rich Architectural Schematic -->
+            <div class="architecture-schematic" aria-label="VerifySA Multi-Tier Verification Schematic">
+              <div class="schematic-header">
+                <span class="schematic-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  Multi-Tier Forensic Inspection & Deterministic Consensus Architecture
+                </span>
+                <div class="schematic-legend">
+                  <span class="legend-item"><span class="legend-dot" style="background:#3B82F6;"></span> Ingestion & Client</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#8B5CF6;"></span> Multimodal Forensics</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#10B981;"></span> Deterministic Luhn</span>
+                </div>
+              </div>
+
+              <div class="schematic-layers-container">
+                <!-- Layer 1: Ingestion & Upload UI -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 01 Ingestion & Client Presentation Layer</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">Next.js 15 Client UI</span>
+                      <span class="node-tech">React 19 · Tailwind CSS</span>
+                      <span class="node-desc">Drag & drop document ingest (PDF / PNG / JPG)</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Edge API Boundary</span>
+                      <span class="node-tech">Next.js Edge Route Handler</span>
+                      <span class="node-desc">Payload sanitation & isolated environment secret injection</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">Dual-Track Inspection Dispatch</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 2: Dual-Track Inspection -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 02 Forensic Verification Engine: Multimodal LLM vs Deterministic Rules</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">Track A: Multimodal LLM</span>
+                      <span class="node-tech">OpenAI GPT-4o API</span>
+                      <span class="node-desc">Visual anomaly detection, font alignment flags, structured JSON output</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Track B: Rule Engine</span>
+                      <span class="node-tech">TypeScript Deterministic Logic</span>
+                      <span class="node-desc">SA National ID Luhn checksum, date chronology, format verification</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">Weighted Consensus Scoring (0 - 100)</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 3: Persistence & Audit Output -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 03 Persistence & Cryptographic Audit Summary</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">Supabase (PostgreSQL)</span>
+                      <span class="node-tech">Row-Level Security · Audit Log</span>
+                      <span class="node-desc">Multi-tenant document metadata & verification trial records</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Audit Certificate Engine</span>
+                      <span class="node-tech">PDF Generation Pipeline</span>
+                      <span class="node-desc">Downloadable, verifiable PDF fraud risk breakdown summary</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="schematic-interactive-footer">
+                <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Soweto AI Challenge Hackathon Prototype · Built in 5-Hour Sprint</span>
+                <button type="button" class="schematic-ask-btn" data-ask-assistant="How was VerifySA architected, coordinated, and deployed during the 5-hour hackathon sprint?">
+                  Ask Assistant About This Hackathon Sprint →
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 4: My Role as Team Lead -->
+          <section class="study-section">
+            <h2>4. Team Leadership & Contribution Scope</h2>
+            <p>
+              Leading 10 developers across 5 hours required rigorous coordination:
+            </p>
+            <ul>
+              <li><strong>Task Allocation:</strong> Divided the team into three specialized sub-groups: Frontend (Upload UI & Dashboard, 4 devs), Backend & Schema (Supabase & Rule Engine, 3 devs), and AI Integration & PDF Generation (3 devs).</li>
+              <li><strong>Technical Architecture:</strong> Established the Next.js 15 repository scaffold, defined TypeScript interfaces for document schema exchanges, and orchestrated GitHub pull requests to prevent merge conflicts under deadline pressure.</li>
+              <li><strong>Deployment Execution:</strong> Configured edge deployments on Vercel and connected live environment secrets, ensuring the working application was fully accessible for the judging panel.</li>
+            </ul>
+          </section>
+
+          <!-- Section 5: Honest Disclosure & Fraud Realities -->
+          <section class="study-section">
+            <h2>5. Critical Disclosure & Engineering Honesty</h2>
+            <div class="project-problem-callout">
+              <strong>Caveat on AI in Fraud Prevention:</strong> VerifySA is an innovative hackathon proof-of-concept. AI extraction flags potential irregularities, but AI analysis alone does not legally prove a document is authentic. Real-world commercial deployment requires integration with official national population registers (e.g. Home Affairs API) and accredited digital signature validators. We make no unverified claims of commercial fraud accuracy rates without formal benchmark validation.
+            </div>
+          </section>
+
+          <!-- Section 6: Technology Stack -->
+          <section class="study-section">
+            <h2>6. Technology Stack</h2>
+            <div class="tech-tags" style="gap:0.75rem; margin-top:1rem;">
+              <span class="tech-tag">Next.js 15</span>
+              <span class="tech-tag">React 19</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">OpenAI GPT-4o API</span>
+              <span class="tech-tag">Vercel Edge</span>
+            </div>
+          </section>
+
+          <!-- Navigation -->
+          <div style="border-top:1px solid var(--border-subtle); padding-top:2rem; margin-top:2rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+            <a href="../../work/darkroom-dataforge/index.html" class="text-link">← Previous Case Study: Darkroom DataForge</a>
+            <a href="../../work/tut-event-management/index.html" class="text-link">Next Case Study: TUT Event Hub →</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Thabang Dikotope</h3>
+          <p>Graduate Software Engineer focused on backend systems, full-stack applications, and AI integrations.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="../../index.html">Home</a>
+            <a href="../../work/index.html">Work</a>
+            <a href="../../research/index.html">Research & AI</a>
+            <a href="../../experience/index.html">Experience</a>
+            <a href="../../about/index.html">About</a>
+            <a href="../../contact/index.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-links">
+            <a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a>
+            <a href="https://www.linkedin.com/in/drey780822" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/Drey780822" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thabang Dikotope. VerifySA Case Study.</div>
+        <div class="footer-sast-badge">Local Time: <span class="live-sast-time">--:--:-- SAST</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/assistant.js"></script>
+</body>
+</html>
