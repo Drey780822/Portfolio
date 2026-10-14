@@ -6,13 +6,15 @@
   <meta name="description" content="About Thabang Dikotope — Graduate Software Engineer, Computer Science Graduate from TUT (360/360 Credits), Technical Capabilities Matrix, Leadership, and Certifications." />
   <title>About & Engineering Credentials — Thabang Dikotope</title>
 
+  <!-- Typography: Manrope & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
+  <div id="readingProgress" aria-hidden="true"></div>
   <a href="#mainContent" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
@@ -63,6 +65,12 @@
 
   <!-- Main Content -->
   <main id="mainContent">
+
+    <!-- NOTION PANORAMIC COVER BANNER -->
+    <div class="notion-cover-container" aria-hidden="true">
+      <img src="../assets/images/notion-cover.jpg" alt="" class="notion-cover-img" loading="eager" />
+      <div class="notion-cover-gradient"></div>
+    </div>
     <section class="case-study-hero">
       <div class="container">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -108,7 +116,7 @@
                 <img 
                   src="../assets/images/myphoto.jpg" 
                   alt="Portrait photo of Thabang Dikotope in academic regalia" 
-                  style="width: 88px; height: 88px; border-radius: var(--radius-md); object-fit: cover; object-position: center 15%; border: 2px solid var(--border-medium); box-shadow: var(--shadow-sm);"
+                  style="width: clamp(140px, 16vw, 175px); height: clamp(140px, 16vw, 175px); border-radius: 20px; object-fit: cover; object-position: center 10%; border: 3px solid var(--border-medium); box-shadow: var(--shadow-md);"
                   onerror="this.src='https://avatars.githubusercontent.com/Drey780822'"
                 />
               </div>

@@ -22,10 +22,10 @@
 
   <title>Thabang Dikotope — Engineering, AI & Research Portfolio</title>
 
-  <!-- Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Typography: Manrope & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Core Design System -->
   <link rel="stylesheet" href="css/styles.css" />
@@ -65,24 +65,25 @@
   </script>
 </head>
 <body>
+  <div id="readingProgress" aria-hidden="true"></div>
   <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-  <!-- NAVIGATION -->
+  <!-- 1. SLIM NAVIGATION -->
   <header class="site-header" role="banner">
     <div class="container nav-container">
       <a href="index.html" class="brand-link" aria-label="Thabang Dikotope Home">
         <span class="brand-name">Thabang Dikotope</span>
-        <span class="brand-title">Software Systems</span>
+        <span class="brand-title">Software & AI</span>
       </a>
 
       <!-- Desktop Nav -->
       <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
         <ul class="nav-menu">
-          <li><a href="work/index.html" class="nav-item-link">Work</a></li>
-          <li><a href="research/index.html" class="nav-item-link">Research & AI</a></li>
+          <li><a href="#work" class="nav-item-link">Work</a></li>
+          <li><a href="#about" class="nav-item-link">About</a></li>
+          <li><a href="#contact" class="nav-item-link">Contact</a></li>
+          <li><a href="research/index.html" class="nav-item-link">Research</a></li>
           <li><a href="experience/index.html" class="nav-item-link">Experience</a></li>
-          <li><a href="about/index.html" class="nav-item-link">About</a></li>
-          <li><a href="contact/index.html" class="nav-item-link">Contact</a></li>
         </ul>
         <div class="nav-actions">
           <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
@@ -90,7 +91,7 @@
             <span>Ask Assistant</span>
             <kbd class="nav-kbd">⌘K</kbd>
           </button>
-          <a href="contact/index.html" class="btn btn-outline btn-sm">Get in Touch</a>
+          <a href="#contact" class="btn btn-outline btn-sm">Get in Touch</a>
         </div>
       </nav>
 
@@ -103,18 +104,18 @@
     <!-- Mobile Drawer -->
     <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
       <a href="index.html" class="mobile-drawer-link active">Home</a>
-      <a href="work/index.html" class="mobile-drawer-link">Work</a>
+      <a href="#work" class="mobile-drawer-link">Work</a>
+      <a href="#about" class="mobile-drawer-link">About</a>
+      <a href="#contact" class="mobile-drawer-link">Contact</a>
       <a href="research/index.html" class="mobile-drawer-link">Research & AI</a>
       <a href="experience/index.html" class="mobile-drawer-link">Experience</a>
-      <a href="about/index.html" class="mobile-drawer-link">About</a>
-      <a href="contact/index.html" class="mobile-drawer-link">Contact</a>
       <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
         <span class="nav-pulse"></span>
         <span>Ask Portfolio Assistant</span>
         <kbd class="nav-kbd" style="margin-left:auto;">⌘K</kbd>
       </button>
       <div style="margin-top: auto; padding-top: 1rem;">
-        <a href="contact/index.html" class="btn btn-primary" style="width: 100%;">Connect with Thabang</a>
+        <a href="#contact" class="btn btn-primary" style="width: 100%;">Connect with Thabang</a>
       </div>
     </div>
   </header>
@@ -122,453 +123,428 @@
   <!-- MAIN CONTENT -->
   <main id="mainContent">
 
-    <!-- HERO SECTION -->
-    <section class="hero-section" aria-labelledby="heroHeadline">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-text-col">
-            <div class="hero-status-pill">
-              <span class="pulse-indicator" aria-hidden="true"></span>
-              <span>Graduate Software Engineer · Open to Roles & Collaboration</span>
-            </div>
+    <!-- 2. IMMERSIVE FULL-WIDTH OPENING (AMBIENT BLUE/CYAN VISUAL) -->
+    <section class="hero-deepmind" id="hero" aria-labelledby="heroHeadline">
+      <canvas id="ambientHeroCanvas" class="ambient-hero-canvas" aria-hidden="true"></canvas>
+      <div class="ambient-hero-overlay" aria-hidden="true"></div>
 
-            <h1 id="heroHeadline" class="hero-title">
-              Building software that solves real problems. Exploring what comes next.
-            </h1>
+      <div class="container hero-deepmind-content">
+        <div class="hero-deepmind-status">
+          <span class="status-pulse-cyan" aria-hidden="true"></span>
+          <span class="status-label">Graduate Software Engineer · Systems & Applied AI · Johannesburg</span>
+        </div>
 
-            <p class="hero-lead">
-              I'm Thabang Dikotope, a graduate software engineer working across full-stack development, AI-enabled systems, data engineering, and emerging technology.
-            </p>
+        <h1 id="heroHeadline" class="hero-deepmind-title">
+          Thabang Dikotope
+        </h1>
 
-            <div class="hero-actions">
-              <a href="work/index.html" class="btn btn-primary">
-                Explore My Work
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </a>
-              <a href="about/index.html" class="btn btn-secondary">About Me</a>
-              <a href="contact/index.html" class="btn btn-outline">Contact & Inquiries</a>
-            </div>
+        <p class="hero-deepmind-lead">
+          Building software that solves real problems. Exploring what comes next. Graduate software engineer specializing in backend architecture, full-stack applications, and grounded AI systems in Johannesburg.
+        </p>
 
-            <div class="hero-location-meta" style="display:flex; align-items:center; gap:1.25rem; font-family:var(--font-mono); font-size:0.78rem; color:var(--text-muted); flex-wrap:wrap;">
-              <span>📍 Johannesburg, South Africa</span>
-              <span>⏰ <span class="live-sast-time">14:00 SAST</span></span>
-            </div>
+        <p class="hero-deepmind-ethos">
+          "I build software that solves real problems, engineer systems that people can use, and explore how AI and emerging technologies can create meaningful impact."
+        </p>
+
+        <div class="hero-deepmind-actions">
+          <a href="#work" class="btn btn-primary btn-hero">
+            <span>View Work</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+          <a href="#contact" class="btn btn-outline btn-hero">
+            <span>Contact & Collaboration</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+          <button type="button" class="btn-subtle-assistant" id="heroAssistantBtn" onclick="document.getElementById('aiAssistantLauncher')?.click()">
+            <span class="assistant-icon-dot" aria-hidden="true"></span>
+            <span>Ask Assistant</span>
+            <kbd class="hero-kbd">⌘K</kbd>
+          </button>
+        </div>
+
+        <!-- Telemetry bar -->
+        <div class="hero-deepmind-telemetry">
+          <div class="telemetry-item">
+            <span class="telemetry-label">Current Role</span>
+            <span class="telemetry-val">AI Systems Intern @ Wits Enterprise</span>
           </div>
-
-          <!-- Identity Card -->
-          <div class="hero-identity-card" aria-label="Professional Snapshot">
-            <div class="identity-header">
-              <div class="avatar-wrapper">
-                <img 
-                  src="assets/images/myphoto.jpg" 
-                  alt="Portrait photo of Thabang Dikotope" 
-                  class="identity-avatar"
-                  onerror="this.src='https://avatars.githubusercontent.com/Drey780822'"
-                />
-                <span class="avatar-status-badge" title="Active Practitioner"></span>
-              </div>
-              <div class="identity-details">
-                <h3>Thabang Dikotope</h3>
-                <p>Full-Stack & Systems Developer</p>
-              </div>
-            </div>
-
-            <div class="identity-meta-list">
-              <div class="identity-meta-item">
-                <span class="identity-meta-label">Current Role</span>
-                <span class="identity-meta-value">AI Systems Intern @ Wits Enterprise</span>
-              </div>
-              <div class="identity-meta-item">
-                <span class="identity-meta-label">Venture</span>
-                <span class="identity-meta-value">Co-Founder @ FuelLinkPro</span>
-              </div>
-              <div class="identity-meta-item">
-                <span class="identity-meta-label">Education</span>
-                <span class="identity-meta-value">TUT Computer Science (360/360 Credits Verified)</span>
-              </div>
-              <div class="identity-meta-item">
-                <span class="identity-meta-label">Core Tech</span>
-                <span class="identity-meta-value">Python, PostgreSQL, Next.js, Docker</span>
-              </div>
-            </div>
-
-            <div class="identity-card-actions">
-              <a href="about/index.html" class="btn btn-secondary btn-sm" style="flex:1;">Full Background</a>
-              <button type="button" class="btn btn-outline btn-sm" data-ask-assistant="Summarize Thabang Dikotope's engineering background, verified academic credentials, and current work" style="flex:1;">Ask Assistant</button>
-            </div>
+          <div class="telemetry-divider" aria-hidden="true"></div>
+          <div class="telemetry-item">
+            <span class="telemetry-label">Venture Ownership</span>
+            <span class="telemetry-val">Co-Founder @ FuelLinkPro (Pty) Ltd</span>
+          </div>
+          <div class="telemetry-divider" aria-hidden="true"></div>
+          <div class="telemetry-item">
+            <span class="telemetry-label">Verified Academic</span>
+            <span class="telemetry-val">TUT Diploma in Computer Science (360/360 Credits)</span>
+          </div>
+          <div class="telemetry-divider" aria-hidden="true"></div>
+          <div class="telemetry-item">
+            <span class="telemetry-label">Location / Time</span>
+            <span class="telemetry-val">Johannesburg · <span class="live-sast-time">--:--:-- SAST</span></span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- INTERACTIVE ENGINEERING WORKBENCH -->
-    <section class="assistant-workbench-section" aria-labelledby="workbenchHeading">
-      <div class="container">
-        <div class="workbench-card">
-          <div class="workbench-header">
-            <div class="workbench-title-group">
-              <span class="mono-tag">Interactive Evaluation Workbench</span>
-              <h2 id="workbenchHeading" class="workbench-title">Query the Engineering Knowledge Base</h2>
-              <p class="workbench-desc">
-                Test grounded queries against Thabang's verified project architectures, research workflows, and technical scope. Responses are retrieved from structured evidence and cited directly to case studies.
-              </p>
-            </div>
-            <div class="workbench-badge">
-              <span class="status-indicator"></span>
-              <span>Grounded Index Active · ⌘K</span>
-            </div>
-          </div>
-
-          <div class="workbench-queries-grid">
-            <button type="button" class="workbench-query-btn" data-query="Explain FuelLinkPro's order dispatch and payment webhook architecture">
-              <span class="query-role">FuelLinkPro Architecture</span>
-              <span class="query-text">"Explain FuelLinkPro's order dispatch and PayFast webhook architecture"</span>
-              <span class="query-arrow">Query →</span>
-            </button>
-            <button type="button" class="workbench-query-btn" data-query="What systems does Thabang engineer at Wits Enterprise and the Darkroom Project?">
-              <span class="query-role">Wits Enterprise / Darkroom</span>
-              <span class="query-text">"What systems does Thabang engineer at Wits Enterprise and Darkroom?"</span>
-              <span class="query-arrow">Query →</span>
-            </button>
-            <button type="button" class="workbench-query-btn" data-query="How was VerifySA architected and deployed during the 5-hour hackathon sprint?">
-              <span class="query-role">VerifySA 5-Hour Sprint</span>
-              <span class="query-text">"How was VerifySA architected and deployed during the 5-hour sprint?"</span>
-              <span class="query-arrow">Query →</span>
-            </button>
-            <button type="button" class="workbench-query-btn" data-query="Detail Thabang's qualifications, core tech stack, and verified academic record">
-              <span class="query-role">Verified Engineering Record</span>
-              <span class="query-text">"Detail Thabang's qualifications, core tech stack, and TUT credentials"</span>
-              <span class="query-arrow">Query →</span>
-            </button>
-          </div>
-
-          <div class="workbench-input-row">
-            <input 
-              type="text" 
-              id="workbenchCustomInput" 
-              class="workbench-custom-input" 
-              placeholder="Ask a custom question (e.g. 'How does Darkroom DataForge extract bounding boxes?')..." 
-              aria-label="Custom query to engineering assistant"
-            />
-            <button type="button" id="workbenchSubmitBtn" class="btn btn-primary btn-sm">
-              Execute Query
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION C: SELECTED WORK -->
-    <section class="section-padding" aria-labelledby="selectedWorkHeading">
+    <!-- 3. SELECTED PROJECTS IN SPACIOUS EDITORIAL GRID -->
+    <section class="section-padding" id="work" aria-labelledby="selectedWorkHeading">
       <div class="container">
         <div class="section-header">
-          <span class="mono-tag">Featured Systems</span>
-          <h2 id="selectedWorkHeading">Selected Engineering Projects</h2>
+          <span class="mono-tag">01 / Selected Work</span>
+          <h2 id="selectedWorkHeading">Systems, Applications & Research</h2>
           <p class="section-desc">
-            Production applications, distributed systems, and AI research tools engineered with real-world constraints, verified architectures, and honest results.
+            Production systems, distributed architectures, and AI tools built with verified constraints and measurable outcomes.
           </p>
         </div>
 
-        <div class="project-features-list">
+        <!-- Filter Bar -->
+        <div class="notion-filter-bar" role="toolbar" aria-label="Filter projects by discipline">
+          <button type="button" class="notion-filter-btn active" data-filter="all">
+            <span>All Case Studies</span>
+            <span class="notion-filter-count">5</span>
+          </button>
+          <button type="button" class="notion-filter-btn" data-filter="backend">
+            <span>⚡ Backend & Distributed Systems</span>
+            <span class="notion-filter-count">3</span>
+          </button>
+          <button type="button" class="notion-filter-btn" data-filter="ai">
+            <span>🧠 Applied AI & ML</span>
+            <span class="notion-filter-count">3</span>
+          </button>
+          <button type="button" class="notion-filter-btn" data-filter="data">
+            <span>📊 Data Pipelines</span>
+            <span class="notion-filter-count">1</span>
+          </button>
+          <button type="button" class="notion-filter-btn" data-filter="logistics">
+            <span>📍 Real-Time Logistics</span>
+            <span class="notion-filter-count">2</span>
+          </button>
+        </div>
 
-          <!-- Feature 1: FuelLinkPro -->
-          <article class="project-feature" aria-labelledby="projFuelLinkTitle">
-            <div class="project-feature-main">
-              <div>
-                <div class="project-status-bar">
-                  <span class="badge badge-live">Live in Production</span>
-                  <span class="mono-tag" style="font-size:0.7rem;">Three-Sided Marketplace</span>
-                </div>
-                <h3 id="projFuelLinkTitle" class="project-name">FuelLinkPro</h3>
-                <p class="project-tagline">On-Demand Fuel Delivery Platform & Real-Time Logistics</p>
+        <!-- Spacious Editorial Projects Grid -->
+        <div class="editorial-projects-grid">
 
-                <div class="project-problem-callout">
-                  <strong>The Problem:</strong> Stranded drivers and rural commercial operators face catastrophic downtime when fuel tanks run dry far from service stations. Roadside dispatch is traditionally opaque and slow.
-                </div>
-
-                <div class="project-desc-block">
-                  <p>
-                    Co-founded and sole-engineered the backend platform connecting customers with vetted mobile fuel providers. Designed the 3-sided service architecture handling customer order requests, certified driver route dispatch, and administrative compliance.
-                  </p>
-                  <p>
-                    Engineered real-time GPS tracking via Socket.IO, PayFast payment gateway integration with cryptographic signature verification, Celery asynchronous queue dispatch for order timeout reconciliation, and containerized Docker production deployment.
-                  </p>
-                </div>
-              </div>
-
-              <div class="project-actions">
-                <a href="work/fuellinkpro/index.html" class="btn btn-primary btn-sm">Read Case Study →</a>
-                <a href="https://fuellinkpro.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Visit Live Platform ↗</a>
-              </div>
-            </div>
-
-            <div class="project-meta-sidebar">
-              <div class="project-meta-group">
-                <h4>My Role & Ownership</h4>
-                <p>Co-Founder & Sole Backend/Cloud Engineer</p>
-              </div>
-
-              <div class="project-meta-group">
-                <h4>Reported Early Traction</h4>
-                <p>10+ Registered Customers · 15+ Onboarded Drivers (Early Rollout Stage)</p>
-              </div>
-
-              <div class="project-meta-group">
-                <h4>Engineering Domain</h4>
-                <p>Distributed Systems, Geotagged Logistics & Payments</p>
-              </div>
-
-              <div class="project-meta-group">
-                <h4>Technology Stack</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Flask</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">SQLAlchemy</span>
-                  <span class="tech-tag">Redis</span>
-                  <span class="tech-tag">Socket.IO</span>
-                  <span class="tech-tag">Celery</span>
-                  <span class="tech-tag">PayFast</span>
-                  <span class="tech-tag">Docker</span>
-                  <span class="tech-tag">Nginx</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Feature 2: Wits Skills Mapping Platform -->
-          <article class="project-feature" aria-labelledby="projSkillsMappingTitle">
-            <div class="project-feature-main">
-              <div>
-                <div class="project-status-bar">
-                  <span class="badge badge-active">Active Research & Prototyping</span>
-                  <span class="mono-tag" style="font-size:0.7rem;">Future of Learning</span>
-                </div>
-                <h3 id="projSkillsMappingTitle" class="project-name">Wits Skills Mapping Platform</h3>
-                <p class="project-tagline">AI-Enabled Skills Discovery & Occupational Exploration</p>
-
-                <div class="project-problem-callout">
-                  <strong>The Problem:</strong> Static job taxonomies fail to capture dynamic skills demand, making it difficult for students and researchers to identify transferable competencies.
-                </div>
-
-                <div class="project-desc-block">
-                  <p>
-                    Engineered within Wits Enterprise under the Wits–merSETA Darkroom Project. Architected backend service layers and relational data schemas for automated curriculum vitae skill extraction, cognitive assessment telemetry, and occupational mapping.
-                  </p>
-                  <p>
-                    Implemented secure API boundaries between Next.js and FastAPI microservices while enforcing strict institutional data governance and student privacy protection.
-                  </p>
-                </div>
-              </div>
-
-              <div class="project-actions">
-                <a href="work/skills-mapping/index.html" class="btn btn-primary btn-sm">Read Case Study →</a>
-                <a href="research/index.html" class="btn btn-outline btn-sm">Research Context →</a>
+          <!-- 1. FuelLinkPro -->
+          <article class="editorial-project-card project-feature" data-category="backend logistics" aria-labelledby="titleFuelLink">
+            <div class="editorial-card-visual">
+              <img 
+                src="assets/images/studio-workstation.jpg" 
+                alt="FuelLinkPro on-demand logistics dispatch and payment systems architecture" 
+                class="editorial-card-img"
+                loading="lazy"
+              />
+              <div class="editorial-card-badge">
+                <span class="pulse-indicator" aria-hidden="true"></span>
+                <span>Live in Production</span>
               </div>
             </div>
 
-            <div class="project-meta-sidebar">
-              <div class="project-meta-group">
-                <h4>My Role & Ownership</h4>
-                <p>AI & Software Systems Developer Intern (API & Data Modeling)</p>
-              </div>
+            <div class="editorial-card-body">
+              <span class="editorial-meta-domain">Distributed Logistics · Commercial Platform</span>
+              <h3 id="titleFuelLink" class="editorial-project-title">FuelLinkPro</h3>
+              <p class="editorial-project-lead">
+                On-Demand Fuel Delivery Platform & Real-Time Logistics
+              </p>
+              <p class="editorial-project-summary">
+                Co-founded and sole-engineered the backend platform in Python/Flask with PostgreSQL. Engineered real-time driver tracking via Socket.IO, payment webhooks via PayFast with SHA-256 signature verification, and Celery/Redis background worker queues.
+              </p>
 
-              <div class="project-meta-group">
-                <h4>Institutional Context</h4>
-                <p>Wits Enterprise · Future of Learning Stream</p>
-              </div>
-
-              <div class="project-meta-group">
-                <h4>Engineering Domain</h4>
-                <p>Skills Ontologies, Cognitive Telemetry & LLM Extraction</p>
-              </div>
-
-              <div class="project-meta-group">
-                <h4>Technology Stack</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">Next.js</span>
-                  <span class="tech-tag">TypeScript</span>
-                  <span class="tech-tag">FastAPI</span>
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">Supabase</span>
-                  <span class="tech-tag">REST APIs</span>
+              <div class="editorial-meta-row">
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Role</span>
+                  <span class="editorial-meta-val">Co-Founder & Sole Backend Engineer</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Early Traction</span>
+                  <span class="editorial-meta-val">10+ Customers · 15+ Onboarded Drivers</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Stack</span>
+                  <span class="editorial-meta-val">Python · Flask · PostgreSQL · Celery · Redis · PayFast</span>
                 </div>
               </div>
+
+              <div class="editorial-card-actions">
+                <a href="work/fuellinkpro/index.html" class="editorial-arrow-link">
+                  <span>Read Case Study</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="https://fuellinkpro.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  Visit Platform ↗
+                </a>
+              </div>
+
+              <details class="editorial-details">
+                <summary>
+                  <span>Architecture Highlights & Fail-Safes</span>
+                  <span class="arrow" aria-hidden="true">+</span>
+                </summary>
+                <div class="editorial-details-content">
+                  <p>
+                    Automated background worker reconciles pending orders on a 15-minute timer, preventing zombie order locks. PayFast Instant Payment Notification (IPN) validates cryptographically signed MD5/SHA-256 hashes before marking invoices settled.
+                  </p>
+                </div>
+              </details>
             </div>
           </article>
 
-          <!-- Feature 3: Darkroom DataForge -->
-          <article class="project-feature" aria-labelledby="projDataForgeTitle">
-            <div class="project-feature-main">
-              <div>
-                <div class="project-status-bar">
-                  <span class="badge badge-active">Under Engineering</span>
-                  <span class="mono-tag" style="font-size:0.7rem;">Data Engineering</span>
-                </div>
-                <h3 id="projDataForgeTitle" class="project-name">Darkroom DataForge</h3>
-                <p class="project-tagline">Structured Data Extraction, Validation, and Dataset Generation</p>
-
-                <div class="project-problem-callout">
-                  <strong>Guiding Principle:</strong> <em>"Every extracted record should be traceable to its source."</em>
-                </div>
-
-                <div class="project-desc-block">
-                  <p>
-                    A data extraction platform designed to turn complex unstructured documents, broken OCR scans, and split multi-page tables into auditable research datasets.
-                  </p>
-                  <p>
-                    Implements an 8-stage pipeline: Document Ingestion → Classification → Extraction → Table Reconstruction → Normalization → Validation → Human Review → Export, complete with page coordinate provenance.
-                  </p>
-                </div>
-              </div>
-
-              <div class="project-actions">
-                <a href="work/darkroom-dataforge/index.html" class="btn btn-primary btn-sm">Read Case Study →</a>
+          <!-- 2. Wits Skills Mapping Platform -->
+          <article class="editorial-project-card project-feature" data-category="ai research" aria-labelledby="titleSkillsMapping">
+            <div class="editorial-card-visual">
+              <img 
+                src="assets/images/code-matrix-texture.jpg" 
+                alt="Wits Skills Mapping Platform semantic occupational ontology and telemetry interface" 
+                class="editorial-card-img"
+                loading="lazy"
+              />
+              <div class="editorial-card-badge">
+                <span class="status-pulse-cyan" aria-hidden="true"></span>
+                <span>Active Research</span>
               </div>
             </div>
 
-            <div class="project-meta-sidebar">
-              <div class="project-meta-group">
-                <h4>My Role & Ownership</h4>
-                <p>Software Systems Developer (Parsing Pipelines & Schema Design)</p>
-              </div>
+            <div class="editorial-card-body">
+              <span class="editorial-meta-domain">Future of Learning · Institutional Intelligence</span>
+              <h3 id="titleSkillsMapping" class="editorial-project-title">Wits Skills Mapping Platform</h3>
+              <p class="editorial-project-lead">
+                AI-Enabled Skills Discovery & Occupational Graph Platform
+              </p>
+              <p class="editorial-project-summary">
+                Built within the Wits–merSETA Darkroom Project at Wits Enterprise. Architected backend microservices in FastAPI, Next.js frontend interfaces, and relational schemas to match candidate competencies against the South African Organizing Framework for Occupations (OFO).
+              </p>
 
-              <div class="project-meta-group">
-                <h4>Key Capability</h4>
-                <p>Cross-Page Table Reconstruction & Bounding-Box Audit Trails</p>
-              </div>
-
-              <div class="project-meta-group">
-                <h4>Technology Stack</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">React</span>
-                  <span class="tech-tag">TypeScript</span>
-                  <span class="tech-tag">FastAPI</span>
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">SQLAlchemy</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">SQLite</span>
-                  <span class="tech-tag">Docker</span>
+              <div class="editorial-meta-row">
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Role</span>
+                  <span class="editorial-meta-val">AI & Software Systems Developer Intern</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Context</span>
+                  <span class="editorial-meta-val">Wits Enterprise · merSETA Research</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Stack</span>
+                  <span class="editorial-meta-val">FastAPI · Python · Next.js · Supabase · PostgreSQL</span>
                 </div>
               </div>
-            </div>
-          </article>
 
-          <!-- Feature 4: VerifySA -->
-          <article class="project-feature" aria-labelledby="projVerifySATitle">
-            <div class="project-feature-main">
-              <div>
-                <div class="project-status-bar">
-                  <span class="badge badge-hackathon">5-Hour Hackathon Build</span>
-                  <span class="mono-tag" style="font-size:0.7rem;">Soweto AI Challenge</span>
-                </div>
-                <h3 id="projVerifySATitle" class="project-name">VerifySA</h3>
-                <p class="project-tagline">AI-Assisted Document Verification & Deterministic Rule Validation</p>
+              <div class="editorial-card-actions">
+                <a href="work/skills-mapping/index.html" class="editorial-arrow-link">
+                  <span>Read Case Study</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="research/index.html" class="btn btn-outline btn-sm">
+                  Research Context →
+                </a>
+              </div>
 
-                <div class="project-problem-callout">
-                  <strong>The Challenge:</strong> Building a production-grade document verification proof-of-concept under extreme time constraints without compromising auditability.
-                </div>
-
-                <div class="project-desc-block">
+              <details class="editorial-details">
+                <summary>
+                  <span>Taxonomy Matching & Data Privacy</span>
+                  <span class="arrow" aria-hidden="true">+</span>
+                </summary>
+                <div class="editorial-details-content">
                   <p>
-                    Led a 10-person developer team during a 5-hour hackathon sprint. Implemented a hybrid architecture pairing OpenAI GPT-4o multimodal parsing with deterministic rule validation, generating transparent trust scores and verifiable PDF reports.
-                  </p>
-                  <p>
-                    <em>Honest Disclosure:</em> Built as a rapid hackathon prototype. AI parsing flags potential anomalies, but deterministic validation and human checks remain essential for legal authentication.
+                    Strict privacy boundary: Candidate CV data is parsed in memory and anonymized before semantic embedding generation. Matches skills against South African labor market demand without persisting raw PII.
                   </p>
                 </div>
-              </div>
-
-              <div class="project-actions">
-                <a href="work/verifysa/index.html" class="btn btn-primary btn-sm">Read Case Study →</a>
-                <a href="https://verify-sa.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Open Hackathon Demo ↗</a>
-              </div>
-            </div>
-
-            <div class="project-meta-sidebar">
-              <div class="project-meta-group">
-                <h4>My Role & Leadership</h4>
-                <p>Team Lead (Coordinated 10 Developers in 5-Hour Sprint)</p>
-              </div>
-
-              <div class="project-meta-group">
-                <h4>Architecture Pattern</h4>
-                <p>Hybrid (LLM Extraction + Deterministic Business Rules)</p>
-              </div>
-
-              <div class="project-meta-group">
-                <h4>Technology Stack</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">Next.js 15</span>
-                  <span class="tech-tag">React 19</span>
-                  <span class="tech-tag">TypeScript</span>
-                  <span class="tech-tag">Supabase</span>
-                  <span class="tech-tag">GPT-4o API</span>
-                  <span class="tech-tag">Tailwind CSS</span>
-                </div>
-              </div>
+              </details>
             </div>
           </article>
 
-          <!-- Feature 5: TUT Event Management -->
-          <article class="project-feature" aria-labelledby="projTUTEventTitle">
-            <div class="project-feature-main">
-              <div>
-                <div class="project-status-bar">
-                  <span class="badge badge-live">Deployed & Live</span>
-                  <span class="mono-tag" style="font-size:0.7rem;">Campus Logistics</span>
-                </div>
-                <h3 id="projTUTEventTitle" class="project-name">TUT Event Management System</h3>
-                <p class="project-tagline">Centralized Campus Event Discovery & QR Ticketing Hub</p>
-
-                <div class="project-problem-callout">
-                  <strong>The Problem:</strong> Fragmented student event notifications across flyers and unofficial messaging groups led to high gate fraud and lost attendance telemetry.
-                </div>
-
-                <div class="project-desc-block">
-                  <p>
-                    Led the TriTech Solutions team (3 developers) and engineered the entire backend system: PostgreSQL database schema, Flask API endpoints for event creation, registration workflows, cryptographic QR-code generation, and automated RSVP notifications via WhatsApp and email.
-                  </p>
-                </div>
-              </div>
-
-              <div class="project-actions">
-                <a href="work/tut-event-management/index.html" class="btn btn-primary btn-sm">Read Case Study →</a>
-                <a href="https://mytutevents.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Visit Platform ↗</a>
+          <!-- 3. Darkroom DataForge -->
+          <article class="editorial-project-card project-feature" data-category="data ai backend" aria-labelledby="titleDataForge">
+            <div class="editorial-card-visual">
+              <img 
+                src="assets/images/bg4.jpg" 
+                alt="Darkroom DataForge structured multi-page document parsing and coordinate audit pipeline" 
+                class="editorial-card-img"
+                loading="lazy"
+              />
+              <div class="editorial-card-badge">
+                <span class="status-pulse-cyan" aria-hidden="true"></span>
+                <span>Under Engineering</span>
               </div>
             </div>
 
-            <div class="project-meta-sidebar">
-              <div class="project-meta-group">
-                <h4>My Role & Leadership</h4>
-                <p>Team Leader & Backend Developer (TriTech Solutions)</p>
-              </div>
+            <div class="editorial-card-body">
+              <span class="editorial-meta-domain">Data Engineering · Provenance Pipelines</span>
+              <h3 id="titleDataForge" class="editorial-project-title">Darkroom DataForge</h3>
+              <p class="editorial-project-lead">
+                Structured Document Extraction, Validation, and Dataset Generation
+              </p>
+              <p class="editorial-project-summary">
+                Engineered around the core principle: "Every extracted record must be traceable to its source." Built an 8-stage extraction pipeline with cross-page table reconstruction and record-level bounding box provenance for academic and legal auditing.
+              </p>
 
-              <div class="project-meta-group">
-                <h4>Core Innovation</h4>
-                <p>Tamper-Evident QR Tokenization & Automated Dispatch</p>
-              </div>
-
-              <div class="project-meta-group">
-                <h4>Technology Stack</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Flask</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">JavaScript</span>
-                  <span class="tech-tag">QR Tokenizer</span>
-                  <span class="tech-tag">WhatsApp API</span>
-                  <span class="tech-tag">Vercel</span>
+              <div class="editorial-meta-row">
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Role</span>
+                  <span class="editorial-meta-val">Software Systems Developer (Parsing Pipelines)</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Architecture</span>
+                  <span class="editorial-meta-val">8-Stage Pipeline · Bounding Box Audit Mapping</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Stack</span>
+                  <span class="editorial-meta-val">Python · FastAPI · OCR Engines · Pydantic · Docker</span>
                 </div>
               </div>
+
+              <div class="editorial-card-actions">
+                <a href="work/darkroom-dataforge/index.html" class="editorial-arrow-link">
+                  <span>Read Case Study</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+
+              <details class="editorial-details">
+                <summary>
+                  <span>Coordinate-Level Provenance Details</span>
+                  <span class="arrow" aria-hidden="true">+</span>
+                </summary>
+                <div class="editorial-details-content">
+                  <p>
+                    Retains normalized bounding-box coordinates for each extracted cell, allowing auditors to click any generated database record and see the exact pixels from the source document highlighted in real time.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <!-- 4. VerifySA -->
+          <article class="editorial-project-card project-feature" data-category="ai backend" aria-labelledby="titleVerifySA">
+            <div class="editorial-card-visual">
+              <img 
+                src="assets/images/notion-cover.jpg" 
+                alt="VerifySA autonomous identity document verification interface and Luhn checksum validation" 
+                class="editorial-card-img"
+                loading="lazy"
+              />
+              <div class="editorial-card-badge">
+                <span class="pulse-indicator" aria-hidden="true"></span>
+                <span>Hackathon Winner</span>
+              </div>
+            </div>
+
+            <div class="editorial-card-body">
+              <span class="editorial-meta-domain">AI Governance · 5-Hour Rapid Sprint</span>
+              <h3 id="titleVerifySA" class="editorial-project-title">VerifySA</h3>
+              <p class="editorial-project-lead">
+                Autonomous Identity Document Verification & Fraud Detection
+              </p>
+              <p class="editorial-project-summary">
+                Led a 10-person developer cohort during a high-intensity 5-hour hackathon. Implemented a hybrid architecture pairing OpenAI GPT-4o multimodal vision parsing with deterministic rule validation (Luhn checksum algorithms).
+              </p>
+
+              <div class="editorial-meta-row">
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Leadership</span>
+                  <span class="editorial-meta-val">Team Lead (10 Developers) · 1st Place Sprint</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Validation</span>
+                  <span class="editorial-meta-val">Multimodal LLM + Deterministic Luhn Rules</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Stack</span>
+                  <span class="editorial-meta-val">Next.js 15 · TypeScript · GPT-4o API · Supabase</span>
+                </div>
+              </div>
+
+              <div class="editorial-card-actions">
+                <a href="work/verifysa/index.html" class="editorial-arrow-link">
+                  <span>Read Case Study</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="https://verify-sa.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  Open Demo ↗
+                </a>
+              </div>
+
+              <details class="editorial-details">
+                <summary>
+                  <span>Deterministic Validation & Honest Disclosure</span>
+                  <span class="arrow" aria-hidden="true">+</span>
+                </summary>
+                <div class="editorial-details-content">
+                  <p>
+                    Honest assessment: Built as an agile sprint prototype. While AI flags anomalies, legal verification mandates hard mathematical checksums and official home affairs database reconciliation.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <!-- 5. TUT Event Management System -->
+          <article class="editorial-project-card project-feature" data-category="backend logistics" aria-labelledby="titleTUTEvent">
+            <div class="editorial-card-visual">
+              <img 
+                src="assets/images/bg0.jpg" 
+                alt="TUT Event Management campus ticketing portal and cryptographic QR code validation system" 
+                class="editorial-card-img"
+                loading="lazy"
+              />
+              <div class="editorial-card-badge">
+                <span class="pulse-indicator" aria-hidden="true"></span>
+                <span>Deployed & Live</span>
+              </div>
+            </div>
+
+            <div class="editorial-card-body">
+              <span class="editorial-meta-domain">Campus Logistics · High-Concurrency</span>
+              <h3 id="titleTUTEvent" class="editorial-project-title">TUT Event Management System</h3>
+              <p class="editorial-project-lead">
+                Centralized Campus Event Discovery & Cryptographic QR Ticketing
+              </p>
+              <p class="editorial-project-summary">
+                Led the TriTech Solutions team (3 developers) and engineered the backend: PostgreSQL schema, Flask REST APIs, tamper-evident cryptographic QR ticket generation, and automated RSVP notifications via WhatsApp and email.
+              </p>
+
+              <div class="editorial-meta-row">
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Role</span>
+                  <span class="editorial-meta-val">Team Leader & Backend Developer</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Innovation</span>
+                  <span class="editorial-meta-val">Tamper-Evident QR Tokenization & RSVP Engine</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Stack</span>
+                  <span class="editorial-meta-val">Python · Flask · PostgreSQL · QR Tokenizer · Vercel</span>
+                </div>
+              </div>
+
+              <div class="editorial-card-actions">
+                <a href="work/tut-event-management/index.html" class="editorial-arrow-link">
+                  <span>Read Case Study</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="https://mytutevents.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  Visit Platform ↗
+                </a>
+              </div>
+
+              <details class="editorial-details">
+                <summary>
+                  <span>Cryptographic Tokenization Security</span>
+                  <span class="arrow" aria-hidden="true">+</span>
+                </summary>
+                <div class="editorial-details-content">
+                  <p>
+                    Generates time-bound, cryptographically signed QR tokens that gate staff verify using any smartphone camera without exposing database connection credentials.
+                  </p>
+                </div>
+              </details>
             </div>
           </article>
 
         </div>
 
-        <div style="text-align: center; margin-top: 3.5rem;">
+        <div style="text-align: center; margin-top: 3rem;">
           <a href="work/index.html" class="btn btn-secondary">
             View All Projects & Engineering Case Studies →
           </a>
@@ -576,256 +552,226 @@
       </div>
     </section>
 
-    <!-- SECTION D: CURRENT PROFESSIONAL FOCUS -->
-    <section class="section-padding" style="background-color: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);" aria-labelledby="currentWorkHeading">
-      <div class="container">
-        <div class="current-work-feature">
-          <div class="current-work-grid">
-            <div>
-              <span class="mono-tag">Current Professional Engagement</span>
-              <h2 id="currentWorkHeading" style="margin-top: 0.5rem; margin-bottom: 1rem;">
-                Wits Enterprise · Future of Learning
-              </h2>
-              <p class="lead-text" style="margin-bottom: 1.5rem;">
-                Working as an AI & Software Systems Developer Intern within the Wits–merSETA Darkroom Project, engineering reliable data systems and exploring how emerging AI technologies can enhance educational research and workforce intelligence.
-              </p>
-              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.5rem;">
-                My work centers on building software that bridges academic research and practical systems engineering. We develop applications that analyze occupational competencies, extract structured data from unstructured documents, and record behavioral telemetry from learning environments.
-              </p>
-              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="research/index.html" class="btn btn-primary btn-sm">Explore Research & AI Focus →</a>
-                <a href="experience/index.html#wits-enterprise" class="btn btn-outline btn-sm">View Role Breakdown</a>
-              </div>
-            </div>
-
-            <div class="research-pillars">
-              <div class="pillar-card">
-                <h4>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                  Skills Intelligence Pipelines
-                </h4>
-                <p>Taxonomy modeling, CV competency extraction, and skills-matching algorithms connecting qualifications with evolving industry needs.</p>
-              </div>
-
-              <div class="pillar-card">
-                <h4>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-                  Document Extraction & Provenance
-                </h4>
-                <p>Reconstructing complex multi-page tabular data with coordinate-level source provenance for auditable academic research datasets.</p>
-              </div>
-
-              <div class="pillar-card">
-                <h4>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                  Responsible AI Boundaries
-                </h4>
-                <p>Grounding generative models against verified institutional data, preventing hallucinations, and safeguarding participant privacy.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION E: ENGINEERING APPROACH -->
-    <section class="section-padding" aria-labelledby="principlesHeading">
+    <!-- 4. FOCUSED ABOUT SECTION -->
+    <section class="section-padding" id="about" style="border-top: 1px solid var(--border-subtle);" aria-labelledby="aboutHeading">
       <div class="container">
         <div class="section-header">
-          <span class="mono-tag">Engineering Philosophy</span>
-          <h2 id="principlesHeading">How I Approach Software Engineering</h2>
+          <span class="mono-tag">02 / About & Credentials</span>
+          <h2 id="aboutHeading">Engineering with Rigor and Purpose</h2>
           <p class="section-desc">
-            Reliable systems are rarely built on hype. They require methodical problem framing, defensive database design, careful integration boundaries, and intellectual honesty.
+            A documented record of software development ownership, academic foundations, and practical systems discipline.
           </p>
         </div>
 
-        <div class="principles-grid">
-          <div class="principle-card">
-            <span class="principle-index">01</span>
-            <h3>Understand the problem before choosing tools</h3>
-            <p>Frameworks and libraries are implementation details. I invest time clarifying real user workflows, data boundaries, and system constraints before committing to technical architecture.</p>
-          </div>
-
-          <div class="principle-card">
-            <span class="principle-index">02</span>
-            <h3>Design defensive backend models & schemas</h3>
-            <p>Data integrity is the foundation of dependable software. I enforce relational consistency, strict typing, database constraints, and authenticated authorization at the system perimeter.</p>
-          </div>
-
-          <div class="principle-card">
-            <span class="principle-index">03</span>
-            <h3>Build interfaces around real workflows</h3>
-            <p>Whether for an on-demand fuel driver, a campus student registering for an event, or an academic reviewing parsed records, UI exists to empower user tasks with zero friction.</p>
-          </div>
-
-          <div class="principle-card">
-            <span class="principle-index">04</span>
-            <h3>Integrate external APIs and AI responsibly</h3>
-            <p>Third-party APIs and LLMs can fail, drift, or hallucinate. I isolate third-party integrations behind deterministic validation, strict timeouts, and verified fallback paths.</p>
-          </div>
-
-          <div class="principle-card">
-            <span class="principle-index">05</span>
-            <h3>Document decisions and acknowledge trade-offs</h3>
-            <p>Engineering maturity means owning trade-offs. I document technical decisions, security boundaries, and architectural limitations honestly rather than claiming perfection.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION F: EXPERIENCE SNAPSHOT -->
-    <section class="section-padding" style="background-color: var(--bg-surface); border-top: 1px solid var(--border-subtle);" aria-labelledby="experienceHeading">
-      <div class="container">
-        <div class="section-header">
-          <span class="mono-tag">Career Timeline</span>
-          <h2 id="experienceHeading">Professional Experience</h2>
-          <p class="section-desc">
-            A combination of professional software development, startup ownership, academic instruction, and service discipline.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <!-- Wits Enterprise -->
-          <div class="timeline-entry">
-            <div class="timeline-dot current"></div>
-            <div class="timeline-content">
-              <h3 class="timeline-role">AI & Software Systems Developer Intern</h3>
-              <p class="timeline-company">Wits Enterprise · Future of Learning</p>
-              <div class="timeline-meta">
-                <span>August 2026 – Present</span>
-                <span>Braamfontein, Johannesburg</span>
-                <span>Wits–merSETA Darkroom</span>
+        <div class="editorial-about-grid">
+          <!-- Left Column: Portrait & Verified Credentials -->
+          <div class="editorial-about-profile">
+            <div class="editorial-portrait-frame">
+              <img 
+                src="assets/images/myphoto.jpg" 
+                alt="Portrait photo of Thabang Dikotope in academic regalia at Tshwane University of Technology" 
+                class="editorial-portrait-img"
+                loading="lazy"
+              />
+              <div class="editorial-portrait-caption">
+                <span class="pulse-indicator" aria-hidden="true"></span>
+                <span style="font-size: 0.8rem; font-weight: 500; color: #FFFFFF;">Thabang Dikotope</span>
               </div>
-              <ul class="timeline-bullets">
-                <li>Developing occupational exploration and skills intelligence platforms using Next.js, FastAPI, and Supabase.</li>
-                <li>Architecting data models for CV skill extraction and cognitive assessment telemetry.</li>
-                <li>Investigating responsible AI retrieval and structured verification pipelines for research datasets.</li>
-              </ul>
+            </div>
+
+            <div class="editorial-cred-card">
+              <div class="editorial-cred-item">
+                <span class="editorial-cred-icon">🎓</span>
+                <div>
+                  <strong style="color: var(--text-primary); display: block; font-size: 0.85rem;">National Diploma in Computer Science</strong>
+                  <span style="color: var(--text-muted); font-size: 0.78rem;">Tshwane University of Technology · 360/360 Credits Verified</span>
+                </div>
+              </div>
+              <div class="editorial-cred-item">
+                <span class="editorial-cred-icon">☁️</span>
+                <div>
+                  <strong style="color: var(--text-primary); display: block; font-size: 0.85rem;">AWS Certified</strong>
+                  <span style="color: var(--text-muted); font-size: 0.78rem;">AWS Cloud Quest: Cloud Practitioner</span>
+                </div>
+              </div>
+              <div class="editorial-cred-item">
+                <span class="editorial-cred-icon">🏢</span>
+                <div>
+                  <strong style="color: var(--text-primary); display: block; font-size: 0.85rem;">Wits Enterprise</strong>
+                  <span style="color: var(--text-muted); font-size: 0.78rem;">AI & Software Systems Developer Intern (Future of Learning)</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- FuelLinkPro -->
-          <div class="timeline-entry">
-            <div class="timeline-dot current"></div>
-            <div class="timeline-content">
-              <h3 class="timeline-role">Co-Founder & Software Engineer</h3>
-              <p class="timeline-company">FuelLinkPro (Pty) Ltd</p>
-              <div class="timeline-meta">
-                <span>November 2025 – Present</span>
-                <span>Johannesburg, South Africa</span>
-                <span>On-Demand Logistics</span>
-              </div>
-              <ul class="timeline-bullets">
-                <li>Sole backend engineer for a three-sided mobile fuel delivery platform connecting customers, drivers, and admins.</li>
-                <li>Engineered PostgreSQL schema, Flask REST APIs, JWT session security, and PayFast HMAC payment verification.</li>
-                <li>Configured Celery background queues, Redis state caching, and Docker/Nginx reverse proxy deployment.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- MTP IT Solutions -->
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3 class="timeline-role">Software Development & IT Support Intern (WIL)</h3>
-              <p class="timeline-company">MTP IT Solutions / T&T Group (Pty) Ltd</p>
-              <div class="timeline-meta">
-                <span>September 2025 – February 2026</span>
-                <span>eMalahleni, Mpumalanga</span>
-                <span>Work-Integrated Learning</span>
-              </div>
-              <ul class="timeline-bullets">
-                <li>Built client-facing web solutions, managed DNS configurations, SSL certificates, and Linux web hosting.</li>
-                <li>Developed and validated RESTful API integrations with Postman, ensuring schema compliance.</li>
-                <li>Conducted root-cause analysis on enterprise workstation incidents, authoring reusable knowledge base docs.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 2.5rem;">
-          <a href="experience/index.html" class="btn btn-secondary">
-            View Complete Experience & Education Details →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION G: AI PORTFOLIO ASSISTANT INVITATION -->
-    <section class="section-padding" style="border-top: 1px solid var(--border-subtle); background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%);" aria-labelledby="assistantInviteHeading">
-      <div class="container container-narrow" style="text-align: center;">
-        <span class="mono-tag" style="justify-content: center;">Interactive Exploration</span>
-        <h2 id="assistantInviteHeading" style="margin-top: 0.5rem; margin-bottom: 1rem;">
-          Ask My Portfolio Assistant
-        </h2>
-        <p class="lead-text" style="margin-bottom: 2rem;">
-          Have specific questions about my architecture decisions, individual contributions, hackathon leadership, or education? Ask my AI portfolio assistant. Every response is grounded in my verified engineering record.
-        </p>
-
-        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <button type="button" class="btn btn-primary" onclick="document.getElementById('aiAssistantLauncher')?.click()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.4rem;"><rect x="3" y="8" width="18" height="12" rx="4"></rect><path d="M12 2v6"></path><circle cx="9" cy="13" r="1"></circle><circle cx="15" cy="13" r="1"></circle></svg>
-            Launch Assistant
-          </button>
-          <a href="about/index.html" class="btn btn-secondary">Read Full Profile</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION H: CONTACT INVITATION -->
-    <section class="section-padding" style="border-top: 1px solid var(--border-subtle);" aria-labelledby="contactInviteHeading">
-      <div class="container">
-        <div class="contact-grid">
-          <div>
-            <span class="mono-tag">Get In Touch</span>
-            <h2 id="contactInviteHeading" style="margin-top: 0.5rem; margin-bottom: 1rem;">
-              Let's Build Something Meaningful
-            </h2>
-            <p class="lead-text" style="margin-bottom: 2rem;">
-              I am actively seeking graduate software engineering opportunities, junior full-stack roles, and research engineering collaborations in Johannesburg.
+          <!-- Right Column: Narrative & Technical Capabilities -->
+          <div class="editorial-about-narrative">
+            <h3>Bridging Theoretical Rigor with Production Realities</h3>
+            <p>
+              I am a graduate software engineer based in Johannesburg, South Africa. My focus spans backend architecture, real-time distributed systems, and practical artificial intelligence.
+            </p>
+            <p>
+              Rather than viewing technology as abstract code, I approach software as an instrument of real-world impact. Whether sole-engineering the complete backend of a live on-demand logistics marketplace (FuelLinkPro) or developing skills intelligence platforms at Wits Enterprise, my focus remains constant: building dependable systems that solve concrete problems.
             </p>
 
-            <div class="contact-info-card">
-              <div class="contact-channel">
-                <div class="channel-icon" aria-hidden="true">✉</div>
-                <div class="channel-details">
-                  <h4>Email Directly</h4>
+            <h4 style="font-size: 1.15rem; font-weight: 500; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+              Core Capabilities Matrix
+            </h4>
+
+            <div class="editorial-skills-matrix">
+              <div class="editorial-skill-group">
+                <h4>Backend & API Architecture</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">Flask</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">SQLAlchemy</span>
+                  <span class="tech-tag">RESTful APIs</span>
+                  <span class="tech-tag">Supabase</span>
+                </div>
+              </div>
+
+              <div class="editorial-skill-group">
+                <h4>Distributed Systems & Cloud</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Celery</span>
+                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">Docker</span>
+                  <span class="tech-tag">AWS Cloud</span>
+                  <span class="tech-tag">Linux / Nginx</span>
+                  <span class="tech-tag">Socket.IO</span>
+                  <span class="tech-tag">PayFast IPN</span>
+                </div>
+              </div>
+
+              <div class="editorial-skill-group">
+                <h4>Frontend & Application Engineering</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Tailwind CSS</span>
+                  <span class="tech-tag">Semantic HTML5</span>
+                  <span class="tech-tag">Responsive UI</span>
+                </div>
+              </div>
+
+              <div class="editorial-skill-group">
+                <h4>Applied AI & Systems Governance</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Prompt Architecture</span>
+                  <span class="tech-tag">RAG Pipelines</span>
+                  <span class="tech-tag">Multimodal Vision</span>
+                  <span class="tech-tag">Luhn Validation</span>
+                  <span class="tech-tag">OFO Taxonomies</span>
+                  <span class="tech-tag">Document OCR</span>
+                </div>
+              </div>
+            </div>
+
+            <h4 style="font-size: 1.15rem; font-weight: 500; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+              Engineering Principles
+            </h4>
+
+            <div class="editorial-principles-list">
+              <div class="editorial-principle-card">
+                <span class="editorial-principle-title">1. Real-World Utility Over Technical Vanity</span>
+                <p class="editorial-principle-desc">Technology must solve actual friction for real users. Production readiness always trumps speculative complexity.</p>
+              </div>
+              <div class="editorial-principle-card">
+                <span class="editorial-principle-title">2. Verifiable Provenance & Traceability</span>
+                <p class="editorial-principle-desc">Every extracted data record and algorithmic conclusion must be auditable back to its exact source coordinates.</p>
+              </div>
+              <div class="editorial-principle-card">
+                <span class="editorial-principle-title">3. Defensive Architecture by Default</span>
+                <p class="editorial-principle-desc">Cryptographic validation, state machine enums, automated reconciliation, and strict boundary controls protect system integrity.</p>
+              </div>
+              <div class="editorial-principle-card">
+                <span class="editorial-principle-title">4. Ethical AI & Honest Disclosures</span>
+                <p class="editorial-principle-desc">Never substitute AI confidence for deterministic verification. Disclose limitations openly and enforce privacy bounds.</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+              <a href="about/index.html" class="editorial-arrow-link">
+                <span>View Full Academic & Professional Biography</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CLEAN CONTACT SECTION -->
+    <section class="section-padding" id="contact" style="border-top: 1px solid var(--border-subtle);" aria-labelledby="contactHeading">
+      <div class="container">
+        <div class="section-header">
+          <span class="mono-tag">03 / Direct Channels</span>
+          <h2 id="contactHeading">Let's Build Something Meaningful</h2>
+          <p class="section-desc">
+            Available for graduate software engineering positions, full-stack systems roles, and research engineering collaborations.
+          </p>
+        </div>
+
+        <div class="editorial-contact-grid">
+          <!-- Left Column: Direct Channels Card -->
+          <div class="editorial-channel-card">
+            <div class="editorial-channel-item">
+              <div class="editorial-channel-icon" aria-hidden="true">✉</div>
+              <div class="editorial-channel-info">
+                <h4>Direct Email</h4>
+                <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
                   <a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a>
+                  <button type="button" class="btn btn-outline btn-sm" data-copy="thabangdikotope624@gmail.com" title="Copy email address" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;">
+                    Copy
+                  </button>
                 </div>
               </div>
+            </div>
 
-              <div class="contact-channel">
-                <div class="channel-icon" aria-hidden="true">📞</div>
-                <div class="channel-details">
-                  <h4>Direct Phone</h4>
-                  <a href="tel:+27795948790">+27 79 594 8790</a>
-                </div>
+            <div class="editorial-channel-item">
+              <div class="editorial-channel-icon" aria-hidden="true">📞</div>
+              <div class="editorial-channel-info">
+                <h4>Direct Telephone</h4>
+                <a href="tel:+27795948790">+27 79 594 8790</a>
               </div>
+            </div>
 
-              <div class="contact-channel">
-                <div class="channel-icon" aria-hidden="true">📍</div>
-                <div class="channel-details">
-                  <h4>Location</h4>
-                  <span>Johannesburg, Gauteng, South Africa</span>
-                </div>
+            <div class="editorial-channel-item">
+              <div class="editorial-channel-icon" aria-hidden="true">📍</div>
+              <div class="editorial-channel-info">
+                <h4>Primary Location</h4>
+                <span>Johannesburg & Pretoria, Gauteng, South Africa</span>
               </div>
+            </div>
 
-              <div class="contact-channel">
-                <div class="channel-icon" aria-hidden="true">🔗</div>
-                <div class="channel-details">
-                  <h4>Professional Profiles</h4>
-                  <div style="display: flex; gap: 1rem; margin-top: 0.35rem;">
-                    <a href="https://www.linkedin.com/in/drey780822" target="_blank" rel="noopener" class="text-link">LinkedIn ↗</a>
-                    <a href="https://github.com/Drey780822" target="_blank" rel="noopener" class="text-link">GitHub ↗</a>
-                  </div>
+            <div class="editorial-channel-item">
+              <div class="editorial-channel-icon" aria-hidden="true">🕒</div>
+              <div class="editorial-channel-info">
+                <h4>Local Time</h4>
+                <span class="live-sast-time">--:--:-- SAST (UTC+2)</span>
+              </div>
+            </div>
+
+            <div class="editorial-channel-item">
+              <div class="editorial-channel-icon" aria-hidden="true">🔗</div>
+              <div class="editorial-channel-info">
+                <h4>Professional Networks</h4>
+                <div style="display: flex; gap: 1rem; margin-top: 0.25rem;">
+                  <a href="https://www.linkedin.com/in/drey780822" target="_blank" rel="noopener" class="text-link">LinkedIn ↗</a>
+                  <a href="https://github.com/Drey780822" target="_blank" rel="noopener" class="text-link">GitHub ↗</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Contact Form -->
-          <div class="contact-info-card" style="background-color: var(--bg-surface-elevated);">
-            <h3 style="font-size: 1.25rem; margin-bottom: 1.25rem;">Send a Direct Message</h3>
+          <!-- Right Column: Direct Message Form -->
+          <div class="contact-info-card" style="background-color: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.75rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 1.25rem; color: var(--text-primary);">
+              Send a Direct Message
+            </h3>
             <form id="contactForm" aria-label="Direct message form">
               <div class="form-group">
                 <label for="contactName" class="form-label">Your Name</label>
@@ -854,7 +800,7 @@
 
   </main>
 
-  <!-- SITE FOOTER -->
+  <!-- 6. RESTRAINED FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-top">
@@ -868,11 +814,12 @@
         <div class="footer-col">
           <h4>Navigation</h4>
           <div class="footer-links">
-            <a href="work/index.html">Engineering Work</a>
+            <a href="#work">Selected Work</a>
+            <a href="work/index.html">All Case Studies</a>
             <a href="research/index.html">Research & AI</a>
-            <a href="experience/index.html">Professional Experience</a>
+            <a href="experience/index.html">Professional History</a>
             <a href="about/index.html">About & Credentials</a>
-            <a href="contact/index.html">Contact</a>
+            <a href="#contact">Contact</a>
           </div>
         </div>
 
@@ -890,7 +837,7 @@
 
       <div class="footer-bottom">
         <div>
-          © 2026 Thabang Dikotope. Built with precision, semantic standards, and grounded evidence.
+          © 2026 Thabang Dikotope. Built with quiet confidence, semantic rigor, and verified evidence.
         </div>
         <div class="footer-sast-badge">
           Local Time: <span class="live-sast-time">--:--:-- SAST</span> (Johannesburg)
@@ -901,6 +848,7 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="js/ambient-visual.js"></script>
   <script src="js/main.js"></script>
   <script src="js/assistant.js"></script>
 </body>

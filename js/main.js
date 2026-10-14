@@ -78,7 +78,65 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSastTime();
   setInterval(updateSastTime, 1000);
 
-  // 4. Copy to Clipboard Utility
+  // 4. Reading Progress Indicator
+  const readingProgressBar = document.getElementById('readingProgress');
+  if (readingProgressBar) {
+    const updateReadingProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      readingProgressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+    };
+    window.addEventListener('scroll', updateReadingProgress, { passive: true });
+    updateReadingProgress();
+  }
+
+  // 5. Notion Toast Notification Helper
+  let toastTimeout = null;
+  function showNotionToast(message, icon = '✓') {
+    let toast = document.getElementById('notionToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'notionToast';
+      toast.className = 'notion-toast';
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<span class="notion-toast-icon">${icon}</span><span>${message}</span>`;
+    toast.classList.add('show');
+    if (toastTimeout) clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2400);
+  }
+  window.showNotionToast = showNotionToast;
+
+  // 6. Interactive Notion Project Category Filtering
+  const filterButtons = document.querySelectorAll('.notion-filter-btn');
+  const projectCards = document.querySelectorAll('.project-feature[data-category]');
+
+  if (filterButtons.length && projectCards.length) {
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selectedCategory = btn.getAttribute('data-filter') || 'all';
+
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        projectCards.forEach(card => {
+          const cardCategories = (card.getAttribute('data-category') || '').toLowerCase().split(' ');
+          if (selectedCategory === 'all' || cardCategories.includes(selectedCategory.toLowerCase())) {
+            card.style.display = '';
+            card.style.opacity = '1';
+          } else {
+            card.style.display = 'none';
+            card.style.opacity = '0';
+          }
+        });
+      });
+    });
+  }
+
+  // 7. Copy to Clipboard Utility with Notion Toast
   const copyButtons = document.querySelectorAll('[data-copy]');
   copyButtons.forEach(btn => {
     btn.addEventListener('click', async () => {
@@ -87,11 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         await navigator.clipboard.writeText(textToCopy);
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<span>Copied!</span>';
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-        }, 2000);
+        showNotionToast(`Copied "${textToCopy}" to clipboard`);
       } catch (err) {
         // Fallback
         const textarea = document.createElement('textarea');
@@ -102,16 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
         textarea.select();
         try { document.execCommand('copy'); } catch (e) {}
         document.body.removeChild(textarea);
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<span>Copied!</span>';
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-        }, 2000);
+        showNotionToast(`Copied to clipboard`);
       }
     });
   });
 
-  // 5. Contact Form Handler (EmailJS + Mailto Fallback)
+  // 8. Contact Form Handler (EmailJS + Mailto Fallback)
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     // Initialize EmailJS if library loaded

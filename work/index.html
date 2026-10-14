@@ -6,13 +6,15 @@
   <meta name="description" content="Engineering Work & Systems Architecture Portfolio of Thabang Dikotope — Full-Stack Applications, Distributed Systems, and AI-Enabled Software." />
   <title>Work & Systems Showcase — Thabang Dikotope</title>
 
+  <!-- Typography: Manrope & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
+  <div id="readingProgress" aria-hidden="true"></div>
   <a href="#mainContent" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
@@ -63,6 +65,12 @@
 
   <!-- Main Content -->
   <main id="mainContent">
+
+    <!-- NOTION PANORAMIC COVER BANNER -->
+    <div class="notion-cover-container" aria-hidden="true">
+      <img src="../assets/images/notion-cover.jpg" alt="" class="notion-cover-img" loading="eager" />
+      <div class="notion-cover-gradient"></div>
+    </div>
     <section class="case-study-hero">
       <div class="container">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -81,10 +89,35 @@
     <!-- Project List -->
     <section class="section-padding">
       <div class="container">
+
+        <!-- Notion Interactive Filter Bar -->
+        <div class="notion-filter-bar" role="toolbar" aria-label="Filter case studies by discipline">
+          <button type="button" class="notion-filter-btn active" data-filter="all">
+            <span>All Case Studies</span>
+            <span class="notion-filter-count">5</span>
+          </button>
+          <button type="button" class="notion-filter-btn" data-filter="backend">
+            <span>⚡ Backend & Distributed Systems</span>
+            <span class="notion-filter-count">3</span>
+          </button>
+          <button type="button" class="notion-filter-btn" data-filter="ai">
+            <span>🧠 Applied AI & LLMs</span>
+            <span class="notion-filter-count">3</span>
+          </button>
+          <button type="button" class="notion-filter-btn" data-filter="data">
+            <span>📊 Data Engineering</span>
+            <span class="notion-filter-count">1</span>
+          </button>
+          <button type="button" class="notion-filter-btn" data-filter="logistics">
+            <span>📍 Real-Time Logistics</span>
+            <span class="notion-filter-count">2</span>
+          </button>
+        </div>
+
         <div class="project-features-list">
 
           <!-- 1. FuelLinkPro -->
-          <article class="project-feature" id="fuellinkpro">
+          <article class="project-feature" data-category="backend logistics" id="fuellinkpro">
             <div class="project-feature-main">
               <div>
                 <div class="project-status-bar">
@@ -136,7 +169,7 @@
           </article>
 
           <!-- 2. Wits Skills Mapping Platform -->
-          <article class="project-feature" id="skills-mapping">
+          <article class="project-feature" data-category="ai research" id="skills-mapping">
             <div class="project-feature-main">
               <div>
                 <div class="project-status-bar">
@@ -184,7 +217,7 @@
           </article>
 
           <!-- 3. Darkroom DataForge -->
-          <article class="project-feature" id="darkroom-dataforge">
+          <article class="project-feature" data-category="data ai backend" id="darkroom-dataforge">
             <div class="project-feature-main">
               <div>
                 <div class="project-status-bar">
@@ -231,7 +264,7 @@
           </article>
 
           <!-- 4. VerifySA -->
-          <article class="project-feature" id="verifysa">
+          <article class="project-feature" data-category="ai" id="verifysa">
             <div class="project-feature-main">
               <div>
                 <div class="project-status-bar">
@@ -278,7 +311,7 @@
           </article>
 
           <!-- 5. TUT Event Management -->
-          <article class="project-feature" id="tut-event-management">
+          <article class="project-feature" data-category="backend logistics" id="tut-event-management">
             <div class="project-feature-main">
               <div>
                 <div class="project-status-bar">
