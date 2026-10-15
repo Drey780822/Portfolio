@@ -585,8 +585,7 @@
           "1. <strong>Wits Enterprise (Aug 2026 – Present):</strong> AI & Software Systems Developer Intern (Future of Learning / Darkroom Project) — building skills mapping APIs, Supabase data models, and responsible LLM evaluation boundaries.<br>" +
           "2. <strong>FuelLinkPro (Nov 2025 – Present):</strong> Co-Founder & Software Engineer — sole backend engineer architecting Flask, PostgreSQL, Celery/Redis, PayFast payments, and Docker deployments.<br>" +
           "3. <strong>MTP IT Solutions (Sep 2025 – Feb 2026):</strong> Software Development & IT Support Intern (WIL) — developed web tools, resolved enterprise infrastructure/DNS/SSL incidents, authored support knowledge base docs.<br>" +
-          "4. <strong>Tshwane University of Technology (Jun 2023 – Dec 2024):</strong> Peer Tutor & Lab Instructor — mentored 30+ students per semester in Java, SQL, and Web Computing.<br>" +
-          "5. <strong>RocoMamas Highveld (Sep 2024 – Feb 2025):</strong> Waiter / Service Specialist — balanced demanding high-pressure operational shifts with full-time computer science coursework.",
+          "4. <strong>Tshwane University of Technology (Jun 2023 – Dec 2024):</strong> Peer Tutor & Lab Instructor — mentored 30+ students per semester in Java, SQL, and Web Computing.",
         citations,
         disclaimer: "Curated Knowledge Index · Verified Engineering Record"
       };

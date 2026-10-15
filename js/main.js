@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 5. Notion Toast Notification Helper
   let toastTimeout = null;
-  function showNotionToast(message, icon = '✓') {
+  function showNotionToast(message, icon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>') {
     let toast = document.getElementById('notionToast');
     if (!toast) {
       toast = document.createElement('div');

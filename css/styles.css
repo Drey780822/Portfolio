@@ -3404,9 +3404,11 @@ p {
 }
 
 .editorial-cred-icon {
-  font-size: 1rem;
+  width: 18px;
+  height: 18px;
+  color: var(--accent-cyan);
   flex-shrink: 0;
-  margin-top: 0.1rem;
+  margin-top: 0.15rem;
 }
 
 .editorial-about-narrative h3 {

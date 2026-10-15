@@ -139,12 +139,13 @@ htmlPagesToInspect.forEach(relPath => {
     if (link.startsWith('http') || link.startsWith('mailto:') || link.startsWith('tel:') || link.startsWith('#') || link.startsWith('javascript:')) {
       continue;
     }
-    // Clean query parameters and fragments
-    const cleanLink = link.split('?')[0].split('#')[0];
-    if (!cleanLink) continue;
+    // Clean query parameters and fragments, and decode URL encoding (e.g. spaces)
+    const rawLink = link.split('?')[0].split('#')[0];
+    if (!rawLink) continue;
+    const cleanLink = decodeURIComponent(rawLink);
 
     const resolvedPath = path.resolve(dir, cleanLink);
-    assert(fs.existsSync(resolvedPath), `In ${relPath}: target exists -> ${cleanLink}`);
+    assert(fs.existsSync(resolvedPath), `In ${relPath}: target exists -> ${rawLink}`);
   }
 });
 
