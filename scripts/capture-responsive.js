@@ -63,9 +63,11 @@ async function run() {
   }
 
   console.log('Launching Edge with CDP on port', CDP_PORT);
+  const tmpProfile = path.join(OUTPUT_DIR, 'edge_cdp_profile');
   const edgeProc = spawn(EDGE_PATH, [
     '--headless=new',
     `--remote-debugging-port=${CDP_PORT}`,
+    `--user-data-dir=${tmpProfile}`,
     '--disable-gpu',
     '--no-sandbox',
     'about:blank'

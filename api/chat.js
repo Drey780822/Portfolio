@@ -82,7 +82,7 @@ function queryCuratedKnowledge(query) {
     };
   }
 
-  // 2. Prompt Injection & Hallucination Resistance
+    // 2. Prompt Injection & Hallucination Resistance
   const falseClaims = [
     'cto of google', 'ceo of', 'phd', 'mit', 'stanford', 'nobel', 'senior engineer',
     'principal engineer', 'principal scientist', 'billion', 'millionaire', 'ignore previous', 'override instructions'
@@ -98,7 +98,57 @@ function queryCuratedKnowledge(query) {
     };
   }
 
-  // 3. FuelLinkPro
+  // 3. Greetings & Casual Openings
+  const greetings = ['hi', 'hello', 'hey', 'greetings', 'good morning', 'good day', 'good afternoon', 'good evening'];
+  const words = q.split(/\s+/);
+  if (greetings.includes(q) || words.some(w => greetings.includes(w) && words.length <= 3)) {
+    citations.push({ title: "Work Overview", url: "/work" });
+    citations.push({ title: "About Thabang", url: "/about" });
+    return {
+      reply: "Hello! I am Thabang Dikotope's official portfolio assistant.\n\n" +
+        "I provide direct, verified answers about his:\n" +
+        "• **Backend Architectures:** FuelLinkPro (Flask, PostgreSQL, Celery/Redis, PayFast), Wits Skills Mapping (FastAPI, Supabase, OFO taxonomy)\n" +
+        "• **Research & Pipelines:** Darkroom DataForge (8-stage auditable document extraction, tabular provenance)\n" +
+        "• **Leadership:** VerifySA (5-hour hackathon winner, 10-developer team lead)\n" +
+        "• **Academic Record:** TUT Computer Science (360/360 credits verified, FitZone Gym distinction)\n" +
+        "• **Technical Stack:** Python, FastAPI, Flask, PostgreSQL, Docker, Next.js, TypeScript\n\n" +
+        "What would you like to explore?",
+      citations
+    };
+  }
+
+  // 4. Bio / Who is Thabang / Profile Summary
+  if (q.includes('who is') || q.includes('about thabang') || q.includes('bio') || q.includes('profile') || q.includes('summary') || q.includes('who are you') || q.includes('tell me about thabang') || q.includes('tell me about yourself') || q.includes('introduction')) {
+    citations.push({ title: "Full Profile & Bio", url: "/about" });
+    citations.push({ title: "Selected Systems", url: "/work" });
+    return {
+      reply: "**Thabang Dikotope** is a Graduate Software Engineer, Full-Stack Developer, and AI & Software Systems Developer based in Johannesburg, South Africa.\n\n" +
+        "• **Education:** Higher National Diploma in Computer Science from Tshwane University of Technology (completed December 2025 with **all 360/360 academic credits verified**). Led the final-year FitZone Gym Management team graded with Distinction.\n" +
+        "• **Current Roles:** AI & Software Systems Developer Intern at **Wits Enterprise** (Future of Learning stream) and Co-Founder & Sole Backend Engineer at **FuelLinkPro**.\n" +
+        "• **Engineering Focus:** Production backend microservices, resilient data models, payment webhooks, asynchronous background worker queues, and auditable AI provenance pipelines.\n" +
+        "• **Recognitions:** Winner and Team Lead at the Soweto AI App Development Challenge (VerifySA, 5-hour sprint).",
+      citations
+    };
+  }
+
+  // 5. Projects Overview / Selected Work Portfolio
+  if (q.includes('project') || q.includes('what did you build') || q.includes('what have you built') || q.includes('show me your work') || q.includes('portfolio') || q.includes('systems') || q.includes('applications') || q.includes('case stud')) {
+    citations.push({ title: "FuelLinkPro", url: "/work/fuellinkpro" });
+    citations.push({ title: "Wits Skills Mapping", url: "/work/skills-mapping" });
+    citations.push({ title: "Darkroom DataForge", url: "/work/darkroom-dataforge" });
+    citations.push({ title: "VerifySA", url: "/work/verifysa" });
+    return {
+      reply: "Thabang has engineered and delivered 5 core production, research, and hackathon systems:\n\n" +
+        "1. **FuelLinkPro:** On-demand mobile fuel delivery marketplace. Sole backend engineer architecting Flask, PostgreSQL, JWT auth, PayFast HMAC-SHA256 payments, Celery/Redis worker queues, and Docker/Nginx production deployment.\n" +
+        "2. **Wits Skills Mapping Platform:** AI-enabled career exploration system aligning candidate competencies to the South African OFO taxonomy via FastAPI microservices and Supabase schemas.\n" +
+        "3. **Darkroom DataForge:** Auditable 8-stage document data extraction pipeline for complex tabular reports with record-level bounding-box provenance.\n" +
+        "4. **VerifySA:** AI-assisted document verification and fraud detection SaaS built in a 5-hour hackathon sprint leading 10 developers.\n" +
+        "5. **TUT Event Management System:** Campus ticketing portal with tamper-evident HMAC-SHA256 QR ticketing and concurrency transaction locks.",
+      citations
+    };
+  }
+
+  // 6. FuelLinkPro
   if (q.includes('fuellink') || q.includes('fuel') || q.includes('payfast') || q.includes('dispatch') || q.includes('startup')) {
     citations.push({ title: "FuelLinkPro Case Study", url: "/work/fuellinkpro" });
     return {
@@ -114,7 +164,7 @@ function queryCuratedKnowledge(query) {
   }
 
   // 4. Wits Skills Mapping Platform
-  if (q.includes('skills mapping') || q.includes('wits') || q.includes('occupational') || q.includes('ofo') || q.includes('taxonomy')) {
+  if (q.includes('skills mapping') || (q.includes('wits') && !q.includes('research')) || q.includes('occupational') || q.includes('ofo') || q.includes('taxonomy')) {
     citations.push({ title: "Wits Skills Mapping Case Study", url: "/work/skills-mapping" });
     return {
       reply: "The **Wits Skills Mapping Platform** is an AI-enabled skills discovery and career exploration system developed within the Future of Learning stream at Wits Enterprise.\n\n" +
@@ -167,7 +217,33 @@ function queryCuratedKnowledge(query) {
     };
   }
 
-  // 8. Experience & Career History
+  // 8. FitZone Gym Management System
+  if (q.includes('fitzone') || q.includes('gym')) {
+    citations.push({ title: "Education & Qualifications", url: "/about" });
+    citations.push({ title: "Experience Timeline", url: "/experience" });
+    return {
+      reply: "The **FitZone Gym Management System** was Thabang's final-year distinction capstone project at Tshwane University of Technology:\n\n" +
+        "• **Role:** Project Team Leader managing a 6-developer team.\n" +
+        "• **Architecture:** Java backend, MySQL relational database schema, role-based access control (RBAC), and automated membership billing cycles.\n" +
+        "• **Academic Outcome:** Graded with **Distinction** by TUT Computer Science faculty reviewers, fulfilling degree capstone requirements.",
+      citations
+    };
+  }
+
+  // 9. Research & AI Systems Focus
+  if (q.includes('research') || q.includes('darkroom project') || q.includes('future of learning') || q.includes('provenance')) {
+    citations.push({ title: "Research & Systems Focus", url: "/research" });
+    citations.push({ title: "Darkroom DataForge", url: "/work/darkroom-dataforge" });
+    return {
+      reply: "Thabang's research and applied AI engineering within the **Future of Learning stream (Wits Enterprise)** centers on auditable AI systems:\n\n" +
+        "• **Provenance-First Architecture:** Grounded in the principle that *'Every extracted record should be traceable to its source.'* Avoids black-box LLM hallucinations by mapping outputs back to source bounding box coordinates.\n" +
+        "• **Deterministic Verification:** Pushes model outputs into strict deterministic verification pipelines (e.g. Luhn algorithm validation in VerifySA, schema checks in DataForge).\n" +
+        "• **Responsible Boundaries:** Internal institutional infrastructure, private server endpoints, and unreleased research datasets are strictly safeguarded.",
+      citations
+    };
+  }
+
+  // 10. Experience & Career History
   if (q.includes('experience') || q.includes('career') || q.includes('history') || q.includes('work') || q.includes('intern') || q.includes('tutor') || q.includes('mtp')) {
     citations.push({ title: "Experience Chronology", url: "/experience" });
     return {

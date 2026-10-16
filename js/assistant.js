@@ -243,6 +243,9 @@
     // Nav Header Button
     document.getElementById('navAssistantBtn')?.addEventListener('click', toggleAssistant);
 
+    // Hero Assistant Button
+    document.getElementById('heroAssistantBtn')?.addEventListener('click', toggleAssistant);
+
     // Mobile Drawer Button
     document.getElementById('mobileDrawerAssistantBtn')?.addEventListener('click', () => {
       const drawer = document.getElementById('mobileDrawer');
@@ -327,10 +330,15 @@
   }
 
   // Set The Seed state machine (idle, listening, thinking, responding, uncertain, error)
+  // Safely sets class attribute on SVG elements without throwing TypeError on read-only className getter
   function setSeedState(state) {
     const seed = document.getElementById('assistantSeed');
     if (seed) {
-      seed.className = `loam-seed state-${state}`;
+      seed.setAttribute('class', `loam-seed state-${state}`);
+    }
+    const launcherSeed = document.querySelector('#aiAssistantLauncher .loam-seed');
+    if (launcherSeed) {
+      launcherSeed.setAttribute('class', `loam-seed state-${state}`);
     }
   }
 
@@ -503,7 +511,60 @@
       };
     }
 
-    // 3. FuelLinkPro
+    // 3. Greetings & Casual Openings
+    const greetings = ['hi', 'hello', 'hey', 'greetings', 'good morning', 'good day', 'good afternoon', 'good evening'];
+    const words = q.split(/\s+/);
+    if (greetings.includes(q) || words.some(w => greetings.includes(w) && words.length <= 3)) {
+      citations.push({ title: "Work Overview", url: "/work" });
+      citations.push({ title: "About Thabang", url: "/about" });
+      return {
+        answer: "Hello! I am Thabang Dikotope's official portfolio assistant.<br><br>" +
+          "I provide direct, verified answers about his:<br>" +
+          "• <strong>Backend Architectures:</strong> FuelLinkPro (Flask, PostgreSQL, Celery/Redis, PayFast), Wits Skills Mapping (FastAPI, Supabase, OFO taxonomy)<br>" +
+          "• <strong>Research & Pipelines:</strong> Darkroom DataForge (8-stage auditable document extraction, tabular provenance)<br>" +
+          "• <strong>Leadership:</strong> VerifySA (5-hour hackathon winner, 10-developer team lead)<br>" +
+          "• <strong>Academic Record:</strong> TUT Computer Science (360/360 credits verified, FitZone Gym distinction)<br>" +
+          "• <strong>Technical Stack:</strong> Python, FastAPI, Flask, PostgreSQL, Docker, Next.js, TypeScript<br><br>" +
+          "What would you like to explore?",
+        citations,
+        disclaimer: "Curated Knowledge Index · Verified Record Ready"
+      };
+    }
+
+    // 4. Bio / Who is Thabang / Profile Summary
+    if (q.includes('who is') || q.includes('about thabang') || q.includes('bio') || q.includes('profile') || q.includes('summary') || q.includes('who are you') || q.includes('tell me about thabang') || q.includes('tell me about yourself') || q.includes('introduction')) {
+      citations.push({ title: "Full Profile & Bio", url: "/about" });
+      citations.push({ title: "Selected Systems", url: "/work" });
+      return {
+        answer: "<strong>Thabang Dikotope</strong> is a Graduate Software Engineer, Full-Stack Developer, and AI & Software Systems Developer based in Johannesburg, South Africa.<br><br>" +
+          "• <strong>Education:</strong> Higher National Diploma in Computer Science from Tshwane University of Technology (completed December 2025 with <strong>all 360/360 academic credits verified</strong>). Led the final-year FitZone Gym Management team graded with Distinction.<br>" +
+          "• <strong>Current Roles:</strong> AI & Software Systems Developer Intern at <strong>Wits Enterprise</strong> (Future of Learning stream) and Co-Founder & Sole Backend Engineer at <strong>FuelLinkPro</strong>.<br>" +
+          "• <strong>Engineering Focus:</strong> Production backend microservices, resilient data models, payment webhooks, asynchronous background worker queues, and auditable AI provenance pipelines.<br>" +
+          "• <strong>Recognitions:</strong> Winner and Team Lead at the Soweto AI App Development Challenge (VerifySA, 5-hour sprint).",
+        citations,
+        disclaimer: "Curated Knowledge Index · Verified Engineering Record"
+      };
+    }
+
+    // 5. Projects Overview / Selected Work Portfolio
+    if (q.includes('project') || q.includes('what did you build') || q.includes('what have you built') || q.includes('show me your work') || q.includes('portfolio') || q.includes('systems') || q.includes('applications') || q.includes('case stud')) {
+      citations.push({ title: "FuelLinkPro", url: "/work/fuellinkpro" });
+      citations.push({ title: "Wits Skills Mapping", url: "/work/skills-mapping" });
+      citations.push({ title: "Darkroom DataForge", url: "/work/darkroom-dataforge" });
+      citations.push({ title: "VerifySA", url: "/work/verifysa" });
+      return {
+        answer: "Thabang has engineered and delivered 5 core production, research, and hackathon systems:<br><br>" +
+          "1. <strong>FuelLinkPro:</strong> On-demand mobile fuel delivery marketplace. Sole backend engineer architecting Flask, PostgreSQL, JWT auth, PayFast HMAC-SHA256 payments, Celery/Redis worker queues, and Docker/Nginx production deployment.<br>" +
+          "2. <strong>Wits Skills Mapping Platform:</strong> AI-enabled career exploration system aligning candidate competencies to the South African OFO taxonomy via FastAPI microservices and Supabase schemas.<br>" +
+          "3. <strong>Darkroom DataForge:</strong> Auditable 8-stage document data extraction pipeline for complex tabular reports with record-level bounding-box provenance.<br>" +
+          "4. <strong>VerifySA:</strong> AI-assisted document verification and fraud detection SaaS built in a 5-hour hackathon sprint leading 10 developers.<br>" +
+          "5. <strong>TUT Event Management System:</strong> Campus ticketing portal with tamper-evident HMAC-SHA256 QR ticketing and concurrency transaction locks.",
+        citations,
+        disclaimer: "Curated Knowledge Index · Verified Engineering Record"
+      };
+    }
+
+    // 6. FuelLinkPro
     if (q.includes('fuellink') || q.includes('fuel') || q.includes('payfast') || q.includes('dispatch') || q.includes('startup')) {
       citations.push({ title: "FuelLinkPro Case Study", url: "/work/fuellinkpro" });
       return {
@@ -519,8 +580,8 @@
       };
     }
 
-    // 4. Wits Skills Mapping Platform
-    if (q.includes('skills mapping') || q.includes('wits') || q.includes('occupational') || q.includes('ofo') || q.includes('taxonomy')) {
+    // 7. Wits Skills Mapping Platform
+    if (q.includes('skills mapping') || (q.includes('wits') && !q.includes('research')) || q.includes('occupational') || q.includes('ofo') || q.includes('taxonomy')) {
       citations.push({ title: "Wits Skills Mapping Case Study", url: "/work/skills-mapping" });
       return {
         answer: "The <strong>Wits Skills Mapping Platform</strong> is an AI-enabled skills discovery and career exploration system developed within the Future of Learning stream at Wits Enterprise.<br><br>" +
@@ -534,7 +595,7 @@
       };
     }
 
-    // 5. Darkroom DataForge
+    // 8. Darkroom DataForge
     if (q.includes('dataforge') || q.includes('darkroom') || q.includes('dataset') || q.includes('extraction') || q.includes('tabular') || q.includes('ocr')) {
       citations.push({ title: "Darkroom DataForge Case Study", url: "/work/darkroom-dataforge" });
       return {
@@ -549,7 +610,7 @@
       };
     }
 
-    // 6. VerifySA
+    // 9. VerifySA
     if (q.includes('verifysa') || q.includes('verify') || q.includes('soweto') || q.includes('fraud') || q.includes('hackathon')) {
       citations.push({ title: "VerifySA Case Study", url: "/work/verifysa" });
       return {
@@ -563,7 +624,7 @@
       };
     }
 
-    // 7. TUT Event Management System
+    // 10. TUT Event Management System
     if (q.includes('tut event') || q.includes('event') || q.includes('ticket') || q.includes('qr') || q.includes('tritech')) {
       citations.push({ title: "TUT Event Management Case Study", url: "/work/tut-event-management" });
       return {
@@ -577,7 +638,35 @@
       };
     }
 
-    // 8. Experience & Career History
+    // 11. FitZone Gym Management System
+    if (q.includes('fitzone') || q.includes('gym')) {
+      citations.push({ title: "Education & Qualifications", url: "/about" });
+      citations.push({ title: "Experience Timeline", url: "/experience" });
+      return {
+        answer: "The <strong>FitZone Gym Management System</strong> was Thabang's final-year distinction capstone project at Tshwane University of Technology:<br><br>" +
+          "• <strong>Role:</strong> Project Team Leader managing a 6-developer team.<br>" +
+          "• <strong>Architecture:</strong> Java backend, MySQL relational database schema, role-based access control (RBAC), and automated membership billing cycles.<br>" +
+          "• <strong>Academic Outcome:</strong> Graded with <strong>Distinction</strong> by TUT Computer Science faculty reviewers, fulfilling degree capstone requirements.",
+        citations,
+        disclaimer: "Curated Knowledge Index · Verified Academic Record"
+      };
+    }
+
+    // 12. Research & AI Systems Focus
+    if (q.includes('research') || q.includes('darkroom project') || q.includes('future of learning') || q.includes('provenance')) {
+      citations.push({ title: "Research & Systems Focus", url: "/research" });
+      citations.push({ title: "Darkroom DataForge", url: "/work/darkroom-dataforge" });
+      return {
+        answer: "Thabang's research and applied AI engineering within the <strong>Future of Learning stream (Wits Enterprise)</strong> centers on auditable AI systems:<br><br>" +
+          "• <strong>Provenance-First Architecture:</strong> Grounded in the principle that <em>'Every extracted record should be traceable to its source.'</em> Avoids black-box LLM hallucinations by mapping outputs back to source bounding box coordinates.<br>" +
+          "• <strong>Deterministic Verification:</strong> Pushes model outputs into strict deterministic verification pipelines (e.g. Luhn algorithm validation in VerifySA, schema checks in DataForge).<br>" +
+          "• <strong>Responsible Boundaries:</strong> Internal institutional infrastructure, private server endpoints, and unreleased research datasets are strictly safeguarded.",
+        citations,
+        disclaimer: "Curated Knowledge Index · Research Record"
+      };
+    }
+
+    // 13. Experience & Career History
     if (q.includes('experience') || q.includes('career') || q.includes('history') || q.includes('work') || q.includes('intern') || q.includes('tutor') || q.includes('mtp')) {
       citations.push({ title: "Experience Chronology", url: "/experience" });
       return {
@@ -591,8 +680,8 @@
       };
     }
 
-    // 9. Technical Capabilities
-    if (q.includes('stack') || q.includes('skill') || q.includes('language') || q.includes('tech') || q.includes('database') || q.includes('python') || q.includes('docker') || q.includes('postgres')) {
+    // 14. Technical Capabilities
+    if (q.includes('stack') || q.includes('skill') || q.includes('language') || q.includes('tech') || q.includes('database') || q.includes('python') || q.includes('docker') || q.includes('postgres') || q.includes('fastapi') || q.includes('flask')) {
       citations.push({ title: "Technical Capabilities", url: "/about" });
       return {
         answer: "Thabang's engineering capabilities are focused on production reliability, clean APIs, and defensive data design:<br><br>" +
@@ -607,8 +696,8 @@
       };
     }
 
-    // 10. Education & Certifications
-    if (q.includes('education') || q.includes('degree') || q.includes('diploma') || q.includes('tut') || q.includes('tshwane') || q.includes('credit') || q.includes('certif')) {
+    // 15. Education & Certifications
+    if (q.includes('education') || q.includes('degree') || q.includes('diploma') || q.includes('tut') || q.includes('tshwane') || q.includes('credit') || q.includes('certif') || q.includes('qualification')) {
       citations.push({ title: "Education & Qualifications", url: "/about" });
       return {
         answer: "<strong>Academic Qualifications & Education:</strong><br><br>" +
@@ -627,8 +716,8 @@
       };
     }
 
-    // 11. Contact & Availability
-    if (q.includes('contact') || q.includes('hire') || q.includes('email') || q.includes('phone') || q.includes('linkedin') || q.includes('github') || q.includes('location')) {
+    // 16. Contact & Availability
+    if (q.includes('contact') || q.includes('hire') || q.includes('email') || q.includes('phone') || q.includes('linkedin') || q.includes('github') || q.includes('location') || q.includes('reach out')) {
       citations.push({ title: "Direct Contact Channels", url: "/contact" });
       return {
         answer: "Thabang is based in <strong>Johannesburg, Gauteng, South Africa</strong> and is available for graduate software engineering roles, full-stack systems roles, and research engineering collaborations:<br><br>" +
@@ -642,10 +731,11 @@
       };
     }
 
-    // 12. General Default / Unknown Information
+    // 17. General Default / Unknown Information (Honest Fallback)
     citations.push({ title: "Work Overview", url: "/work" });
     citations.push({ title: "Full Profile", url: "/about" });
     return {
+      isFallback: true,
       answer: "I do not have verified public portfolio records regarding that specific question.<br><br>" +
         "As an AI assistant grounded strictly in Thabang Dikotope's public engineering record, I avoid speculating or inventing details. " +
         "You can ask me about his:<br>" +
@@ -660,25 +750,60 @@
     };
   }
 
-  // Handle incoming user query (LOAM Seed Lifecycle & Grounded Dispatch)
+  // Handle incoming user query (LOAM Seed Lifecycle & Blazing-Fast Grounded Dispatch)
   async function handleUserQuery(query) {
     if (isGenerating) return;
+    const cleanQuery = (query || '').trim();
+    if (!cleanQuery) return;
+
     isGenerating = true;
     lastFailedQuery = null;
 
     // Display user question on Clay-tint surface
-    appendMessage('user', escapeHtml(query));
+    appendMessage('user', escapeHtml(cleanQuery));
     showTypingIndicator();
     setSeedState('thinking');
 
+    // Fast-path: Check local curated knowledge engine
+    const localResult = queryLocalKnowledge(cleanQuery);
+    const isCuratedMatch = !localResult.isFallback;
+
+    // If query matches verified knowledge, render instantly with crisp micro-pulse (<70ms)
+    if (isCuratedMatch) {
+      setTimeout(() => {
+        removeTypingIndicator();
+        updateProviderStatus('curated', 'Curated Knowledge Index');
+
+        const isUncertain = (localResult.answer || '').includes('confidential') ||
+                            (localResult.answer || '').includes('safeguard');
+        if (isUncertain) {
+          setSeedState('uncertain');
+        } else {
+          setSeedState('responding');
+          setTimeout(() => { if (!isGenerating) setSeedState('idle'); }, 1800);
+        }
+
+        appendMessage('assistant', localResult.answer, localResult.citations || [], localResult.disclaimer || '');
+        announceStatus("Response generated from verified portfolio records.");
+        isGenerating = false;
+      }, 70);
+      return;
+    }
+
+    // For novel/open-ended queries: query serverless /api/chat with fast 2.5s abort timeout
     let answered = false;
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
+
       const apiRes = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: query })
+        signal: controller.signal,
+        body: JSON.stringify({ message: cleanQuery })
       });
+      clearTimeout(timeoutId);
 
       if (apiRes.ok) {
         const data = await apiRes.json();
@@ -724,31 +849,16 @@
         answered = true;
       }
     } catch (e) {
-      // Network failure or static environment (e.g. GitHub Pages) -> Fall through to local index
+      // Aborted, network offline, or static deployment without /api/chat
     }
 
     if (!answered) {
-      // Execute local Curated Knowledge Retrieval Engine
-      setTimeout(() => {
-        removeTypingIndicator();
-        updateProviderStatus('curated', 'Curated Knowledge Index (Local)');
-        const result = queryLocalKnowledge(query);
-
-        const isUncertain = (result.answer || '').includes('I do not have verified') || 
-                            (result.answer || '').includes("I don't know") ||
-                            (result.answer || '').includes('confidential');
-        if (isUncertain) {
-          setSeedState('uncertain');
-        } else {
-          setSeedState('responding');
-          setTimeout(() => { if (!isGenerating) setSeedState('idle'); }, 1800);
-        }
-
-        appendMessage('assistant', result.answer, result.citations, result.disclaimer);
-        announceStatus("Response generated from local curated knowledge index.");
-        isGenerating = false;
-      }, 350);
-      return;
+      // Fast fallback to local curated knowledge (honest unknown response)
+      removeTypingIndicator();
+      updateProviderStatus('curated', 'Curated Knowledge Index');
+      setSeedState('uncertain');
+      appendMessage('assistant', localResult.answer, localResult.citations || [], localResult.disclaimer || '');
+      announceStatus("Response generated from portfolio records.");
     }
 
     isGenerating = false;
@@ -760,7 +870,7 @@
     if (query) {
       setTimeout(() => {
         handleUserQuery(query);
-      }, 200);
+      }, 20);
     }
   };
   window.togglePortfolioAssistant = toggleAssistant;

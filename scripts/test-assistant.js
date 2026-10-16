@@ -209,6 +209,58 @@ async function runTests() {
     assert('Tech Stack: links to /about profile', data?.citations?.some(c => c.url.includes('/about')));
   }
 
+  // Test 2.7: Greetings & Welcoming Opening
+  {
+    const { req, res, getData } = createMockReqRes({ body: { message: 'Hello' } });
+    await handler(req, res);
+    const data = getData();
+    const reply = data?.reply || '';
+    assert('Greetings: returns welcoming overview with key systems', reply.includes('Hello') && reply.includes('FuelLinkPro') && reply.includes('Wits Skills Mapping'));
+    assert('Greetings: includes case study citations', data?.citations?.some(c => c.url.includes('/work')));
+  }
+
+  // Test 2.8: Bio & Professional Summary
+  {
+    const { req, res, getData } = createMockReqRes({ body: { message: 'Who is Thabang?' } });
+    await handler(req, res);
+    const data = getData();
+    const reply = data?.reply || '';
+    assert('Bio: identifies Graduate Software Engineer title', reply.includes('Graduate Software Engineer'));
+    assert('Bio: highlights TUT Computer Science qualification', reply.includes('360/360 academic credits verified'));
+    assert('Bio: highlights Wits Enterprise and FuelLinkPro roles', reply.includes('Wits Enterprise') && reply.includes('FuelLinkPro'));
+    assert('Bio: links to /about profile', data?.citations?.some(c => c.url.includes('/about')));
+  }
+
+  // Test 2.9: Projects Portfolio Overview
+  {
+    const { req, res, getData } = createMockReqRes({ body: { message: 'What projects have you built?' } });
+    await handler(req, res);
+    const data = getData();
+    const reply = data?.reply || '';
+    assert('Projects Overview: summarizes 5 core systems', reply.includes('FuelLinkPro') && reply.includes('Wits Skills Mapping') && reply.includes('Darkroom DataForge') && reply.includes('VerifySA'));
+    assert('Projects Overview: links to case studies', data?.citations?.length >= 3);
+  }
+
+  // Test 2.10: FitZone Gym Distinction
+  {
+    const { req, res, getData } = createMockReqRes({ body: { message: 'Tell me about the FitZone Gym system' } });
+    await handler(req, res);
+    const data = getData();
+    const reply = data?.reply || '';
+    assert('FitZone Gym: identifies final-year distinction project', reply.includes('Distinction') && reply.includes('6-developer team'));
+    assert('FitZone Gym: links to academic profile or experience', data?.citations?.some(c => c.url.includes('/about') || c.url.includes('/experience')));
+  }
+
+  // Test 2.11: Research & AI Systems
+  {
+    const { req, res, getData } = createMockReqRes({ body: { message: 'What is your research focus at Wits Enterprise?' } });
+    await handler(req, res);
+    const data = getData();
+    const reply = data?.reply || '';
+    assert('Research: highlights provenance and deterministic verification', reply.includes('Every extracted record should be traceable to its source') && reply.includes('Deterministic Verification'));
+    assert('Research: links to /research', data?.citations?.some(c => c.url.includes('/research')));
+  }
+
   // ─── 3. SAFETY, INJECTION RESISTANCE & MISSING INFORMATION ────────────────
   console.log('\n3. Testing Guardrails, Injection Defense & Unknown Handling...');
 
