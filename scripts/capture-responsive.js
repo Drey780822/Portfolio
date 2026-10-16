@@ -107,6 +107,7 @@ async function run() {
     { name: 'shot_tablet_home_true_v2.png', url: `http://localhost:${PORT}/`, width: 768, height: 1024, mobile: true, scale: 2 },
     { name: 'shot_desktop_home_true_v2.png', url: `http://localhost:${PORT}/`, width: 1440, height: 900, mobile: false, scale: 1 },
     { name: 'shot_desktop_filter_bar.png', url: `http://localhost:${PORT}/`, width: 1440, height: 900, mobile: false, scale: 1, scrollTo: '#selectedWorkHeading', block: 'start' },
+    { name: 'shot_desktop_carousel_dossier.png', url: `http://localhost:${PORT}/`, width: 1440, height: 900, mobile: false, scale: 1, scrollTo: '#carouselDossier', block: 'center' },
     { name: 'shot_desktop_about_section.png', url: `http://localhost:${PORT}/`, width: 1440, height: 900, mobile: false, scale: 1, scrollTo: '#aboutHeading', block: 'start' },
     { name: 'shot_desktop_contact_section.png', url: `http://localhost:${PORT}/`, width: 1440, height: 900, mobile: false, scale: 1, scrollTo: '#contactHeading', block: 'start' }
   ];

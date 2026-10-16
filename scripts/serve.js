@@ -17,6 +17,7 @@ const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.js': 'application/javascript; charset=utf-8',
+  '.mjs': 'application/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
@@ -83,6 +84,7 @@ const server = http.createServer((req, res) => {
 
   res.statusCode = 200;
   res.setHeader('Content-Type', contentType);
+  res.setHeader('Access-Control-Allow-Origin', '*');
   fs.createReadStream(filePath).pipe(res);
 });
 

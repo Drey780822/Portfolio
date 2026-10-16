@@ -29,6 +29,7 @@
 
   <!-- Core Design System -->
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/FlexCarousel.css" />
 
   <!-- Structured Data: JSON-LD -->
   <script type="application/ld+json">
@@ -199,11 +200,11 @@
         <div class="notion-filter-bar" role="toolbar" aria-label="Filter projects by discipline">
           <button type="button" class="notion-filter-btn active" data-filter="all">
             <span>All Case Studies</span>
-            <span class="notion-filter-count">5</span>
+            <span class="notion-filter-count">6</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="backend">
             <span>Backend & Distributed Systems</span>
-            <span class="notion-filter-count">3</span>
+            <span class="notion-filter-count">4</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="ai">
             <span>Applied AI & ML</span>
@@ -219,8 +220,61 @@
           </button>
         </div>
 
-        <!-- Spacious Editorial Projects Grid -->
-        <div class="editorial-projects-grid">
+        <!-- View Mode Switcher & Interaction Cue -->
+        <div class="view-mode-bar">
+          <div class="view-mode-toggle" role="group" aria-label="Project view mode">
+            <button type="button" class="view-mode-btn active" data-view="carousel">Liquid Stream (WebGL)</button>
+            <button type="button" class="view-mode-btn" data-view="grid">Editorial Grid</button>
+          </div>
+          <div class="carousel-instructions-hint" aria-hidden="true">
+            <span>Momentum drag or scroll · Click card to focus</span>
+          </div>
+        </div>
+
+        <!-- FlexCarousel: Infinite Liquid Glass Stream Stage -->
+        <div id="carouselStageWrapper" class="carousel-stage-wrapper">
+          <div id="flexCarouselContainer" class="flex-carousel-stage"></div>
+
+          <!-- Active Project Telemetry & Action Dossier -->
+          <div id="carouselDossier" class="carousel-active-dossier" aria-live="polite">
+            <div class="dossier-header-row">
+              <div class="dossier-headline">
+                <span class="dossier-domain" id="dossierDomain">Distributed Logistics · Commercial Platform</span>
+                <h3 class="dossier-title" id="dossierTitle">FuelLinkPro</h3>
+              </div>
+              <div class="editorial-card-badge" id="dossierBadge">
+                <span class="pulse-indicator" aria-hidden="true"></span>
+                <span id="dossierBadgeText">Live in Production</span>
+              </div>
+            </div>
+            <p class="dossier-desc" id="dossierDesc">
+              Co-founded and sole-engineered the backend platform in Python/Flask with PostgreSQL. Engineered real-time driver tracking via Socket.IO, payment webhooks via PayFast with SHA-256 signature verification, and Celery/Redis background worker queues.
+            </p>
+            <div class="dossier-footer-row">
+              <div class="dossier-tags" id="dossierTags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Celery</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">PayFast</span>
+              </div>
+              <div class="dossier-actions">
+                <a href="work/fuellinkpro/index.html" class="btn btn-primary btn-sm" id="dossierCaseStudyBtn">
+                  <span>Read Case Study</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a href="https://fuellinkpro.com/" target="_blank" rel="noopener" class="btn btn-outline btn-sm" id="dossierLiveBtn">
+                  <span>Visit Platform</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacious Editorial Projects Grid (Alternate View) -->
+        <div id="editorialGridContainer" class="editorial-projects-grid" style="display: none;">
 
           <!-- 1. FuelLinkPro -->
           <article class="editorial-project-card project-feature" data-category="backend logistics" aria-labelledby="titleFuelLink">
@@ -474,6 +528,58 @@
                 </a>
                 <a href="https://mytutevents.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
                   Visit Platform ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. FitZone Gym Management System -->
+          <article class="editorial-project-card project-feature" data-category="backend" aria-labelledby="titleFitZone">
+            <div class="editorial-card-visual">
+              <img 
+                src="assets/images/projects images/fitzonegym.png" 
+                alt="FitZone Gym Management System academic software engineering project" 
+                class="editorial-card-img"
+                loading="lazy"
+              />
+              <div class="editorial-card-badge">
+                <span class="status-pulse-cyan" aria-hidden="true"></span>
+                <span>Distinction Grade</span>
+              </div>
+            </div>
+
+            <div class="editorial-card-body">
+              <span class="editorial-meta-domain">Academic Distinction · Software Engineering</span>
+              <h3 id="titleFitZone" class="editorial-project-title">FitZone Gym Management</h3>
+              <p class="editorial-project-lead">
+                Full-Stack Gym Operations, Member Subscriptions & Relational Modeling
+              </p>
+              <p class="editorial-project-summary">
+                Led a 6-person team through the full SDLC for a final-year academic software engineering project at TUT, graded with Distinction. Architected relational membership workflows, trainer schedules, and secure administrative dashboards.
+              </p>
+
+              <div class="editorial-meta-row">
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Role</span>
+                  <span class="editorial-meta-val">SDLC Lead (6 Developers) · Distinction Graded</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Institution</span>
+                  <span class="editorial-meta-val">Tshwane University of Technology</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Stack</span>
+                  <span class="editorial-meta-val">PHP · MySQL · JavaScript · HTML5/CSS3 · Git</span>
+                </div>
+              </div>
+
+              <div class="editorial-card-actions">
+                <a href="https://fitzone-gym-fitness.free.nf/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  Visit Platform ↗
+                </a>
+                <a href="https://github.com/Drey780822/Fitzone-Gym-Fitness" target="_blank" rel="noopener" class="editorial-arrow-link">
+                  <span>Explore Repository</span>
+                  <span class="arrow" aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
@@ -780,5 +886,6 @@
   <script src="js/ambient-visual.js"></script>
   <script src="js/main.js"></script>
   <script src="js/assistant.js"></script>
+  <script type="module" src="js/work-carousel.js"></script>
 </body>
 </html>
