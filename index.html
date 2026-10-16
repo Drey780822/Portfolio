@@ -122,25 +122,25 @@
   <!-- MAIN CONTENT -->
   <main id="mainContent">
 
+    <!-- Ambient Overflowing Gradient Mesh Background Layers -->
+    <div class="ambient-overflow-layer" aria-hidden="true">
+      <div class="ambient-orb orb-hero-work"></div>
+      <div class="ambient-orb orb-work-lateral"></div>
+      <div class="ambient-orb orb-about-contact"></div>
+    </div>
+
     <!-- 2. IMMERSIVE FULL-WIDTH OPENING (AMBIENT BLUE/CYAN VISUAL) -->
     <section class="hero-deepmind" id="hero" aria-labelledby="heroHeadline">
       <canvas id="ambientHeroCanvas" class="ambient-hero-canvas" aria-hidden="true"></canvas>
       <div class="ambient-hero-overlay" aria-hidden="true"></div>
 
       <div class="container hero-deepmind-content">
-        <div class="hero-deepmind-status">
-        </div>
-
         <h1 id="heroHeadline" class="hero-deepmind-title">
           Thabang Dikotope
         </h1>
 
         <p class="hero-deepmind-lead">
           Building software that solves real problems. Exploring what comes next. Graduate software engineer specializing in backend architecture, full-stack applications, and grounded AI systems in Johannesburg.
-        </p>
-
-        <p class="hero-deepmind-ethos">
-          "I build software that solves real problems, engineer systems that people can use, and explore how AI and emerging technologies can create meaningful impact."
         </p>
 
         <div class="hero-deepmind-actions">
@@ -173,12 +173,12 @@
           <div class="telemetry-divider" aria-hidden="true"></div>
           <div class="telemetry-item">
             <span class="telemetry-label">Verified Academic</span>
-            <span class="telemetry-val">TUT Diploma in Computer Science (360/360 Credits)</span>
+            <span class="telemetry-val">TUT Diploma in Computer Science</span>
           </div>
           <div class="telemetry-divider" aria-hidden="true"></div>
           <div class="telemetry-item">
-            <span class="telemetry-label">Location / Time</span>
-            <span class="telemetry-val">Johannesburg · <span class="live-sast-time">--:--:-- SAST</span></span>
+            <!-- <span class="telemetry-label">Location / Time</span> -->
+            <!-- <span class="telemetry-val">Johannesburg · <span class="live-sast-time">--:--:-- SAST</span></span> -->
           </div>
         </div>
       </div>
@@ -271,18 +271,6 @@
                   Visit Platform ↗
                 </a>
               </div>
-
-              <details class="editorial-details">
-                <summary>
-                  <span>Architecture Highlights & Fail-Safes</span>
-                  <span class="arrow" aria-hidden="true">+</span>
-                </summary>
-                <div class="editorial-details-content">
-                  <p>
-                    Automated background worker reconciles pending orders on a 15-minute timer, preventing zombie order locks. PayFast Instant Payment Notification (IPN) validates cryptographically signed MD5/SHA-256 hashes before marking invoices settled.
-                  </p>
-                </div>
-              </details>
             </div>
           </article>
 
@@ -335,18 +323,6 @@
                   Research Context →
                 </a>
               </div>
-
-              <details class="editorial-details">
-                <summary>
-                  <span>Taxonomy Matching & Data Privacy</span>
-                  <span class="arrow" aria-hidden="true">+</span>
-                </summary>
-                <div class="editorial-details-content">
-                  <p>
-                    Strict privacy boundary: Candidate CV data is parsed in memory and anonymized before semantic embedding generation. Matches skills against South African labor market demand without persisting raw PII.
-                  </p>
-                </div>
-              </details>
             </div>
           </article>
 
@@ -396,18 +372,6 @@
                   <span class="arrow" aria-hidden="true">→</span>
                 </a>
               </div>
-
-              <details class="editorial-details">
-                <summary>
-                  <span>Coordinate-Level Provenance Details</span>
-                  <span class="arrow" aria-hidden="true">+</span>
-                </summary>
-                <div class="editorial-details-content">
-                  <p>
-                    Retains normalized bounding-box coordinates for each extracted cell, allowing auditors to click any generated database record and see the exact pixels from the source document highlighted in real time.
-                  </p>
-                </div>
-              </details>
             </div>
           </article>
 
@@ -460,18 +424,6 @@
                   Open Demo ↗
                 </a>
               </div>
-
-              <details class="editorial-details">
-                <summary>
-                  <span>Deterministic Validation & Honest Disclosure</span>
-                  <span class="arrow" aria-hidden="true">+</span>
-                </summary>
-                <div class="editorial-details-content">
-                  <p>
-                    Honest assessment: Built as an agile sprint prototype. While AI flags anomalies, legal verification mandates hard mathematical checksums and official home affairs database reconciliation.
-                  </p>
-                </div>
-              </details>
             </div>
           </article>
 
@@ -524,18 +476,6 @@
                   Visit Platform ↗
                 </a>
               </div>
-
-              <details class="editorial-details">
-                <summary>
-                  <span>Cryptographic Tokenization Security</span>
-                  <span class="arrow" aria-hidden="true">+</span>
-                </summary>
-                <div class="editorial-details-content">
-                  <p>
-                    Generates time-bound, cryptographically signed QR tokens that gate staff verify using any smartphone camera without exposing database connection credentials.
-                  </p>
-                </div>
-              </details>
             </div>
           </article>
 
@@ -611,81 +551,63 @@
               Rather than viewing technology as abstract code, I approach software as an instrument of real-world impact. Whether sole-engineering the complete backend of a live on-demand logistics marketplace (FuelLinkPro) or developing skills intelligence platforms at Wits Enterprise, my focus remains constant: building dependable systems that solve concrete problems.
             </p>
 
-            <h4 style="font-size: 1.15rem; font-weight: 500; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--text-primary);">
-              Core Capabilities Matrix
+            <h4 style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2rem; margin-bottom: 0.85rem; color: var(--accent-cyan); font-family: var(--font-mono);">
+              Core Technical Foundation
             </h4>
 
-            <div class="editorial-skills-matrix">
-              <div class="editorial-skill-group">
-                <h4>Backend & API Architecture</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">FastAPI</span>
-                  <span class="tech-tag">Flask</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">SQLAlchemy</span>
-                  <span class="tech-tag">RESTful APIs</span>
-                  <span class="tech-tag">Supabase</span>
-                </div>
+            <div class="editorial-skills-compact">
+              <div class="editorial-skill-pill-group">
+                <span class="skill-category-label">Backend & Data:</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">SQLAlchemy</span>
+                <span class="tech-tag">Supabase</span>
               </div>
-
-              <div class="editorial-skill-group">
-                <h4>Distributed Systems & Cloud</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">Celery</span>
-                  <span class="tech-tag">Redis</span>
-                  <span class="tech-tag">Docker</span>
-                  <span class="tech-tag">AWS Cloud</span>
-                  <span class="tech-tag">Linux / Nginx</span>
-                  <span class="tech-tag">Socket.IO</span>
-                  <span class="tech-tag">PayFast IPN</span>
-                </div>
+              <div class="editorial-skill-pill-group">
+                <span class="skill-category-label">Distributed & Cloud:</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">Celery</span>
+                <span class="tech-tag">AWS Cloud</span>
+                <span class="tech-tag">Socket.IO</span>
+                <span class="tech-tag">Linux</span>
               </div>
-
-              <div class="editorial-skill-group">
-                <h4>Frontend & Application Engineering</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">TypeScript</span>
-                  <span class="tech-tag">Next.js</span>
-                  <span class="tech-tag">React</span>
-                  <span class="tech-tag">Tailwind CSS</span>
-                  <span class="tech-tag">Semantic HTML5</span>
-                  <span class="tech-tag">Responsive UI</span>
-                </div>
-              </div>
-
-              <div class="editorial-skill-group">
-                <h4>Applied AI & Systems Governance</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">Prompt Architecture</span>
-                  <span class="tech-tag">RAG Pipelines</span>
-                  <span class="tech-tag">Multimodal Vision</span>
-                  <span class="tech-tag">Luhn Validation</span>
-                  <span class="tech-tag">OFO Taxonomies</span>
-                  <span class="tech-tag">Document OCR</span>
-                </div>
+              <div class="editorial-skill-pill-group">
+                <span class="skill-category-label">Frontend & AI:</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Multimodal Vision</span>
+                <span class="tech-tag">RAG</span>
+                <span class="tech-tag">OCR</span>
               </div>
             </div>
 
-            <h4 style="font-size: 1.15rem; font-weight: 500; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--text-primary);">
-              Engineering Principles
+            <h4 style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2rem; margin-bottom: 0.85rem; color: var(--accent-cyan); font-family: var(--font-mono);">
+              Operating Principles
             </h4>
 
-            <div class="editorial-principles-list">
+            <div class="editorial-principles-grid">
               <div class="editorial-principle-card">
-                <span class="editorial-principle-title">1. Real-World Utility Over Technical Vanity</span>
+                <span class="editorial-principle-num">01</span>
+                <span class="editorial-principle-title">Real Utility Over Vanity</span>
                 <p class="editorial-principle-desc">Technology must solve actual friction for real users. Production readiness always trumps speculative complexity.</p>
               </div>
               <div class="editorial-principle-card">
-                <span class="editorial-principle-title">2. Verifiable Provenance & Traceability</span>
+                <span class="editorial-principle-num">02</span>
+                <span class="editorial-principle-title">Verifiable Provenance</span>
                 <p class="editorial-principle-desc">Every extracted data record and algorithmic conclusion must be auditable back to its exact source coordinates.</p>
               </div>
               <div class="editorial-principle-card">
-                <span class="editorial-principle-title">3. Defensive Architecture by Default</span>
+                <span class="editorial-principle-num">03</span>
+                <span class="editorial-principle-title">Defensive Architecture</span>
                 <p class="editorial-principle-desc">Cryptographic validation, state machine enums, automated reconciliation, and strict boundary controls protect system integrity.</p>
               </div>
               <div class="editorial-principle-card">
-                <span class="editorial-principle-title">4. Ethical AI & Honest Disclosures</span>
+                <span class="editorial-principle-num">04</span>
+                <span class="editorial-principle-title">Ethical AI & Disclosure</span>
                 <p class="editorial-principle-desc">Never substitute AI confidence for deterministic verification. Disclose limitations openly and enforce privacy bounds.</p>
               </div>
             </div>

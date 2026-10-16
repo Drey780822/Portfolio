@@ -2346,11 +2346,12 @@ p {
   position: fixed;
   top: 0;
   left: 0;
-  height: 3px;
+  height: 2.5px;
   width: 0%;
-  background: linear-gradient(90deg, var(--color-clay) 0%, var(--color-ochre) 50%, var(--color-tide) 100%);
+  background: linear-gradient(90deg, #4285F4 0%, #8AD8E8 70%, #FFFFFF 100%);
+  box-shadow: 0 0 12px rgba(66, 133, 244, 0.8), 0 0 4px rgba(138, 216, 232, 0.6);
   z-index: 10002;
-  transition: width 120ms ease-out;
+  transition: width 80ms cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
 
@@ -3593,6 +3594,289 @@ p {
   }
 }
 
+/* ─── 6. OVERFLOWING GRADIENT MESH BACKGROUNDS & AMBIENT AURAS ────────────── */
+.ambient-overflow-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: clip;
+  z-index: 0;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  will-change: transform, opacity;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Orb 1: Flows between Hero and Selected Work */
+.orb-hero-work {
+  width: min(900px, 92vw);
+  height: 520px;
+  top: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle at center,
+    rgba(66, 133, 244, 0.20) 0%,
+    rgba(138, 216, 232, 0.10) 40%,
+    rgba(16, 17, 20, 0) 70%
+  );
+  animation: orbFloatSlow 16s ease-in-out infinite alternate;
+}
+
+/* Orb 2: Lateral aura across Selected Work and About */
+.orb-work-lateral {
+  width: min(700px, 80vw);
+  height: 650px;
+  top: 1350px;
+  right: -100px;
+  background: radial-gradient(
+    circle at center,
+    rgba(26, 86, 196, 0.18) 0%,
+    rgba(66, 133, 244, 0.09) 45%,
+    rgba(16, 17, 20, 0) 75%
+  );
+  animation: orbDriftRight 20s ease-in-out infinite alternate;
+}
+
+/* Orb 3: Flows around About and Contact */
+.orb-about-contact {
+  width: min(800px, 88vw);
+  height: 620px;
+  top: 2300px;
+  left: -120px;
+  background: radial-gradient(
+    circle at center,
+    rgba(138, 216, 232, 0.14) 0%,
+    rgba(66, 133, 244, 0.10) 40%,
+    rgba(16, 17, 20, 0) 75%
+  );
+  animation: orbFloatSlow 18s ease-in-out 4s infinite alternate;
+}
+
+@keyframes orbFloatSlow {
+  0% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    transform: translate(-48%, -35px) scale(1.08);
+  }
+  100% {
+    transform: translate(-52%, 25px) scale(0.96);
+  }
+}
+
+@keyframes orbDriftRight {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) scale(1.10);
+  }
+  100% {
+    transform: translateY(30px) scale(0.95);
+  }
+}
+
+/* ─── 7. SCROLL-DRIVEN MOTION & STAGGERED REVEALS ─────────────────────────── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.16s; }
+.delay-3 { transition-delay: 0.24s; }
+.delay-4 { transition-delay: 0.32s; }
+
+/* ─── 8. ENHANCED PROJECT CARD TRANSITIONS & HOVER AURA ───────────────────── */
+.editorial-project-card {
+  position: relative;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-project-card:hover {
+  transform: translateY(-6px) scale(1.008);
+  border-color: rgba(66, 133, 244, 0.55);
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.85),
+              0 0 35px -5px rgba(66, 133, 244, 0.22);
+}
+
+.editorial-project-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(66, 133, 244, 0.18) 0%,
+    rgba(138, 216, 232, 0.06) 35%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.editorial-project-card:hover::after {
+  opacity: 1;
+}
+
+.editorial-card-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(16, 17, 20, 0.7) 100%);
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.editorial-project-card:hover .editorial-card-visual::after {
+  opacity: 0.35;
+}
+
+.editorial-project-card:hover .editorial-card-img {
+  transform: scale(1.048);
+}
+
+.editorial-arrow-link {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.editorial-arrow-link:hover {
+  color: var(--accent-cyan);
+  transform: translateX(2px);
+}
+
+.editorial-arrow-link .arrow {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-arrow-link:hover .arrow {
+  transform: translateX(6px);
+}
+
+/* ─── 9. STREAMLINED ABOUT STACK & 2x2 PRINCIPLES GRID ──────────────────── */
+.editorial-skills-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.editorial-skill-pill-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: rgba(19, 21, 26, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.editorial-skill-pill-group:hover {
+  border-color: rgba(66, 133, 244, 0.35);
+  background: rgba(22, 24, 30, 0.9);
+}
+
+.skill-category-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  min-width: 145px;
+}
+
+.editorial-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.editorial-principles-grid .editorial-principle-card {
+  position: relative;
+  padding: 1.25rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-principles-grid .editorial-principle-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(138, 216, 232, 0.4);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.75), 0 0 20px -5px rgba(66, 133, 244, 0.15);
+}
+
+.editorial-principle-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .editorial-principles-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-category-label {
+    min-width: 100%;
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* ─── 10. BUTTON & ACTION MICRO-INTERACTIONS ────────────────────────────── */
+.btn {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 25px rgba(66, 133, 244, 0.45);
+}
+
+.btn-outline:hover {
+  box-shadow: 0 0 20px rgba(138, 216, 232, 0.2);
+}
+
+.notion-filter-btn {
+  transition: transform 0.2s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.notion-filter-btn:hover {
+  transform: translateY(-1px);
+}
+
 /* ─── REDUCED MOTION PREFERENCE ──────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -3601,7 +3885,11 @@ p {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .pulse-indicator, .launcher-pulse, .status-pulse-cyan {
+  .pulse-indicator, .launcher-pulse, .status-pulse-cyan, .ambient-orb {
     animation: none !important;
+  }
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

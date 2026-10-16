@@ -240,4 +240,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (submitBtn) submitBtn.disabled = false;
   }
+
+  // 9. Scroll-Driven Reveal Observer (Staggered Motion)
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const revealTargets = document.querySelectorAll(
+      '.section-header, .editorial-project-card, .editorial-about-profile, .editorial-about-narrative, .editorial-channel-card, .editorial-form-card, .editorial-principles-grid .editorial-principle-card'
+    );
+
+    revealTargets.forEach((el, index) => {
+      el.classList.add('scroll-reveal');
+      const delayNum = (index % 4) + 1;
+      el.classList.add(`delay-${delayNum}`);
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.06
+    });
+
+    revealTargets.forEach(el => revealObserver.observe(el));
+  }
+
+  // 10. Subtle Parallax for Overflowing Gradient Orbs
+  const ambientOrbs = document.querySelectorAll('.ambient-orb');
+  if (ambientOrbs.length && !prefersReducedMotion) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY || window.pageYOffset;
+          ambientOrbs.forEach((orb, i) => {
+            const speed = 0.035 + (i * 0.015);
+            orb.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // 11. Interactive Spotlight on Project Cards
+  const cards = document.querySelectorAll('.editorial-project-card');
+  cards.forEach(card => {
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mouse-x', `${x}%`);
+      card.style.setProperty('--mouse-y', `${y}%`);
+    }, { passive: true });
+  });
 });

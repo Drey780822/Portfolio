@@ -252,7 +252,7 @@ async function runTests() {
     const data = getData();
     const reply = data?.reply || '';
     assert('Role Integrity: refutes senior/principal titles', reply.includes('does not hold unverified senior, principal, or executive titles'));
-    assert('Role Integrity: affirms TUT qualification (360/360 credits)', reply.includes('360/360 credits'));
+    assert('Role Integrity: affirms TUT qualification', reply.includes('360/360 credits'));
   }
 
   // Test 3.5: Unknown Information Handling

@@ -265,7 +265,7 @@ CORE DIRECTIVES & SAFETY GUARDRAILS:
 11. Remind visitors that answers summarize documented public portfolio evidence.
 
 APPROVED KNOWLEDGE BASE:
-${knowledgeBase ? JSON.stringify(knowledgeBase, null, 2) : 'Thabang Dikotope: Graduate Software Engineer from TUT (360/360 credits). Co-Founder & Software Engineer at FuelLinkPro. AI & Software Systems Developer Intern at Wits Enterprise.'}
+${knowledgeBase ? JSON.stringify(knowledgeBase, null, 2) : 'Thabang Dikotope: Graduate Software Engineer from TUT. Co-Founder & Software Engineer at FuelLinkPro. AI & Software Systems Developer Intern at Wits Enterprise.'}
 `;
 
 module.exports = async function handler(req, res) {
