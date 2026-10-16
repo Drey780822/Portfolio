@@ -19,27 +19,43 @@
 
   <!-- Header -->
   <header class="site-header" role="banner">
-    <div class="container nav-container">
-      <a href="../index.html" class="brand-link" aria-label="Thabang Dikotope Home">
-        <span class="brand-name">Thabang Dikotope</span>
-        <span class="brand-title">Software Systems</span>
+    <div class="nav-container">
+      <a href="../index.html" class="brand-link" aria-label="Thabang Dikotope Portfolio Home">
+        <span class="brand-emblem" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M12 6v13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 11h4.5a3.5 3.5 0 0 1 0 7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="20" cy="6" r="1.5" fill="var(--accent-cyan, #06B6D4)"/>
+          </svg>
+        </span>
+        <div class="brand-meta">
+          <span class="brand-name">THABANG DIKOTOPE</span>
+          <span class="brand-telemetry">SYS // AI ENG</span>
+        </div>
       </a>
+
+      <!-- Live SAST Telemetry Beacon -->
+      <div class="nav-telemetry-chip" title="Johannesburg Live Telemetry (SAST)">
+        <span class="telemetry-beacon"></span>
+        <span class="telemetry-label">JHB</span>
+        <span class="live-sast-clock">--:--:-- SAST</span>
+      </div>
 
       <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
         <ul class="nav-menu">
-          <li><a href="../work/index.html" class="nav-item-link">Work</a></li>
-          <li><a href="../research/index.html" class="nav-item-link">Research & AI</a></li>
-          <li><a href="../experience/index.html" class="nav-item-link">Experience</a></li>
-          <li><a href="../about/index.html" class="nav-item-link active">About</a></li>
-          <li><a href="../contact/index.html" class="nav-item-link">Contact</a></li>
+          <li><a href="../work/index.html" class="nav-item-link"><span class="nav-idx">01</span> Work</a></li>
+          <li><a href="../about/index.html" class="nav-item-link active"><span class="nav-idx">02</span> About</a></li>
+          <li><a href="../research/index.html" class="nav-item-link"><span class="nav-idx">03</span> Research</a></li>
+          <li><a href="../experience/index.html" class="nav-item-link"><span class="nav-idx">04</span> Experience</a></li>
+          <li><a href="../contact/index.html" class="nav-item-link"><span class="nav-idx">05</span> Contact</a></li>
         </ul>
         <div class="nav-actions">
           <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
             <span class="nav-pulse"></span>
-            <span>Ask Assistant</span>
+            <span>AI RECORD</span>
             <kbd class="nav-kbd">⌘K</kbd>
           </button>
-          <a href="../contact/index.html" class="btn btn-outline btn-sm">Get in Touch</a>
+          <a href="../contact/index.html" class="nav-btn-initiate">Initiate →</a>
         </div>
       </nav>
 
@@ -49,12 +65,19 @@
     </div>
 
     <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-      <a href="../index.html" class="mobile-drawer-link">Home</a>
-      <a href="../work/index.html" class="mobile-drawer-link">Work</a>
-      <a href="../research/index.html" class="mobile-drawer-link">Research & AI</a>
-      <a href="../experience/index.html" class="mobile-drawer-link">Experience</a>
-      <a href="../about/index.html" class="mobile-drawer-link active">About</a>
-      <a href="../contact/index.html" class="mobile-drawer-link">Contact</a>
+      <div class="mobile-drawer-header">
+        <div class="nav-telemetry-chip">
+          <span class="telemetry-beacon"></span>
+          <span class="telemetry-label">JHB</span>
+          <span class="live-sast-clock">--:--:-- SAST</span>
+        </div>
+      </div>
+      <a href="../index.html" class="mobile-drawer-link"><span class="nav-idx">00</span> Home</a>
+      <a href="../work/index.html" class="mobile-drawer-link"><span class="nav-idx">01</span> Work</a>
+      <a href="../about/index.html" class="mobile-drawer-link active"><span class="nav-idx">02</span> About</a>
+      <a href="../research/index.html" class="mobile-drawer-link"><span class="nav-idx">03</span> Research & AI</a>
+      <a href="../experience/index.html" class="mobile-drawer-link"><span class="nav-idx">04</span> Experience</a>
+      <a href="../contact/index.html" class="mobile-drawer-link"><span class="nav-idx">05</span> Contact</a>
       <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
         <span class="nav-pulse"></span>
         <span>Ask Portfolio Assistant</span>
@@ -161,7 +184,7 @@
           <!-- Languages -->
           <div class="skill-category-card">
             <h3>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <span class="capability-telemetry-tag">[ DOMAIN // 01 · LANG ]</span>
               Programming Languages
             </h3>
             <div class="skill-list-detailed">
@@ -213,7 +236,7 @@
           <!-- Backend & Systems -->
           <div class="skill-category-card">
             <h3>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              <span class="capability-telemetry-tag">[ DOMAIN // 02 · DISTRIB ]</span>
               Backend & Distributed Systems
             </h3>
             <div class="skill-list-detailed">
@@ -258,7 +281,7 @@
           <!-- Cloud, DevOps & Databases -->
           <div class="skill-category-card">
             <h3>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+              <span class="capability-telemetry-tag">[ DOMAIN // 03 · INFRA ]</span>
               Cloud, DevOps & Databases
             </h3>
             <div class="skill-list-detailed">

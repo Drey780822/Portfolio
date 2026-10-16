@@ -1,0 +1,710 @@
+{
+  "profile": {
+    "name": "Thabang Dikotope",
+    "title": "Graduate Software Engineer",
+    "positioning": "Graduate Software Engineer | Full-Stack Developer | AI & Software Systems Developer",
+    "location": "Johannesburg, Gauteng, South Africa",
+    "tagline": "Building software that solves real problems. Exploring what comes next.",
+    "summary": "I am a graduate software engineer focused on building full-stack applications, backend systems, data-driven tools, and AI-enabled software. My experience includes professional software development and IT support, production deployment, cloud infrastructure, database design, technical collaboration, and product development. I co-founded and engineered FuelLinkPro, an on-demand fuel delivery platform, and have worked on applications addressing problems in education, document verification, event management, and skills intelligence. My current work at Wits involves software development within the Future of Learning environment, including systems connected to skills mapping, research workflows, and emerging technologies. I am interested in engineering reliable software, applying AI responsibly, and developing technology that solves practical problems.",
+    "current_status": "AI & Software Systems Developer Intern at Wits Enterprise (Future of Learning / Wits–merSETA Darkroom Project) and Co-Founder & Software Engineer at FuelLinkPro.",
+    "disclaimer": "Thabang Dikotope is a high-potential graduate software engineer with proven production deployments, hackathon leadership, and commercial development ownership. He does not claim senior or principal titles."
+  },
+  "contact": {
+    "email": "thabangdikotope624@gmail.com",
+    "phone": "+27 79 594 8790",
+    "location": "Johannesburg, Gauteng, South Africa",
+    "linkedin": "https://www.linkedin.com/in/drey780822",
+    "github": "https://github.com/Drey780822",
+    "portfolio": "https://thabangs-portfolio.netlify.app",
+    "whatsapp": "https://wa.me/27795948790"
+  },
+  "experience": [
+    {
+      "id": "wits-enterprise",
+      "company": "Wits Enterprise",
+      "role": "AI & Software Systems Developer Intern",
+      "period": "August 2026 – Present",
+      "location": "Braamfontein, Johannesburg, South Africa",
+      "context": "Wits–merSETA Darkroom Project, Future of Learning stream",
+      "responsibilities": [
+        "Architecting and developing software systems for occupational and skills intelligence within the Future of Learning research stream.",
+        "Building backend API endpoints and data models for CV skill extraction and occupational exploration workflows.",
+        "Collaborating on data extraction, normalization, and verification pipelines for research datasets.",
+        "Investigating responsible LLM retrieval and prompt evaluation techniques to support grounded educational software.",
+        "Designing database schemas and integrating secure API boundaries with Supabase and PostgreSQL."
+      ],
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "FastAPI",
+        "Python",
+        "PostgreSQL",
+        "Supabase",
+        "Docker",
+        "REST APIs"
+      ]
+    },
+    {
+      "id": "fuellinkpro",
+      "company": "FuelLinkPro",
+      "role": "Co-Founder & Software Engineer",
+      "period": "November 2025 – Present",
+      "location": "Johannesburg, South Africa",
+      "context": "Commercial On-Demand Fuel Delivery Startup",
+      "responsibilities": [
+        "Sole-architected and engineered the backend services for a three-sided marketplace connecting customers, delivery drivers, and platform administrators.",
+        "Designed relational database schemas in PostgreSQL with SQLAlchemy ORM, managing customer orders, vehicle profiles, fuel inventory, and delivery dispatch states.",
+        "Implemented secure JWT authentication, role-based access control, and password hashing.",
+        "Integrated the PayFast payment gateway with cryptographic signature validation and webhook reconciliation.",
+        "Built real-time telemetry and order dispatch tracking using Flask-SocketIO and Redis pub/sub.",
+        "Configured asynchronous background worker tasks with Celery and Redis for automated order expiration, receipts, and SMS/email notifications via Twilio and SendGrid.",
+        "Containerized application components using Docker and managed Nginx reverse proxy routing and SSL configuration on production instances."
+      ],
+      "technologies": [
+        "Python",
+        "Flask",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "JWT",
+        "Socket.IO",
+        "Celery",
+        "Redis",
+        "Docker",
+        "Nginx",
+        "Gunicorn",
+        "PayFast",
+        "Twilio",
+        "SendGrid",
+        "Google Maps"
+      ]
+    },
+    {
+      "id": "mtp-it-solutions",
+      "company": "MTP IT Solutions / T&T Group (PTY) LTD",
+      "role": "Software Development & IT Support Intern (WIL)",
+      "period": "September 2025 – February 2026",
+      "location": "Emalahleni, Mpumalanga, South Africa",
+      "context": "Work-Integrated Learning (WIL) Industry Internship",
+      "responsibilities": [
+        "Developed and maintained client-facing web applications, converting client business requirements into functional interfaces.",
+        "Managed domain name systems (DNS), SSL certificate provisioning, and web hosting deployments across Linux environments.",
+        "Constructed and tested RESTful API integrations using Postman, ensuring schema compliance and reliable data exchange.",
+        "Diagnosed and resolved critical client incidents including Microsoft Outlook authentication failures across enterprise environments, minimizing business downtime.",
+        "Performed incident root cause analysis, authoring technical troubleshooting documentation adopted into the company's reusable support knowledge base."
+      ],
+      "technologies": [
+        "PHP",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "REST APIs",
+        "DNS / SSL",
+        "Linux Hosting",
+        "Git",
+        "Postman",
+        "Technical Support"
+      ]
+    },
+    {
+      "id": "mlab",
+      "company": "mLab Southern Africa",
+      "role": "Frontend Developer Intern",
+      "period": "March 2025 – July 2025",
+      "location": "South Africa",
+      "context": "Technology Innovation & Incubation Internship",
+      "responsibilities": [
+        "Collaborated within an agile student development cohort building an event management web application.",
+        "Implemented responsive UI components using HTML5, CSS3, and modern JavaScript based on Figma UI wireframes.",
+        "Coordinated feature branches, code reviews, and version control workflows using Git and GitHub."
+      ],
+      "technologies": [
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Git",
+        "GitHub",
+        "Figma",
+        "UI/UX"
+      ]
+    },
+    {
+      "id": "tut-peer-tutor",
+      "company": "Tshwane University of Technology",
+      "role": "Peer Tutor & Lab Instructor",
+      "period": "June 2023 – December 2024",
+      "location": "Witbank / eMalahleni Campus, South Africa",
+      "context": "Academic Tutoring & Student Mentorship",
+      "responsibilities": [
+        "Mentored over 30 first- and second-year Computer Science students per semester in Programming Fundamentals (Java), Database Principles (SQL), and Web Computing.",
+        "Facilitated weekly practical programming laboratory sessions, assisting students in debugging logic errors and understanding relational design.",
+        "Authored accessible cybersecurity and programming learning guides that were integrated into departmental student support resources."
+      ],
+      "technologies": [
+        "Java",
+        "SQL",
+        "MySQL",
+        "Oracle SQL",
+        "JavaScript",
+        "HTML/CSS",
+        "Teaching & Mentoring"
+      ]
+    }
+  ],
+  "education": {
+    "institution": "Tshwane University of Technology",
+    "qualification": "Higher National Diploma in Computer Science",
+    "period": "January 2022 – December 2025",
+    "status": "Completed (All 360/360 Credits Completed)",
+    "focus": "Software Programming, Mobile Device Programming, Database Design, and Systems Analysis",
+    "highlights": [
+      "Completed 360/360 credits across theoretical, practical, and Work-Integrated Learning (WIL) components.",
+      "Completed final-year project leading a 6-person team to build the FitZone Gym Management System (Graded with Distinction).",
+      "Appointed as Peer Tutor for Junior Cohorts in Java, SQL, and Web Development for three consecutive semesters."
+    ]
+  },
+  "certifications": [
+    {
+      "title": "AWS Cloud Quest: Cloud Practitioner",
+      "issuer": "Amazon Web Services (AWS)",
+      "date": "2024",
+      "description": "Validated core competency in AWS cloud architecture, IAM security policies, EC2 computing instances, S3 storage, and scalable infrastructure design."
+    },
+    {
+      "title": "Generative AI for Software Engineers",
+      "issuer": "WeThinkCode",
+      "date": "2025",
+      "description": "Practical application of large language models, prompt engineering, retrieval strategies, and AI tooling within production software systems."
+    },
+    {
+      "title": "Ethical Hacker Certificate",
+      "issuer": "Mpumalanga AI Student Hackathon",
+      "date": "October 2025",
+      "description": "Awarded by competition organizers for demonstrated principles in ethical security assessment, defensive vulnerability review, and penetration testing fundamentals."
+    },
+    {
+      "title": "Deloitte Australia Cyber Job Simulation",
+      "issuer": "Forage / Deloitte",
+      "date": "2025",
+      "description": "Practical simulation covering security controls analysis, vulnerability identification, and enterprise cyber risk mitigation strategies."
+    },
+    {
+      "title": "Responsive Web Design Certification",
+      "issuer": "freeCodeCamp",
+      "date": "2024",
+      "description": "In-depth modern web fundamentals: HTML5 semantics, CSS3 flexbox/grid architectures, accessibility compliance, and fluid layouts."
+    }
+  ],
+  "projects": [
+    {
+      "id": "fuellinkpro",
+      "name": "FuelLinkPro",
+      "tagline": "On-Demand Fuel Delivery Platform",
+      "category": "Full-Stack & Cloud Systems",
+      "status": "Live in Production / Active Development",
+      "role": "Co-Founder & Software Engineer",
+      "team_size": "Founding Team (Sole Backend & Cloud Engineer)",
+      "period": "November 2025 – Present",
+      "url": "https://fuellinkpro.com/",
+      "github": "https://github.com/Drey780822",
+      "problem": "Drivers stranded with empty fuel tanks, rural machinery operators, and commercial fleet managers face significant downtime when vehicles run out of fuel far from commercial filling stations. Traditional roadside assistance is slow and lacks real-time dispatch transparency.",
+      "solution": "A three-sided on-demand marketplace connecting consumers with mobile fuel delivery providers. Customers place geotagged orders with vehicle and fuel specifications; certified drivers receive dispatch requests, navigate via Google Maps, and complete verified deliveries; administrators monitor safety compliance, payments, and platform commission splits.",
+      "my_contribution": "Sole-engineered the entire backend architecture: PostgreSQL database modeling, Flask RESTful API services, JWT session validation, PayFast payment gateway integration with cryptographic hash verification, Celery background worker queues for automated timeout handling, Socket.IO live order dispatch events, and production Docker/Nginx deployment.",
+      "architecture": "Client web & mobile interface communicating with a Gunicorn-managed Flask API. Persistence handled by PostgreSQL with SQLAlchemy ORM. Redis provides in-memory state caching and serves as Celery broker for background notifications. Nginx operates as a reverse proxy terminating SSL.",
+      "reported_traction": "Over 10 registered customers and over 15 onboarded drivers prepared for fulfillment. Note: These are supplied project figures reflecting early rollout onboarding, not verified active daily usage or audited revenue metrics.",
+      "business_model_note": "Operates an on-demand driver split model. An initial prototype considered an 80/20 driver commission; the current operating model evaluates a 70/30 split to balance platform operational and insurance overhead.",
+      "technologies": [
+        "Python",
+        "Flask",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "JWT",
+        "Socket.IO",
+        "Celery",
+        "Redis",
+        "Docker",
+        "Nginx",
+        "Gunicorn",
+        "PayFast",
+        "Twilio",
+        "SendGrid",
+        "Google Maps"
+      ]
+    },
+    {
+      "id": "skills-mapping",
+      "name": "Wits Skills Mapping Platform",
+      "tagline": "AI-Enabled Skills Discovery & Occupational Exploration",
+      "category": "AI & Research Systems",
+      "status": "In Active Research & Prototyping",
+      "role": "AI & Software Systems Developer Intern",
+      "team_size": "Wits Enterprise Research Engineering Stream",
+      "period": "August 2026 – Present",
+      "url": null,
+      "github": "https://github.com/Drey780822",
+      "problem": "Traditional career exploration tools rely on static occupational taxonomies that fail to reflect evolving technical skills and real industry requirements, leaving students and workforce development researchers with disconnected data.",
+      "solution": "An intelligent platform that extracts and maps candidate skills from curriculum vitae, visualizes transferable competencies, and matches candidate profiles against evolving industry occupations using structured ontologies and cognitive assessment telemetry.",
+      "my_contribution": "Designed backend API services in FastAPI and Next.js, built database schemas for storing skills taxonomies and candidate interaction telemetry in Supabase/PostgreSQL, and helped design safe integration boundaries for AI-assisted competency extraction.",
+      "architecture": "Next.js frontend communicating with a FastAPI microservice layer. Relational data and session state managed through Supabase and PostgreSQL. Strict privacy controls isolate student telemetry from public endpoints.",
+      "institutional_safeguards": "Public documentation excludes internal server configurations, private institutional endpoints, unpublished research datasets, and private API credentials.",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "FastAPI",
+        "Python",
+        "PostgreSQL",
+        "Supabase",
+        "Docker",
+        "REST APIs",
+        "AI Prompt Engineering"
+      ]
+    },
+    {
+      "id": "darkroom-dataforge",
+      "name": "Darkroom DataForge",
+      "tagline": "Structured Data Extraction, Validation, and Dataset Generation",
+      "category": "Data Engineering & Systems",
+      "status": "Under Active Engineering",
+      "role": "Software Systems Developer",
+      "team_size": "Darkroom Research Project",
+      "period": "2026",
+      "url": null,
+      "github": "https://github.com/Drey780822",
+      "problem": "Complex unstructured documents such as institutional reports, scans, and multi-page technical manuals contain critical tabular records that break standard optical character recognition tools, leading to corrupted numbers, lost page boundaries, and unverified data.",
+      "solution": "An auditable data extraction pipeline based on the core engineering principle: 'Every extracted record should be traceable to its source.' Follows a pipeline of Ingestion -> Classification -> Extraction -> Table Reconstruction -> Normalization -> Validation -> Human-in-the-Loop Review -> Export.",
+      "my_contribution": "Engineered document parsing services, designed tabular reconstruction heuristics to handle multi-page table splits, implemented record-level bounding box coordinate provenance, and built export pipelines for CSV, JSON, and Excel formats.",
+      "architecture": "React & TypeScript frontend interface paired with a high-throughput FastAPI backend. Database layer built with SQLAlchemy supporting PostgreSQL in containerized production and SQLite in local developer sandboxes.",
+      "key_principle": "Traceability and human review help researchers inspect the exact document page and coordinate evidence behind structured records before committing them to research datasets.",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "FastAPI",
+        "Python",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "SQLite",
+        "Docker",
+        "Tabular Heuristics"
+      ]
+    },
+    {
+      "id": "verifysa",
+      "name": "VerifySA",
+      "tagline": "AI-Assisted Document Verification & Fraud Detection",
+      "category": "AI & Security Systems",
+      "status": "Deployed Hackathon Prototype",
+      "role": "Team Lead (10-Person Engineering Team)",
+      "team_size": "10 Developers",
+      "period": "June 2026",
+      "url": "https://verify-sa.vercel.app/",
+      "github": "https://github.com/Drey780822",
+      "problem": "Small businesses and institutions struggle with fraudulent certificates, doctored invoices, and falsified national documents, but enterprise identity verification tools are prohibitively expensive and slow to integrate.",
+      "solution": "A rapid-verification SaaS prototype combining multimodal LLM document extraction with deterministic business-rule validation, generating transparent trust scores and verifiable PDF audit reports.",
+      "my_contribution": "Led a 10-person developer team during an intensive 5-hour hackathon sprint at the Soweto AI App Development Challenge. Architected the Next.js 15 application structure, coordinated backend schema design on Supabase, and implemented the hybrid rule validation pipeline.",
+      "architecture": "Next.js 15 with React 19 and TypeScript on Vercel edge infrastructure. Supabase provides PostgreSQL storage and authentication. OpenAI GPT-4o extracts structured data from uploaded documents, which is immediately piped through deterministic validation functions.",
+      "honest_disclosure": "VerifySA was built as a rapid 5-hour hackathon sprint proof-of-concept. It combines heuristic rule checks with LLM analysis; AI extraction alone does not constitute legal proof of authenticity, and no verified production fraud detection rates are claimed without formal benchmark datasets.",
+      "technologies": [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase",
+        "PostgreSQL",
+        "OpenAI GPT-4o API",
+        "Vercel"
+      ]
+    },
+    {
+      "id": "tut-event-management",
+      "name": "TUT Event Management System",
+      "tagline": "Campus Event Discovery & Automated QR-Code Ticketing",
+      "category": "Full-Stack Web Systems",
+      "status": "Deployed & Active",
+      "role": "Team Leader & Backend Developer",
+      "team_size": "3 Developers (TriTech Solutions)",
+      "period": "2025",
+      "url": "https://mytutevents.vercel.app/",
+      "github": "https://github.com/Drey780822/event-management-system",
+      "problem": "University student events relied on paper flyers and unorganized WhatsApp broadcast lists, resulting in poor attendance tracking, ticket counterfeiting, and disorganized entry gates.",
+      "solution": "A centralized campus event hub allowing organizers to publish verified university events, register students securely, automatically generate tamper-evident QR-code tickets, and dispatch RSVP confirmations via Email and WhatsApp.",
+      "my_contribution": "Led the TriTech Solutions team and sole-engineered the backend: PostgreSQL schema, Flask API endpoints for event creation and RSVP ticket issuance, cryptographic QR token generation, SMTP email integration, and deployment orchestration.",
+      "technologies": [
+        "Python",
+        "Flask",
+        "PostgreSQL",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "QR Tokenization",
+        "SMTP Email",
+        "WhatsApp Webhook Integration",
+        "Vercel"
+      ]
+    },
+    {
+      "id": "vsm-digital-services",
+      "name": "VSM Digital Services Platform",
+      "tagline": "Full-Stack Loan Management & Event Photography Portal",
+      "category": "Commercial Applications",
+      "status": "Deployed Commercial Project",
+      "role": "Full-Stack Software Engineer",
+      "team_size": "Independent Engineering Engagement",
+      "period": "2025 – 2026",
+      "url": null,
+      "github": "https://github.com/Drey780822",
+      "problem": "A growing service business needed to coordinate two distinct commercial workflows: short-term micro-lending compliance and event photography packages with an innovative 'Finance Your Event' option.",
+      "solution": "A unified web portal featuring customer onboarding, loan application document submission, digital signature collection, administrative loan review pipelines, calendar booking for photo shoots, and automated payment installment reminders.",
+      "my_contribution": "Built the full-stack system: Flask and Next.js integration, PostgreSQL database for borrower records and booking dates, PayFast payment processing, and administrative status dashboards.",
+      "compliance_note": "Features adhere to agreed commercial business rules; regulatory lending compliance remains managed by the business entity.",
+      "technologies": [
+        "Python",
+        "Flask",
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "PayFast",
+        "Digital Signatures",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "id": "pestvision-ai",
+      "name": "PestVisionAI 2.1",
+      "tagline": "Computer Vision Agricultural Pest Detection System",
+      "category": "AI & Computer Vision",
+      "status": "Competition Finalist (Top 4 Nationally)",
+      "role": "Team Lead (10-Developer Team)",
+      "team_size": "10 Developers",
+      "period": "October 2025",
+      "url": null,
+      "github": "https://github.com/Drey780822",
+      "problem": "Crop loss due to invasive insect pests devastates small-scale farmers in South Africa who lack immediate access to agricultural agronomists.",
+      "solution": "A computer vision pest classification system analyzing video and photographic camera feeds, detecting early pest infestations, and recommending targeted non-chemical or chemical mitigation steps.",
+      "achievement": "Awarded 4th Place Nationally among competing universities and colleges at the 3rd Annual Mpumalanga AI Student Hackathon.",
+      "my_contribution": "Coordinated the 10-person student team, led the Flask backend API integration to serve the CV inference pipeline, and presented the technical solution to the judging panel.",
+      "technologies": [
+        "Python",
+        "Computer Vision",
+        "Flask",
+        "OpenCV",
+        "Convolutional Neural Networks",
+        "Real-Time Streaming"
+      ]
+    },
+    {
+      "id": "fitzone-gym",
+      "name": "FitZone Gym Management System",
+      "tagline": "Three-Tier Membership & Facility Management System",
+      "category": "Academic Software Engineering Project",
+      "status": "Completed (Awarded Distinction)",
+      "role": "Team Lead (6-Person Team)",
+      "team_size": "6 Developers",
+      "period": "February 2025 – May 2025",
+      "url": "https://fitzone-gym-fitness.free.nf/",
+      "github": "https://github.com/Drey780822/Fitzone-Gym-Fitness",
+      "problem": "Local fitness centers needed a reliable, low-cost system to manage member memberships, check-ins, class bookings, and subscription renewals without expensive commercial SaaS fees.",
+      "solution": "A complete three-tier web application featuring member self-service portals, subscription renewal tracking, trainer schedule calendars, and administrative facility reports.",
+      "achievement": "Completed as TUT final-year software engineering project and graded with Distinction.",
+      "my_contribution": "Led the six-person team through the full SDLC: requirements analysis, relational MySQL schema design, PHP backend development, and hosting deployment.",
+      "technologies": [
+        "PHP",
+        "MySQL",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Git",
+        "InfinityFree Hosting"
+      ]
+    },
+    {
+      "id": "lifestyle-survey",
+      "name": "Lifestyle Preferences Survey",
+      "tagline": "Client-Side In-Browser SQLite Data Analysis Tool",
+      "category": "Web & Data Utilities",
+      "status": "Completed & Deployed",
+      "role": "Software Developer",
+      "team_size": "Individual Project",
+      "period": "2024",
+      "url": "https://drey780822.github.io/LifestyleSurvey/",
+      "github": "https://github.com/Drey780822/LifestyleSurvey",
+      "problem": "Conducting interactive user surveys without standing up a persistent cloud database server for temporary data gathering.",
+      "solution": "An interactive web survey utilizing sql.js (SQLite compiled to WebAssembly) to run full relational queries, aggregations, and visual charts directly in the client browser memory.",
+      "my_contribution": "Designed the responsive user questionnaire, integrated SQLite WebAssembly data store, and wrote client-side SQL analytics.",
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "SQLite (WebAssembly / sql.js)",
+        "GitHub Pages"
+      ]
+    }
+  ],
+  "technical_capabilities": {
+    "languages": [
+      {
+        "name": "Python",
+        "level": "Primary Production",
+        "context": "Flask, FastAPI, Celery, SQLAlchemy, Data Processing"
+      },
+      {
+        "name": "JavaScript",
+        "level": "Primary Production",
+        "context": "Modern ES6+, DOM, Fetch APIs, Node.js, Frontend integrations"
+      },
+      {
+        "name": "TypeScript",
+        "level": "Primary Production",
+        "context": "Next.js, React, strict typing, interfaces, API data contracts"
+      },
+      {
+        "name": "SQL & PL/pgSQL",
+        "level": "Primary Production",
+        "context": "PostgreSQL, MySQL, schema migrations, indexing, relational constraints"
+      },
+      {
+        "name": "PHP",
+        "level": "Working Competency",
+        "context": "Full-stack MVC architectures, academic systems, WordPress/custom CMS"
+      },
+      {
+        "name": "Java",
+        "level": "Academic & Tutoring",
+        "context": "Object-oriented software development, JDBC, academic lab instruction"
+      }
+    ],
+    "frontend": [
+      {
+        "name": "React & Next.js",
+        "context": "Component architecture, Server Components, SSR, hooks, dynamic routing"
+      },
+      {
+        "name": "HTML5 & Semantic Markup",
+        "context": "Accessible landmarks, ARIA compliance, SEO structure"
+      },
+      {
+        "name": "Tailwind CSS & Modern CSS",
+        "context": "Responsive grid, custom design tokens, fluid clamp() typography, CSS custom properties"
+      },
+      {
+        "name": "Responsive Design",
+        "context": "Mobile-first layouts, cross-device breakpoints from 320px to 1920px"
+      }
+    ],
+    "backend": [
+      {
+        "name": "Flask & FastAPI",
+        "context": "RESTful API services, request validation, dependency injection, middleware"
+      },
+      {
+        "name": "SQLAlchemy & ORMs",
+        "context": "Relational data modeling, migrations, session lifecycle management"
+      },
+      {
+        "name": "Authentication & Security",
+        "context": "JWT tokens, bcrypt password hashing, RBAC, CSRF protection, OWASP awareness"
+      },
+      {
+        "name": "Real-Time & Background Processing",
+        "context": "Socket.IO for bi-directional events, Celery & Redis for asynchronous queues"
+      }
+    ],
+    "databases": [
+      {
+        "name": "PostgreSQL",
+        "context": "Primary production relational store for FuelLinkPro, Wits systems, and VerifySA"
+      },
+      {
+        "name": "MySQL",
+        "context": "Academic projects, FitZone Gym management, relational modeling"
+      },
+      {
+        "name": "SQLite",
+        "context": "In-memory testing, WebAssembly client-side data apps, local development"
+      },
+      {
+        "name": "Supabase",
+        "context": "PostgreSQL cloud backend, Edge Functions, Row-Level Security policies"
+      }
+    ],
+    "cloud_and_infrastructure": [
+      {
+        "name": "Docker",
+        "context": "Containerized multi-service development, reproducible runtime environments"
+      },
+      {
+        "name": "Nginx & Gunicorn",
+        "context": "Reverse proxying, SSL termination, static file serving, WSGI process management"
+      },
+      {
+        "name": "AWS Cloud",
+        "context": "EC2 virtual servers, S3 object storage, IAM policies, AWS Cloud Quest certified"
+      },
+      {
+        "name": "Vercel & Netlify",
+        "context": "Edge deployments, Next.js serverless functions, production CI/CD pipelines"
+      },
+      {
+        "name": "Git & GitHub",
+        "context": "Trunk-based and feature branching, pull request reviews, team collaboration"
+      }
+    ],
+    "integrations_and_apis": [
+      {
+        "name": "OpenAI & Gemini APIs",
+        "context": "Multimodal document analysis, function calling, grounded prompt templates"
+      },
+      {
+        "name": "PayFast Payment Gateway",
+        "context": "South African merchant payment integration, cryptographic signature validation, IPN webhooks"
+      },
+      {
+        "name": "Twilio & SendGrid",
+        "context": "Automated transactional SMS dispatches and email notification triggers"
+      },
+      {
+        "name": "Google Maps Platform",
+        "context": "Geocoding, route mapping, and delivery location picker interfaces"
+      },
+      {
+        "name": "EmailJS",
+        "context": "Secure client-side contact inquiries routing directly to email inbox"
+      }
+    ]
+  },
+  "engineering_principles": [
+    {
+      "principle": "Understand the problem before selecting a solution",
+      "description": "Software complexity is costly. I spend time clarifying user workflows, domain constraints, and data requirements before choosing libraries, frameworks, or cloud infrastructure."
+    },
+    {
+      "principle": "Design reliable backend services and defensive data models",
+      "description": "Databases are the bedrock of any serious system. I enforce relational integrity, strict constraints, secure authorization, and idempotent handlers at the database and API boundary."
+    },
+    {
+      "principle": "Build interfaces around real user workflows",
+      "description": "Whether an on-demand fuel order, a document audit interface, or a campus event checkout, every UI component exists to help a human accomplish their task without confusion or friction."
+    },
+    {
+      "principle": "Integrate external services and AI responsibly",
+      "description": "External APIs and LLMs are powerful but prone to network latency, failure, or hallucination. I isolate third-party calls behind fallback boundaries, deterministic validation, and strict error handling."
+    },
+    {
+      "principle": "Document technical decisions and acknowledge limitations",
+      "description": "Engineering excellence requires intellectual honesty. I clearly document architectural trade-offs, security considerations, and known boundaries rather than making unsupported claims."
+    }
+  ],
+  "boundaries_and_confidentiality": {
+    "confidential_policy": "Strictly protect all non-public institutional and personal data.",
+    "protected_topics": [
+      "Internal Wits–merSETA Darkroom project database credentials, connection strings, and server IPs",
+      "Unpublished research datasets, raw participant telemetry, and internal API keys",
+      "Private personal information (home address, personal banking information, passwords, private personal phone numbers beyond the public portfolio number)"
+    ],
+    "safe_refusal_response": "That information is confidential or not documented in Thabang's public portfolio record. For inquiries regarding proprietary projects or official credentials, please contact Thabang directly at thabangdikotope624@gmail.com.",
+    "verification_disclaimer": "Responses generated by this assistant summarize documented engineering evidence from Thabang Dikotope's public portfolio. They do not constitute formal legal proof or independent audit certificates."
+  },
+  "research_interests": [
+    {
+      "topic": "Applied AI in African Education & Skills Systems",
+      "description": "Investigating intelligent skill-mapping pipelines that align candidate CV competencies against national labor frameworks (such as the South African OFO taxonomy) to empower students and workforce researchers."
+    },
+    {
+      "topic": "Human-in-the-Loop Document Extraction & Provenance",
+      "description": "Engineering auditable data ingestion pipelines that preserve exact document coordinate bounding boxes, ensuring that every synthesized tabular record can be verified against original scanned source material."
+    },
+    {
+      "topic": "Responsible LLM Grounding & Safety Boundaries",
+      "description": "Architecting dual-engine validation patterns that pair generative language models with deterministic algorithms (such as Luhn checks, cryptographic hashes, and schema validators) to eliminate hallucinations in high-stakes domains."
+    },
+    {
+      "topic": "Scalable Event-Driven Backends & Distributed Logistics",
+      "description": "Designing low-latency real-time dispatch systems, asynchronous task queues (Celery/Redis), and cryptographic verification workflows for high-concurrency commercial and civic applications."
+    }
+  ],
+  "project_classifications": {
+    "completed_projects": [
+      {
+        "id": "fitzone-gym",
+        "name": "FitZone Gym Management System",
+        "outcome": "Completed (Graded with Distinction)"
+      },
+      {
+        "id": "lifestyle-survey",
+        "name": "Lifestyle Preferences Survey",
+        "outcome": "Completed & Deployed on GitHub Pages"
+      },
+      {
+        "id": "tut-event-management",
+        "name": "TUT Event Management System",
+        "outcome": "Completed & Deployed on Vercel"
+      },
+      {
+        "id": "verifysa",
+        "name": "VerifySA",
+        "outcome": "Completed 5-Hour Hackathon Prototype (Soweto AI Challenge)"
+      },
+      {
+        "id": "pestvision-ai",
+        "name": "PestVisionAI 2.1",
+        "outcome": "Completed Hackathon Finalist (Top 4 Nationally)"
+      }
+    ],
+    "ongoing_work": [
+      {
+        "id": "fuellinkpro",
+        "name": "FuelLinkPro",
+        "stage": "Live in Production / Active Commercial Iteration"
+      },
+      {
+        "id": "skills-mapping",
+        "name": "Wits Skills Mapping Platform",
+        "stage": "Active Prototyping & Research at Wits Enterprise"
+      },
+      {
+        "id": "darkroom-dataforge",
+        "name": "Darkroom DataForge",
+        "stage": "Under Active Engineering in Darkroom Stream"
+      }
+    ]
+  },
+  "contributions_breakdown": {
+    "individual_contributions": [
+      {
+        "project": "FuelLinkPro",
+        "scope": "Sole Backend & Infrastructure Engineer. Architected PostgreSQL database schemas, Flask REST API endpoints, JWT authentication, PayFast cryptographic payment webhook verification, Celery background worker queues, Socket.IO live dispatch, and Docker/Nginx production deployment."
+      },
+      {
+        "project": "Darkroom DataForge",
+        "scope": "Engineered document tabular reconstruction heuristics, record-level bounding box coordinate provenance mapping, and structured export pipelines (CSV/JSON/Excel)."
+      },
+      {
+        "project": "Lifestyle Preferences Survey",
+        "scope": "Sole developer. Built client-side in-browser SQLite (sql.js WebAssembly) relational database and analytics engine."
+      }
+    ],
+    "team_leadership": [
+      {
+        "project": "VerifySA",
+        "scope": "Team Lead of 10-person developer cohort during a 5-hour hackathon sprint at the Soweto AI App Challenge. Coordinated architecture, Next.js 15 structure, Supabase schema, and hybrid multimodal validation pipeline."
+      },
+      {
+        "project": "PestVisionAI 2.1",
+        "scope": "Team Lead of 10-person student team at the 3rd Mpumalanga AI Student Hackathon. Orchestrated Flask API wrapper for CV model inference and delivered technical presentation (Awarded Top 4 Nationally)."
+      },
+      {
+        "project": "TUT Event Management System",
+        "scope": "Team Leader of TriTech Solutions (3 developers). Directed system design, implemented Flask/PostgreSQL backend, cryptographic QR ticketing, and WhatsApp/email delivery."
+      },
+      {
+        "project": "FitZone Gym Management System",
+        "scope": "Team Lead of 6-person academic team for final-year TUT software engineering project. Directed full SDLC, MySQL schema, and PHP backend (Graded with Distinction)."
+      }
+    ],
+    "institutional_collaboration": [
+      {
+        "project": "Wits Enterprise Future of Learning",
+        "scope": "Collaborating as AI & Software Systems Developer Intern alongside academic researchers and systems engineers to construct occupational exploration systems, data normalization workflows, and responsible AI evaluation frameworks."
+      }
+    ]
+  }
+}

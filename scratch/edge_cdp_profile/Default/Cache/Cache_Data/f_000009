@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case Study: FuelLinkPro — On-Demand Fuel Delivery Platform engineered by Thabang Dikotope. Backend architecture, PostgreSQL data modeling, PayFast payments, and real-time dispatch." />
+  <title>FuelLinkPro Case Study — Thabang Dikotope</title>
+
+  <!-- Typography: Manrope & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand-link" aria-label="Thabang Dikotope Portfolio Home">
+        <span class="brand-emblem" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M12 6v13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 11h4.5a3.5 3.5 0 0 1 0 7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="20" cy="6" r="1.5" fill="var(--accent-cyan, #06B6D4)"/>
+          </svg>
+        </span>
+        <div class="brand-meta">
+          <span class="brand-name">THABANG DIKOTOPE</span>
+          <span class="brand-telemetry">SYS // AI ENG</span>
+        </div>
+      </a>
+
+      <!-- Live SAST Telemetry Beacon -->
+      <div class="nav-telemetry-chip" title="Johannesburg Live Telemetry (SAST)">
+        <span class="telemetry-beacon"></span>
+        <span class="telemetry-label">JHB</span>
+        <span class="live-sast-clock">--:--:-- SAST</span>
+      </div>
+
+      <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="../../work/index.html" class="nav-item-link active"><span class="nav-idx">01</span> Work</a></li>
+          <li><a href="../../about/index.html" class="nav-item-link"><span class="nav-idx">02</span> About</a></li>
+          <li><a href="../../research/index.html" class="nav-item-link"><span class="nav-idx">03</span> Research</a></li>
+          <li><a href="../../experience/index.html" class="nav-item-link"><span class="nav-idx">04</span> Experience</a></li>
+          <li><a href="../../contact/index.html" class="nav-item-link"><span class="nav-idx">05</span> Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
+            <span class="nav-pulse"></span>
+            <span>AI RECORD</span>
+            <kbd class="nav-kbd">⌘K</kbd>
+          </button>
+          <a href="../../contact/index.html" class="nav-btn-initiate">Initiate →</a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <div class="mobile-drawer-header">
+        <div class="nav-telemetry-chip">
+          <span class="telemetry-beacon"></span>
+          <span class="telemetry-label">JHB</span>
+          <span class="live-sast-clock">--:--:-- SAST</span>
+        </div>
+      </div>
+      <a href="../../index.html" class="mobile-drawer-link"><span class="nav-idx">00</span> Home</a>
+      <a href="../../work/index.html" class="mobile-drawer-link active"><span class="nav-idx">01</span> Work</a>
+      <a href="../../about/index.html" class="mobile-drawer-link"><span class="nav-idx">02</span> About</a>
+      <a href="../../research/index.html" class="mobile-drawer-link"><span class="nav-idx">03</span> Research & AI</a>
+      <a href="../../experience/index.html" class="mobile-drawer-link"><span class="nav-idx">04</span> Experience</a>
+      <a href="../../contact/index.html" class="mobile-drawer-link"><span class="nav-idx">05</span> Contact</a>
+      <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
+        <span class="nav-pulse"></span>
+        <span>Ask Portfolio Assistant</span>
+        <kbd class="nav-kbd" style="margin-left:auto;">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+
+    <!-- NOTION PANORAMIC COVER BANNER -->
+    <div class="notion-cover-container" aria-hidden="true">
+      <img src="../../assets/images/projects images/fuellinkpro.png" alt="FuelLinkPro Platform Screenshot" class="notion-cover-img" loading="eager" />
+      <div class="notion-cover-gradient"></div>
+    </div>
+    <article class="case-study-hero">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../../work/index.html">Work</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">FuelLinkPro</span>
+        </nav>
+
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <span class="badge badge-live">Live in Production</span>
+          <span class="mono-tag" style="font-size:0.75rem;">Commercial Startup</span>
+        </div>
+
+        <h1 class="case-study-title">FuelLinkPro: On-Demand Fuel Delivery Platform</h1>
+        <p class="case-study-lead">
+          A distributed, three-sided marketplace connecting stranded motorists and commercial fleet managers with certified mobile fuel delivery drivers. Architected from requirements to production deployment.
+        </p>
+
+        <div class="case-study-meta-grid">
+          <div class="meta-box">
+            <h5>Role</h5>
+            <p>Co-Founder & Software Engineer</p>
+          </div>
+          <div class="meta-box">
+            <h5>Period</h5>
+            <p>November 2025 – Present</p>
+          </div>
+          <div class="meta-box">
+            <h5>Domain</h5>
+            <p>Geospatial Logistics & Payments</p>
+          </div>
+          <div class="meta-box">
+            <h5>Live Website</h5>
+            <p><a href="https://fuellinkpro.com/" target="_blank" rel="noopener" class="text-link">fuellinkpro.com ↗</a></p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="case-study-body">
+      <div class="container container-narrow">
+        <div class="case-study-content">
+
+          <!-- Section 1: Overview & Context -->
+          <section class="study-section">
+            <h2>1. Project Overview & Problem Context</h2>
+            <p>
+              In South Africa, motorists traveling through rural routes, long-distance freight drivers, and construction plant operators frequently experience fuel depletion far from commercial filling stations. Traditional roadside assistance requires membership subscriptions, lacks real-time GPS visibility, and often takes hours to arrive.
+            </p>
+            <p>
+              <strong>FuelLinkPro</strong> was conceived to solve this critical logistical friction by providing an on-demand, mobile-first fuel dispatch network. The platform connects consumers with licensed mobile fuel carriers, allowing users to request petrol or diesel delivered directly to their pinned vehicle location.
+            </p>
+          </section>
+
+          <!-- Section 2: Intended Users & Workflows -->
+          <section class="study-section">
+            <h2>2. Intended Users & Core Workflows</h2>
+            <p>
+              The platform coordinates three distinct user personas across synchronized state workflows:
+            </p>
+            <ul>
+              <li><strong>Consumers / Fleet Operators:</strong> Pin vehicle geolocation via Google Maps, specify fuel type (Diesel 50ppm, Unleaded 95) and volume, preview pricing inclusive of delivery surcharges, authorize payments via PayFast, and monitor driver approach in real-time.</li>
+              <li><strong>Certified Delivery Drivers:</strong> Receive broadcast dispatch alerts matching their operating radius, accept orders, follow turn-by-turn routing, verify customer identity at the destination, dispense fuel, and confirm delivery completion.</li>
+              <li><strong>Platform Administrators:</strong> Monitor active orders, review driver safety certifications, audit PayFast merchant settlements, adjust regional pricing indices, and manage platform commission distributions.</li>
+            </ul>
+          </section>
+
+          <!-- Section 3: My Role & Responsibilities -->
+          <section class="study-section">
+            <h2>3. My Role & Engineering Scope</h2>
+            <p>
+              As <strong>Co-Founder and Software Engineer</strong>, I took full individual ownership of the system's technical foundation:
+            </p>
+            <ul>
+              <li><strong>Relational Architecture:</strong> Designed the complete PostgreSQL database schema with SQLAlchemy ORM, enforcing strict foreign key constraints, table normalization, and state machine enums for order lifecycles.</li>
+              <li><strong>API Services:</strong> Implemented RESTful endpoints in Python using Flask, with token-based JSON Web Token (JWT) authentication and role-based permissions.</li>
+              <li><strong>Payment Gateway Integration:</strong> Engineered the PayFast merchant integration with cryptographic signature validation (MD5/SHA-256 HMAC) and Instant Payment Notification (IPN) webhook handlers.</li>
+              <li><strong>Real-Time Dispatch:</strong> Configured Flask-SocketIO with Redis message broker to broadcast bidirectional location coordinates and order state transitions.</li>
+              <li><strong>Background Workers:</strong> Configured Celery asynchronous workers backed by Redis to manage automated timeout cancellations for unclaimed dispatches, generate digital receipts, and trigger Twilio SMS / SendGrid email updates.</li>
+              <li><strong>Cloud Infrastructure:</strong> Containerized microservices using Docker and orchestrated an Nginx reverse proxy with SSL termination and Gunicorn WSGI process management.</li>
+            </ul>
+          </section>
+
+          <!-- Section 4: System Architecture -->
+          <section class="study-section">
+            <h2>4. System Architecture</h2>
+            <p>
+              The platform employs a decoupled client-server architecture designed for high availability and low latency dispatch:
+            </p>
+
+            <!-- Rich Architectural Schematic -->
+            <div class="architecture-schematic" aria-label="FuelLinkPro System Architecture Schematic">
+              <div class="schematic-header">
+                <span class="schematic-title">
+                  <span class="schematic-tag">[ ARCH // DISTRIB-SPEC ]</span>
+                  Distributed Production Architecture & Event Flow
+                </span>
+                <div class="schematic-legend">
+                  <span class="legend-item"><span class="legend-dot" style="background:#3B82F6;"></span> HTTP / REST</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#10B981;"></span> WebSocket (WSS)</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#F59E0B;"></span> Async Worker</span>
+                </div>
+              </div>
+
+              <div class="schematic-layers-container">
+                <!-- Layer 1: Clients -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 01 Client & Application Layer</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">Customer Mobile Web</span>
+                      <span class="node-tech">React / PWA · Geolocation API</span>
+                      <span class="node-desc">Map pinning, fuel selector, PayFast checkout</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Driver Portal</span>
+                      <span class="node-tech">Responsive PWA · WSS Client</span>
+                      <span class="node-desc">Real-time dispatch alerts, route navigation</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Admin Dashboard</span>
+                      <span class="node-tech">Admin Controller · Chart.js</span>
+                      <span class="node-desc">Audit logs, driver vetting, commission settlements</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">TLS 1.3 / HTTPS · WSS Socket.IO</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 2: Ingress & Core API -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 02 Ingress & Microservice Cluster</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">Nginx Reverse Proxy</span>
+                      <span class="node-tech">Docker · SSL Termination</span>
+                      <span class="node-desc">Rate limiting, static asset cache, reverse proxying</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Flask REST API Cluster</span>
+                      <span class="node-tech">Python · Gunicorn WSGI</span>
+                      <span class="node-desc">JWT Auth, order state machine, PayFast IPN listener</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Socket.IO Event Engine</span>
+                      <span class="node-tech">Flask-SocketIO · Redis Pub/Sub</span>
+                      <span class="node-desc">Bidirectional coordinate sync & dispatch broadcasts</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schematic-flow-connector">
+                  <span class="connector-line"></span>
+                  <span class="connector-tag">SQLAlchemy Pool · Redis IPC</span>
+                  <span class="connector-line"></span>
+                </div>
+
+                <!-- Layer 3: Persistence & Async Workers -->
+                <div class="schematic-layer">
+                  <span class="layer-badge">// 03 Persistence & Asynchronous Task Workers</span>
+                  <div class="layer-nodes-grid">
+                    <div class="schematic-node">
+                      <span class="node-name">PostgreSQL Database</span>
+                      <span class="node-tech">ACID Relational · SQLAlchemy</span>
+                      <span class="node-desc">Order lifecycles, user credentials, fleet models</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Redis Message Broker</span>
+                      <span class="node-tech">In-Memory Cache · Task Queue</span>
+                      <span class="node-desc">Pub/Sub message bus, Celery queue broker</span>
+                    </div>
+                    <div class="schematic-node">
+                      <span class="node-name">Celery Worker Pool</span>
+                      <span class="node-tech">Python Asynchronous Workers</span>
+                      <span class="node-desc">Timeout dispatch reapers, PDF invoice generator</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="schematic-interactive-footer">
+                <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Production Verified · 10+ Registered Customers · 15+ Certified Drivers</span>
+                <button type="button" class="schematic-ask-btn" data-ask-assistant="Explain the end-to-end dispatch and PayFast webhook verification in FuelLinkPro">
+                  Ask Assistant About This Architecture →
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 5: Key Technical Decisions -->
+          <section class="study-section">
+            <h2>5. Key Technical Decisions & Trade-Offs</h2>
+            <div class="table-container">
+              <table class="decision-table">
+              <thead>
+                <tr>
+                  <th>Decision</th>
+                  <th>Choice Made</th>
+                  <th>Rationale & Engineering Trade-Off</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Database Engine</td>
+                  <td>PostgreSQL + SQLAlchemy</td>
+                  <td>Transactional consistency (ACID) is non-negotiable for payment and inventory states. Trade-off: Schema changes require disciplined migration scripts via Flask-Migrate / Alembic.</td>
+                </tr>
+                <tr>
+                  <td>Asynchronous Queue</td>
+                  <td>Celery + Redis</td>
+                  <td>Decouples long-running email/SMS notifications and order expiration timers from the synchronous HTTP request-response cycle.</td>
+                </tr>
+                <tr>
+                  <td>Real-Time Tracking</td>
+                  <td>Flask-SocketIO + Redis Pub/Sub</td>
+                  <td>Enables persistent bi-directional communication for live driver coordinate streaming without excessive HTTP polling overhead.</td>
+                </tr>
+                <tr>
+                  <td>Commission Model</td>
+                  <td>70% Driver / 30% Platform</td>
+                  <td>Earlier proposals evaluated an 80/20 split; business evaluation shifted toward a 70/30 baseline to balance platform insurance and operational infrastructure costs.</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </section>
+
+          <!-- Section 6: Security & Data Integrity -->
+          <section class="study-section">
+            <h2>6. Security, Reliability & Data Considerations</h2>
+            <p>
+              Operating a commercial financial transaction platform required defensive security measures:
+            </p>
+            <ul>
+              <li><strong>Idempotent Payment Reconciliation:</strong> PayFast IPN webhooks are validated using source IP checks, cryptographic signature matching, and database-level unique transaction constraints to prevent duplicate fulfillment or double-charging.</li>
+              <li><strong>Authentication & Secret Isolation:</strong> Passwords are hashed using bcrypt with salt rounds; JWT tokens enforce short lifespans with secure HTTP-only cookie storage; credentials and merchant passphrases are strictly isolated in server-side environment variables.</li>
+              <li><strong>Order State Machine:</strong> Order transitions follow strict deterministic states (<code>PENDING_PAYMENT → PAID → DISPATCHING → ACCEPTED → IN_TRANSIT → COMPLETED</code>), preventing race conditions where multiple drivers could accept the same order.</li>
+            </ul>
+          </section>
+
+          <!-- Section 7: Results & Verified Evidence -->
+          <section class="study-section">
+            <h2>7. Results & Verified Traction</h2>
+            <p>
+              The platform is live and in active deployment testing:
+            </p>
+            <ul>
+              <li><strong>Client Rollout:</strong> Over 10 registered customers and over 15 vetted delivery drivers onboarded during initial route validations in the Johannesburg region.</li>
+              <li><strong>Verified Capabilities:</strong> End-to-end payment capture through PayFast sandbox and production rails, real-time driver coordinate broadcasts, and automated SMS dispatch confirmations.</li>
+              <li><em>Metric Disclosure:</em> These supplied figures reflect early rollout onboarding, not audited daily active volume or annualized commercial revenue.</li>
+            </ul>
+          </section>
+
+          <!-- Section 8: Lessons Learned -->
+          <section class="study-section">
+            <h2>8. Lessons Learned</h2>
+            <p>
+              Building FuelLinkPro from scratch provided invaluable engineering lessons:
+            </p>
+            <ul>
+              <li><strong>Network Fault Tolerance:</strong> Mobile driver devices often experience intermittent cell tower handover. Building reconnection resilience and local coordinate batching in the driver client proved essential.</li>
+              <li><strong>Defensive Webhooks:</strong> External payment gateways will retry failed webhook deliveries. Building strictly idempotent database handlers was vital to preventing corrupted state transitions.</li>
+            </ul>
+          </section>
+
+          <!-- Section 9: Technology Stack -->
+          <section class="study-section">
+            <h2>9. Technology Stack</h2>
+            <div class="tech-tags" style="gap:0.75rem; margin-top:1rem;">
+              <span class="tech-tag">Python 3.11</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">SQLAlchemy</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Flask-SocketIO</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">Celery</span>
+              <span class="tech-tag">PayFast API</span>
+              <span class="tech-tag">Twilio SMS</span>
+              <span class="tech-tag">SendGrid</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Nginx</span>
+              <span class="tech-tag">Gunicorn</span>
+              <span class="tech-tag">Google Maps API</span>
+            </div>
+          </section>
+
+          <!-- Related Links -->
+          <div style="border-top:1px solid var(--border-subtle); padding-top:2rem; margin-top:2rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+            <a href="../../work/index.html" class="text-link">← Back to All Projects</a>
+            <a href="../../work/skills-mapping/index.html" class="text-link">Next Case Study: Wits Skills Mapping →</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Thabang Dikotope</h3>
+          <p>Graduate Software Engineer focused on backend systems, full-stack applications, and AI integrations.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="../../index.html">Home</a>
+            <a href="../../work/index.html">Work</a>
+            <a href="../../research/index.html">Research & AI</a>
+            <a href="../../experience/index.html">Experience</a>
+            <a href="../../about/index.html">About</a>
+            <a href="../../contact/index.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-links">
+            <a href="mailto:thabangdikotope624@gmail.com">thabangdikotope624@gmail.com</a>
+            <a href="https://www.linkedin.com/in/drey780822" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/Drey780822" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thabang Dikotope. FuelLinkPro Case Study.</div>
+        <div class="footer-sast-badge">Local Time: <span class="live-sast-time">--:--:-- SAST</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/assistant.js"></script>
+</body>
+</html>

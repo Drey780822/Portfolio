@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. Live Johannesburg (SAST) Clock
-  const sastClocks = document.querySelectorAll('.live-sast-time');
+  const sastClocks = document.querySelectorAll('.live-sast-time, .live-sast-clock');
   function updateSastTime() {
     if (!sastClocks.length) return;
     try {
