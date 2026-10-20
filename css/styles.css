@@ -183,6 +183,13 @@ body {
   position: relative;
 }
 
+main, #mainContent {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 img, svg {
   display: block;
   max-width: 100%;
@@ -1627,6 +1634,8 @@ p {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 1.75rem;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 .skill-category-card h3 {
   font-size: 1.15rem;
@@ -3703,6 +3712,8 @@ p {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .editorial-channel-item {
@@ -3724,6 +3735,12 @@ p {
   flex-shrink: 0;
 }
 
+.editorial-channel-info {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .editorial-channel-info h4 {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -3739,6 +3756,8 @@ p {
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .editorial-channel-info a:hover {
@@ -3760,6 +3779,64 @@ p {
   }
   .editorial-contact-grid {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .editorial-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+  .editorial-channel-card {
+    padding: 1.25rem 1rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .editorial-channel-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .editorial-channel-info {
+    min-width: 0;
+    width: 100%;
+  }
+  .contact-info-card {
+    padding: 1.25rem 1rem !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .form-input, .form-textarea, .chat-input {
+    font-size: 1rem !important; /* Prevents auto-zoom on iOS Safari */
+  }
+  .ambient-overflow-layer {
+    overflow: hidden !important;
+    max-width: 100%;
+    width: 100%;
+  }
+  .ambient-orb {
+    filter: blur(60px);
+  }
+  .orb-hero-work {
+    width: min(500px, 92vw);
+    height: 380px;
+  }
+  .orb-work-lateral {
+    right: 0;
+    width: min(400px, 80vw);
+    height: 400px;
+  }
+  .orb-about-contact {
+    left: 0;
+    width: min(400px, 80vw);
+    height: 400px;
+  }
+  .notion-cover-img {
+    transform: scale(1);
   }
 }
 
@@ -3779,15 +3856,20 @@ p {
     line-height: 1.35;
   }
   .hero-deepmind-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 8vw, 2.5rem);
   }
   .hero-deepmind-actions {
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
+    gap: 0.65rem;
   }
-  .hero-deepmind-actions .btn {
+  .hero-deepmind-actions .btn,
+  .hero-deepmind-actions .btn-subtle-assistant {
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
+    min-height: 46px;
   }
   .hero-deepmind-telemetry {
     flex-direction: column;
@@ -3799,14 +3881,92 @@ p {
   .editorial-skills-matrix {
     grid-template-columns: 1fr;
   }
+  .editorial-card-visual {
+    height: 220px;
+  }
+  .editorial-card-body {
+    padding: 1.25rem 1rem;
+  }
+  .editorial-channel-card {
+    padding: 1rem 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    height: 52px;
+    width: calc(100% - 1rem);
+    top: 0.5rem;
+  }
+  .brand-name {
+    font-size: 0.88rem;
+  }
+  .hero-deepmind-title {
+    font-size: clamp(1.85rem, 8.5vw, 2.2rem);
+    line-height: 1.15;
+  }
+  .hero-deepmind-lead {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .telemetry-item {
+    gap: 0.25rem;
+  }
+  .telemetry-label {
+    font-size: 0.66rem;
+  }
+  .telemetry-val {
+    font-size: 0.82rem;
+  }
+  .section-padding {
+    padding-top: clamp(2.5rem, 6vw, 4rem);
+    padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+  .section-header h2 {
+    font-size: 1.55rem;
+  }
+  .editorial-card-title {
+    font-size: 1.2rem;
+  }
+  .editorial-meta-domain {
+    font-size: 0.68rem;
+  }
+  .editorial-tag-cluster {
+    gap: 0.35rem;
+  }
+  .tech-tag {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.55rem;
+  }
+  .editorial-card-metric-strip {
+    gap: 0.75rem;
+  }
+  .editorial-cred-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+  .editorial-cred-badge {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.45rem;
+  }
+  .editorial-skill-pill-group {
+    padding: 0.65rem 0.75rem;
+  }
+  .skill-category-label {
+    font-size: 0.68rem;
+    min-width: 100%;
+  }
 }
 
 /* ─── 6. OVERFLOWING GRADIENT MESH BACKGROUNDS & AMBIENT AURAS ────────────── */
 .ambient-overflow-layer {
   position: absolute;
   inset: 0;
+  width: 100%;
+  max-width: 100%;
   pointer-events: none;
-  overflow: clip;
+  overflow: hidden;
   z-index: 0;
 }
 

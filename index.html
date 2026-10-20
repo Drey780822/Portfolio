@@ -6,19 +6,25 @@
   <meta name="description" content="Thabang Dikotope — Graduate Software Engineer, Full-Stack Developer, and AI Systems Builder based in Johannesburg, South Africa. Co-Founder of FuelLinkPro and AI Systems Intern at Wits Enterprise." />
   <meta name="keywords" content="Thabang Dikotope, Software Engineer, Full-Stack Developer, Python, Flask, FastAPI, PostgreSQL, Next.js, AI Systems, Johannesburg, South Africa" />
   <meta name="author" content="Thabang Dikotope" />
+  <link rel="canonical" href="https://thabangs-portfolio.netlify.app/" />
+
+  <!-- Robots & Search Engine Indexing Directives -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="google-site-verification" content="google70ba9f91ea3e6288" />
 
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Thabang Dikotope — Engineering, AI & Research Portfolio" />
   <meta property="og:description" content="Building software that solves real problems. Exploring what comes next. Production-grade systems, backend architecture, and AI-enabled software." />
   <meta property="og:url" content="https://thabangs-portfolio.netlify.app/" />
-  <meta property="og:image" content="assets/images/myphoto.jpg" />
+  <meta property="og:image" content="https://thabangs-portfolio.netlify.app/assets/images/myphoto.jpg" />
 
   <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Thabang Dikotope — Engineering, AI & Research Portfolio" />
   <meta name="twitter:description" content="Graduate Software Engineer | Full-Stack Developer | AI & Software Systems Developer" />
-  <meta name="twitter:image" content="assets/images/myphoto.jpg" />
+  <meta name="twitter:image" content="https://thabangs-portfolio.netlify.app/assets/images/myphoto.jpg" />
 
   <title>Thabang Dikotope — Engineering, AI & Research Portfolio</title>
 
@@ -31,36 +37,76 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/FlexCarousel.css" />
 
-  <!-- Structured Data: JSON-LD -->
+  <!-- Structured Data: JSON-LD Graph for Google Search & Rich Results -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Thabang Dikotope",
-    "jobTitle": "Graduate Software Engineer",
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Tshwane University of Technology"
-    },
-    "worksFor": [
+    "@graph": [
       {
-        "@type": "Organization",
-        "name": "Wits Enterprise"
+        "@type": "WebSite",
+        "@id": "https://thabangs-portfolio.netlify.app/#website",
+        "url": "https://thabangs-portfolio.netlify.app/",
+        "name": "Thabang Dikotope — Engineering & AI Portfolio",
+        "description": "Production systems, distributed architectures, and AI tools built with verified constraints and measurable outcomes.",
+        "publisher": {
+          "@id": "https://thabangs-portfolio.netlify.app/#person"
+        },
+        "inLanguage": "en-US"
       },
       {
-        "@type": "Organization",
-        "name": "FuelLinkPro"
+        "@type": "ProfilePage",
+        "@id": "https://thabangs-portfolio.netlify.app/#profilepage",
+        "url": "https://thabangs-portfolio.netlify.app/",
+        "name": "Thabang Dikotope Portfolio",
+        "isPartOf": {
+          "@id": "https://thabangs-portfolio.netlify.app/#website"
+        },
+        "mainEntity": {
+          "@id": "https://thabangs-portfolio.netlify.app/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://thabangs-portfolio.netlify.app/#person",
+        "name": "Thabang Dikotope",
+        "url": "https://thabangs-portfolio.netlify.app/",
+        "image": "https://thabangs-portfolio.netlify.app/assets/images/myphoto.jpg",
+        "jobTitle": "Graduate Software Engineer",
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Tshwane University of Technology"
+        },
+        "worksFor": [
+          {
+            "@type": "Organization",
+            "name": "Wits Enterprise"
+          },
+          {
+            "@type": "Organization",
+            "name": "FuelLinkPro"
+          }
+        ],
+        "knowsAbout": [
+          "Python",
+          "FastAPI",
+          "Flask",
+          "PostgreSQL",
+          "Docker",
+          "Distributed Systems",
+          "Artificial Intelligence",
+          "Full-Stack Web Development"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Johannesburg",
+          "addressRegion": "Gauteng",
+          "addressCountry": "South Africa"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/drey780822",
+          "https://github.com/Drey780822"
+        ]
       }
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Johannesburg",
-      "addressRegion": "Gauteng",
-      "addressCountry": "South Africa"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/drey780822",
-      "https://github.com/Drey780822"
     ]
   }
   </script>
