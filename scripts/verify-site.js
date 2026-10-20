@@ -41,6 +41,9 @@ console.log('1. Checking Core Pages & Routes...');
 const expectedPages = [
   'index.html',
   'work/index.html',
+  'work/merseta-ingest/index.html',
+  'work/merseta-extractor/index.html',
+  'work/vsm/index.html',
   'work/fuellinkpro/index.html',
   'work/skills-mapping/index.html',
   'work/darkroom-dataforge/index.html',
@@ -78,6 +81,9 @@ console.log('\n2. Validating HTML Markup, Metadata & Semantic Landmarks...');
 const htmlPagesToInspect = [
   'index.html',
   'work/index.html',
+  'work/merseta-ingest/index.html',
+  'work/merseta-extractor/index.html',
+  'work/vsm/index.html',
   'work/fuellinkpro/index.html',
   'work/skills-mapping/index.html',
   'work/darkroom-dataforge/index.html',

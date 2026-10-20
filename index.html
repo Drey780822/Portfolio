@@ -258,23 +258,23 @@
         <div class="notion-filter-bar" role="toolbar" aria-label="Filter projects by discipline">
           <button type="button" class="notion-filter-btn active" data-filter="all">
             <span>All Case Studies</span>
-            <span class="notion-filter-count">6</span>
+            <span class="notion-filter-count">9</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="backend">
             <span>Backend & Distributed Systems</span>
-            <span class="notion-filter-count">4</span>
+            <span class="notion-filter-count">8</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="ai">
             <span>Applied AI & ML</span>
-            <span class="notion-filter-count">3</span>
+            <span class="notion-filter-count">4</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="data">
             <span>Data Pipelines</span>
-            <span class="notion-filter-count">1</span>
+            <span class="notion-filter-count">2</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="logistics">
             <span>Real-Time Logistics</span>
-            <span class="notion-filter-count">2</span>
+            <span class="notion-filter-count">3</span>
           </button>
         </div>
 
@@ -334,7 +334,160 @@
         <!-- Spacious Editorial Projects Grid (Alternate View) -->
         <div id="editorialGridContainer" class="editorial-projects-grid" style="display: none;">
 
-          <!-- 1. FuelLinkPro -->
+          <!-- 1. merSETA Layer 0 Ingestion -->
+          <article class="editorial-project-card project-feature" data-category="backend data" aria-labelledby="titleMersetaIngest">
+            <div class="editorial-card-visual">
+              <img 
+                src="assets/images/projects images/merseta_ingest_hero_banner_1792498437509.jpg" 
+                alt="merSETA Layer 0 Ingestion & Mathematical Reconciliation Engine terminal telemetry and audit architecture" 
+                class="editorial-card-img"
+                loading="lazy"
+              />
+              <div class="editorial-card-badge">
+                <span class="pulse-indicator" aria-hidden="true"></span>
+                <span>Production Platform</span>
+              </div>
+            </div>
+
+            <div class="editorial-card-body">
+              <span class="editorial-meta-domain">National Skills Ingestion · Deterministic Reconciliation</span>
+              <h3 id="titleMersetaIngest" class="editorial-project-title">merSETA Layer 0 Ingestion</h3>
+              <p class="editorial-project-lead">
+                Fail-Closed Document Ingestion & Mathematical Reconciliation Engine
+              </p>
+              <p class="editorial-project-summary">
+                Architected a 10-step fail-closed ingestion lifecycle for South African skills demand documents (SSPs, TVET reports, WSP/ATR filings). Eliminates OCR table errors via vector drawing triage, Pydantic v2 schemas, exact Python Decimal arithmetic (zero IEEE 754 float drift), Supabase content-addressed vaulting, and durable two-phase downstream dispatch.
+              </p>
+
+              <div class="editorial-meta-row">
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Role</span>
+                  <span class="editorial-meta-val">Backend Software Engineer / Data Platform</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Verification</span>
+                  <span class="editorial-meta-val">332 Hermetic Unit Tests (&lt;25s) · Zero Float Drift</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Stack</span>
+                  <span class="editorial-meta-val">Python 3.12 · PyMuPDF · pdfplumber · Pydantic v2 · Supabase · Docker</span>
+                </div>
+              </div>
+
+              <div class="editorial-card-actions">
+                <a href="work/merseta-ingest/index.html" class="editorial-arrow-link">
+                  <span>Read Case Study</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. merSETA Extractor — AI Navigator -->
+          <article class="editorial-project-card project-feature" data-category="ai backend" aria-labelledby="titleMersetaExtractor">
+            <div class="editorial-card-visual">
+              <img 
+                src="assets/images/projects images/merseta-portfolio-background.jpg" 
+                alt="merSETA Extractor AI Navigator interface with LOAM design system and The Seed presence indicator" 
+                class="editorial-card-img"
+                loading="lazy"
+              />
+              <div class="editorial-card-badge">
+                <span class="pulse-indicator" aria-hidden="true"></span>
+                <span>Live in Production</span>
+              </div>
+            </div>
+
+            <div class="editorial-card-body">
+              <span class="editorial-meta-domain">Institutional AI Workspace · Skills Architecture</span>
+              <h3 id="titleMersetaExtractor" class="editorial-project-title">merSETA Extractor — AI Navigator</h3>
+              <p class="editorial-project-lead">
+                Institutional AI Workspace for National Occupational Skills & Research Intelligence
+              </p>
+              <p class="editorial-project-summary">
+                Production institutional workspace deployed at merseta-ai.vercel.app for querying high-stakes skills planning and labor intelligence. Features a 4-stage pipeline (Triage, Layout-Aware Parse, Grounded Extraction, Strict Citation), TanStack Start SSR architecture, and LOAM Design System featuring 'The Seed' presence indicator.
+              </p>
+
+              <div class="editorial-meta-row">
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Role</span>
+                  <span class="editorial-meta-val">Full-Stack AI Engineer</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Interface</span>
+                  <span class="editorial-meta-val">LOAM Design System · "The Seed" Living Presence</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Stack</span>
+                  <span class="editorial-meta-val">React 19 · TanStack Start (SSR) · TypeScript · Tailwind CSS v4 · Vercel</span>
+                </div>
+              </div>
+
+              <div class="editorial-card-actions">
+                <a href="work/merseta-extractor/index.html" class="editorial-arrow-link">
+                  <span>Read Case Study</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="https://merseta-ai.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  Visit Live Platform ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. VSM: Two Services. One Platform. -->
+          <article class="editorial-project-card project-feature" data-category="backend logistics" aria-labelledby="titleVSM">
+            <div class="editorial-card-visual">
+              <img 
+                src="assets/images/projects images/vsm_portfolio_hero_mockup.png" 
+                alt="VSM Two Services One Platform media booking and smart equipment financing mockup" 
+                class="editorial-card-img"
+                loading="lazy"
+              />
+              <div class="editorial-card-badge">
+                <span class="status-pulse-cyan" aria-hidden="true"></span>
+                <span>In Development (Pre-Launch)</span>
+              </div>
+            </div>
+
+            <div class="editorial-card-body">
+              <span class="editorial-meta-domain">Event Logistics & Fintech · Dual-Domain Platform</span>
+              <h3 id="titleVSM" class="editorial-project-title">VSM: Two Services. One Platform.</h3>
+              <p class="editorial-project-lead">
+                High-End Event Media Booking & Smart Equipment Financing Platform
+              </p>
+              <p class="editorial-project-summary">
+                Full-stack commercial platform unifying premium event media production and smart equipment financing. Features flexible vs. premium photography tiers, dynamic financing eligibility assessment, Supabase row-level security (RLS), admin audit dashboard, and secure client vaults.
+              </p>
+
+              <div class="editorial-meta-row">
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Role</span>
+                  <span class="editorial-meta-val">Full-Stack Architect & Lead Engineer</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Dual Workflow</span>
+                  <span class="editorial-meta-val">Event Media Engine + Smart Financing Calculator</span>
+                </div>
+                <div class="editorial-meta-item">
+                  <span class="editorial-meta-label">Stack</span>
+                  <span class="editorial-meta-val">Next.js 15.5 · React 19 · TypeScript · Supabase (PostgreSQL + RLS) · Tailwind CSS</span>
+                </div>
+              </div>
+
+              <div class="editorial-card-actions">
+                <a href="work/vsm/index.html" class="editorial-arrow-link">
+                  <span>Read Case Study</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="https://github.com/Drey780822" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                  Explore Architecture ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. FuelLinkPro -->
           <article class="editorial-project-card project-feature" data-category="backend logistics" aria-labelledby="titleFuelLink">
             <div class="editorial-card-visual">
               <img 
@@ -386,7 +539,7 @@
             </div>
           </article>
 
-          <!-- 2. Wits Skills Mapping Platform -->
+          <!-- 5. Wits Skills Mapping Platform -->
           <article class="editorial-project-card project-feature" data-category="ai research" aria-labelledby="titleSkillsMapping">
             <div class="editorial-card-visual">
               <img 
@@ -438,7 +591,7 @@
             </div>
           </article>
 
-          <!-- 3. Darkroom DataForge -->
+          <!-- 6. Darkroom DataForge -->
           <article class="editorial-project-card project-feature" data-category="data ai backend" aria-labelledby="titleDataForge">
             <div class="editorial-card-visual">
               <img 
@@ -487,7 +640,7 @@
             </div>
           </article>
 
-          <!-- 4. VerifySA -->
+          <!-- 7. VerifySA -->
           <article class="editorial-project-card project-feature" data-category="ai backend" aria-labelledby="titleVerifySA">
             <div class="editorial-card-visual">
               <img 
@@ -539,7 +692,7 @@
             </div>
           </article>
 
-          <!-- 5. TUT Event Management System -->
+          <!-- 8. TUT Event Management System -->
           <article class="editorial-project-card project-feature" data-category="backend logistics" aria-labelledby="titleTUTEvent">
             <div class="editorial-card-visual">
               <img 
@@ -591,7 +744,7 @@
             </div>
           </article>
 
-          <!-- 6. FitZone Gym Management System -->
+          <!-- 9. FitZone Gym Management System -->
           <article class="editorial-project-card project-feature" data-category="backend" aria-labelledby="titleFitZone">
             <div class="editorial-card-visual">
               <img 

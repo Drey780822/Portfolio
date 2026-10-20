@@ -13,6 +13,24 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://thabangs-portfolio.netlify.app/work/merseta-ingest/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://thabangs-portfolio.netlify.app/work/merseta-extractor/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://thabangs-portfolio.netlify.app/work/vsm/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://thabangs-portfolio.netlify.app/work/fuellinkpro/</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>

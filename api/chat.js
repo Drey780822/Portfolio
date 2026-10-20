@@ -133,17 +133,62 @@ function queryCuratedKnowledge(query) {
 
   // 5. Projects Overview / Selected Work Portfolio
   if (q.includes('project') || q.includes('what did you build') || q.includes('what have you built') || q.includes('show me your work') || q.includes('portfolio') || q.includes('systems') || q.includes('applications') || q.includes('case stud')) {
+    citations.push({ title: "merSETA Layer 0 Ingestion", url: "/work/merseta-ingest" });
+    citations.push({ title: "merSETA Extractor", url: "/work/merseta-extractor" });
+    citations.push({ title: "VSM Platform", url: "/work/vsm" });
     citations.push({ title: "FuelLinkPro", url: "/work/fuellinkpro" });
     citations.push({ title: "Wits Skills Mapping", url: "/work/skills-mapping" });
     citations.push({ title: "Darkroom DataForge", url: "/work/darkroom-dataforge" });
     citations.push({ title: "VerifySA", url: "/work/verifysa" });
     return {
-      reply: "Thabang has engineered and delivered 5 core production, research, and hackathon systems:\n\n" +
-        "1. **FuelLinkPro:** On-demand mobile fuel delivery marketplace. Sole backend engineer architecting Flask, PostgreSQL, JWT auth, PayFast HMAC-SHA256 payments, Celery/Redis worker queues, and Docker/Nginx production deployment.\n" +
-        "2. **Wits Skills Mapping Platform:** AI-enabled career exploration system aligning candidate competencies to the South African OFO taxonomy via FastAPI microservices and Supabase schemas.\n" +
-        "3. **Darkroom DataForge:** Auditable 8-stage document data extraction pipeline for complex tabular reports with record-level bounding-box provenance.\n" +
-        "4. **VerifySA:** AI-assisted document verification and fraud detection SaaS built in a 5-hour hackathon sprint leading 10 developers.\n" +
-        "5. **TUT Event Management System:** Campus ticketing portal with tamper-evident HMAC-SHA256 QR ticketing and concurrency transaction locks.",
+      reply: "Thabang has engineered and delivered flagship production, research, and commercial systems:\n\n" +
+        "1. **merSETA Layer 0 Ingestion Engine:** Fail-closed 10-step document ingestion and mathematical reconciliation engine with zero float drift and 332 hermetic unit tests (<25s).\n" +
+        "2. **merSETA Extractor — AI Navigator:** Institutional AI workspace (deployed at merseta-ai.vercel.app) with 4-stage pipeline, TanStack Start SSR, and LOAM Design System.\n" +
+        "3. **VSM: Two Services. One Platform.:** Full-stack event media booking and smart equipment financing platform in Next.js 15.5, React 19, and Supabase RLS.\n" +
+        "4. **FuelLinkPro:** On-demand mobile fuel delivery marketplace. Sole backend engineer architecting Flask, PostgreSQL, JWT auth, PayFast HMAC-SHA256 payments, Celery/Redis worker queues, and Docker/Nginx production deployment.\n" +
+        "5. **Wits Skills Mapping Platform:** AI-enabled career exploration system aligning candidate competencies to the South African OFO taxonomy via FastAPI microservices and Supabase schemas.\n" +
+        "6. **Darkroom DataForge:** Auditable 8-stage document data extraction pipeline for complex tabular reports with record-level bounding-box provenance.\n" +
+        "7. **VerifySA:** AI-assisted document verification and fraud detection SaaS built in a 5-hour hackathon sprint leading 10 developers.\n" +
+        "8. **TUT Event Management System:** Campus ticketing portal with tamper-evident HMAC-SHA256 QR ticketing and concurrency transaction locks.",
+      citations
+    };
+  }
+
+  // merSETA Layer 0 Ingestion & Reconciliation
+  if (q.includes('ingest') || q.includes('layer 0') || q.includes('reconciliation') || q.includes('watchdog') || q.includes('zero float') || q.includes('decimal')) {
+    citations.push({ title: "merSETA Ingestion Case Study", url: "/work/merseta-ingest" });
+    return {
+      reply: "**merSETA Layer 0 Ingestion & Mathematical Reconciliation Engine** (`merseta-ingest`) is a mission-critical, fail-closed data platform engineered for Wits University and merSETA.\n\n" +
+        "• **Core Mission:** Solves OCR and tabular extraction drift in national skills demand documents (SSPs, TVET reports, WSP/ATR filings) before releasing data to macroeconomic forecasting models.\n" +
+        "• **10-Step Fail-Closed Lifecycle:** Dropzone watcher stability heuristic → SHA-256 pre-hashing → Supabase immutable vaulting → PyMuPDF vector drawing triage (`GRID_DRAWING_THRESHOLD >= 8`) → pdfplumber table extraction → Pydantic v2 domain schemas → Mathematical Watchdog (exact Python `Decimal` arithmetic, zero IEEE 754 float drift) → Fail-Closed Publication Gate → Durable two-phase publish → Vault metadata synchronization.\n" +
+        "• **Quality Assurance:** 332 hermetic unit tests executing in under 25 seconds with 100% mathematical reconciliation parity across all parsed tables.\n" +
+        "• **Tech Stack:** Python 3.12 (managed with `uv`), PyMuPDF (fitz), pdfplumber, Pydantic v2, Supabase Storage, PostgreSQL, Docker.",
+      citations
+    };
+  }
+
+  // merSETA Extractor — AI Navigator
+  if (q.includes('extractor') || q.includes('navigator') || q.includes('loam') || q.includes('the seed') || q.includes('tanstack start') || (q.includes('merseta') && q.includes('ai'))) {
+    citations.push({ title: "merSETA Extractor Case Study", url: "/work/merseta-extractor" });
+    return {
+      reply: "**merSETA Extractor — AI Navigator** is an institutional AI workspace deployed in production at [merseta-ai.vercel.app](https://merseta-ai.vercel.app/) for querying national occupational skills data.\n\n" +
+        "• **4-Stage Pipeline:** Document Triage → Layout-Aware Parse → Grounded Extraction → Strict Citation (zero hallucination, strict coordinate-grounded references).\n" +
+        "• **Frontend Architecture:** Full-stack SSR with React 19 and TanStack Start, featuring sub-second hydration and TanStack Router type safety.\n" +
+        "• **LOAM Design System:** Implements an enterprise UI inspired by DeepMind/LOAM aesthetics, featuring 'The Seed' living presence component indicating real-time system state.\n" +
+        "• **Tech Stack:** React 19, TanStack Start, TypeScript, Tailwind CSS v4, Vercel.",
+      citations
+    };
+  }
+
+  // VSM: Two Services. One Platform.
+  if (q.includes('vsm') || q.includes('two services') || q.includes('financing') || q.includes('equipment financing') || (q.includes('media') && q.includes('booking'))) {
+    citations.push({ title: "VSM Platform Case Study", url: "/work/vsm" });
+    return {
+      reply: "**VSM: Two Services. One Platform.** is a commercial full-stack platform unifying high-end event media booking and smart equipment financing.\n\n" +
+        "• **Event Media Engine:** Tiered photography packages (Flexible vs. Premium), multi-event booking engine, and secure client digital media vaults.\n" +
+        "• **Smart Financing Engine:** Instant equipment financing eligibility calculator with dynamic risk grading and automated deposit/repayment schedules.\n" +
+        "• **Architecture & Security:** Next.js 15.5 App Router, React 19, TypeScript, and Supabase PostgreSQL with comprehensive Row-Level Security (RLS) policies isolating client records and admin operations.\n" +
+        "• **Status:** Active pre-launch development with verified core workflows and database architecture.",
       citations
     };
   }

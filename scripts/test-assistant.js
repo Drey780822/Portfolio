@@ -261,6 +261,42 @@ async function runTests() {
     assert('Research: links to /research', data?.citations?.some(c => c.url.includes('/research')));
   }
 
+  // Test 2.12: merSETA Layer 0 Ingestion
+  {
+    const { req, res, getData } = createMockReqRes({ body: { message: 'Tell me about the merSETA Layer 0 Ingestion and reconciliation engine' } });
+    await handler(req, res);
+    const data = getData();
+    const reply = data?.reply || '';
+    assert('merSETA Ingest: explains fail-closed 10-step lifecycle', reply.includes('10-Step Fail-Closed Lifecycle') || reply.includes('fail-closed'));
+    assert('merSETA Ingest: mentions zero float drift & exact Decimal math', reply.includes('Decimal') && (reply.includes('zero IEEE 754 float drift') || reply.includes('zero float')));
+    assert('merSETA Ingest: cites 332 hermetic unit tests', reply.includes('332 hermetic unit tests'));
+    assert('merSETA Ingest: links to /work/merseta-ingest case study', data?.citations?.some(c => c.url.includes('/work/merseta-ingest')));
+  }
+
+  // Test 2.13: merSETA Extractor — AI Navigator
+  {
+    const { req, res, getData } = createMockReqRes({ body: { message: 'What is the merSETA Extractor and AI Navigator?' } });
+    await handler(req, res);
+    const data = getData();
+    const reply = data?.reply || '';
+    assert('merSETA Extractor: mentions 4-stage pipeline', reply.includes('4-Stage Pipeline') || reply.includes('Document Triage'));
+    assert('merSETA Extractor: mentions LOAM design system and The Seed', reply.includes('LOAM Design System') || reply.includes('The Seed'));
+    assert('merSETA Extractor: cites live production deployment URL', reply.includes('merseta-ai.vercel.app'));
+    assert('merSETA Extractor: links to /work/merseta-extractor case study', data?.citations?.some(c => c.url.includes('/work/merseta-extractor')));
+  }
+
+  // Test 2.14: VSM: Two Services. One Platform.
+  {
+    const { req, res, getData } = createMockReqRes({ body: { message: 'Tell me about VSM: Two Services One Platform' } });
+    await handler(req, res);
+    const data = getData();
+    const reply = data?.reply || '';
+    assert('VSM: highlights event media booking and equipment financing', reply.includes('event media booking') && reply.includes('financing'));
+    assert('VSM: details Next.js 15.5, React 19, Supabase RLS stack', reply.includes('Next.js') && reply.includes('Supabase'));
+    assert('VSM: notes active pre-launch development status', reply.includes('pre-launch') || reply.includes('In Development'));
+    assert('VSM: links to /work/vsm case study', data?.citations?.some(c => c.url.includes('/work/vsm')));
+  }
+
   // ─── 3. SAFETY, INJECTION RESISTANCE & MISSING INFORMATION ────────────────
   console.log('\n3. Testing Guardrails, Injection Defense & Unknown Handling...');
 

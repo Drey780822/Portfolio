@@ -121,29 +121,177 @@
         <div class="notion-filter-bar" role="toolbar" aria-label="Filter case studies by discipline">
           <button type="button" class="notion-filter-btn active" data-filter="all">
             <span>All Case Studies</span>
-            <span class="notion-filter-count">5</span>
+            <span class="notion-filter-count">8</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="backend">
             <span>Backend & Distributed Systems</span>
-            <span class="notion-filter-count">3</span>
+            <span class="notion-filter-count">7</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="ai">
             <span>Applied AI & LLMs</span>
-            <span class="notion-filter-count">3</span>
+            <span class="notion-filter-count">4</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="data">
             <span>Data Engineering</span>
-            <span class="notion-filter-count">1</span>
+            <span class="notion-filter-count">2</span>
           </button>
           <button type="button" class="notion-filter-btn" data-filter="logistics">
             <span>Real-Time Logistics</span>
-            <span class="notion-filter-count">2</span>
+            <span class="notion-filter-count">3</span>
           </button>
         </div>
 
         <div class="project-features-list">
 
-          <!-- 1. FuelLinkPro -->
+          <!-- 1. merSETA Layer 0 Ingestion -->
+          <article class="project-feature" data-category="backend data" id="merseta-ingest">
+            <div class="project-feature-main">
+              <div>
+                <div class="project-status-bar">
+                  <span class="badge badge-live">Production Platform</span>
+                  <span class="mono-tag" style="font-size:0.7rem;">National Skills Ingestion</span>
+                </div>
+                <h2 class="project-name">merSETA Layer 0 Ingestion & Reconciliation</h2>
+                <p class="project-tagline">Fail-Closed Ingestion & Mathematical Reconciliation Engine</p>
+
+                <div class="project-problem-callout">
+                  <strong>Core Challenge:</strong> Eliminating OCR and layout-parsing arithmetic distortions from unstructured national skills demand reports (SSPs, TVET reports, WSP/ATR filings) before releasing data to macroeconomic forecasting models.
+                </div>
+
+                <div class="project-desc-block">
+                  <p>
+                    Engineered a 10-step, fail-closed ingestion lifecycle for Wits University and merSETA. Combines PyMuPDF vector drawing triage, table extraction with pdfplumber, strict Pydantic v2 domain models, exact Python Decimal arithmetic (zero float drift), Supabase content-addressed vaulting, and durable two-phase downstream dispatch.
+                  </p>
+                  <p>
+                    <em>Hermetic Quality Gates:</em> 332 unit tests executing in under 25 seconds with 100% mathematical reconciliation parity across all parsed tables.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="merseta-ingest/index.html" class="btn btn-primary btn-sm">Full Case Study →</a>
+              </div>
+            </div>
+
+            <div class="project-meta-sidebar">
+              <div class="project-meta-group">
+                <h4>Role</h4>
+                <p>Backend Software Engineer / Data Platform Engineer</p>
+              </div>
+              <div class="project-meta-group">
+                <h4>Key Technologies</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Python 3.12</span>
+                  <span class="tech-tag">PyMuPDF</span>
+                  <span class="tech-tag">pdfplumber</span>
+                  <span class="tech-tag">Pydantic v2</span>
+                  <span class="tech-tag">Supabase</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Docker</span>
+                  <span class="tech-tag">uv</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. merSETA Extractor — AI Navigator -->
+          <article class="project-feature" data-category="ai backend" id="merseta-extractor">
+            <div class="project-feature-main">
+              <div>
+                <div class="project-status-bar">
+                  <span class="badge badge-live">Live in Production</span>
+                  <span class="mono-tag" style="font-size:0.7rem;">Institutional AI Workspace</span>
+                </div>
+                <h2 class="project-name">merSETA Extractor — AI Navigator</h2>
+                <p class="project-tagline">Institutional AI Workspace for National Occupational Skills & Research Intelligence</p>
+
+                <div class="project-problem-callout">
+                  <strong>Core Challenge:</strong> Making dense, complex South African skills data accessible to researchers and policymakers while guaranteeing strict auditability, deterministic provenance, and zero generative hallucination.
+                </div>
+
+                <div class="project-desc-block">
+                  <p>
+                    Live in production at merseta-ai.vercel.app. Features a 4-stage pipeline (Triage, Layout-Aware Parse, Grounded Extraction, Strict Citation), TanStack Start SSR architecture, and the LOAM Design System featuring "The Seed" presence indicator.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="merseta-extractor/index.html" class="btn btn-primary btn-sm">Full Case Study →</a>
+                <a href="https://merseta-ai.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Visit Live Platform ↗</a>
+              </div>
+            </div>
+
+            <div class="project-meta-sidebar">
+              <div class="project-meta-group">
+                <h4>Role</h4>
+                <p>Full-Stack AI Engineer</p>
+              </div>
+              <div class="project-meta-group">
+                <h4>Key Technologies</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">React 19</span>
+                  <span class="tech-tag">TanStack Start</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Tailwind CSS v4</span>
+                  <span class="tech-tag">LOAM Design</span>
+                  <span class="tech-tag">Vercel</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. VSM: Two Services. One Platform. -->
+          <article class="project-feature" data-category="backend logistics" id="vsm">
+            <div class="project-feature-main">
+              <div>
+                <div class="project-status-bar">
+                  <span class="badge badge-active">In Development (Pre-Launch)</span>
+                  <span class="mono-tag" style="font-size:0.7rem;">Dual-Domain Platform</span>
+                </div>
+                <h2 class="project-name">VSM: Two Services. One Platform.</h2>
+                <p class="project-tagline">High-End Event Media Booking & Smart Equipment Financing Platform</p>
+
+                <div class="project-problem-callout">
+                  <strong>Core Challenge:</strong> Unifying high-end event media booking and smart equipment financing into a seamless single platform with deterministic client qualification and secure digital asset vaulting.
+                </div>
+
+                <div class="project-desc-block">
+                  <p>
+                    Architected full-stack workflows in Next.js 15.5 and React 19 with Supabase PostgreSQL and Row-Level Security (RLS). Features tiered photography packages, real-time dynamic loan eligibility calculations, an administrative audit dashboard, and client digital media vaults.
+                  </p>
+                  <p>
+                    <em>Status Note:</em> Active pre-launch development with verified core workflows and database architecture.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a href="vsm/index.html" class="btn btn-primary btn-sm">Full Case Study →</a>
+                <a href="https://github.com/Drey780822" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Explore Architecture ↗</a>
+              </div>
+            </div>
+
+            <div class="project-meta-sidebar">
+              <div class="project-meta-group">
+                <h4>Role</h4>
+                <p>Full-Stack Architect & Lead Engineer</p>
+              </div>
+              <div class="project-meta-group">
+                <h4>Key Technologies</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Next.js 15.5</span>
+                  <span class="tech-tag">React 19</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Supabase</span>
+                  <span class="tech-tag">PostgreSQL RLS</span>
+                  <span class="tech-tag">Tailwind CSS</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. FuelLinkPro -->
           <article class="project-feature" data-category="backend logistics" id="fuellinkpro">
             <div class="project-feature-main">
               <div>
@@ -195,7 +343,7 @@
             </div>
           </article>
 
-          <!-- 2. Wits Skills Mapping Platform -->
+          <!-- 5. Wits Skills Mapping Platform -->
           <article class="project-feature" data-category="ai research" id="skills-mapping">
             <div class="project-feature-main">
               <div>
@@ -243,7 +391,7 @@
             </div>
           </article>
 
-          <!-- 3. Darkroom DataForge -->
+          <!-- 6. Darkroom DataForge -->
           <article class="project-feature" data-category="data ai backend" id="darkroom-dataforge">
             <div class="project-feature-main">
               <div>
@@ -290,8 +438,8 @@
             </div>
           </article>
 
-          <!-- 4. VerifySA -->
-          <article class="project-feature" data-category="ai" id="verifysa">
+          <!-- 7. VerifySA -->
+          <article class="project-feature" data-category="ai backend" id="verifysa">
             <div class="project-feature-main">
               <div>
                 <div class="project-status-bar">
@@ -337,7 +485,7 @@
             </div>
           </article>
 
-          <!-- 5. TUT Event Management -->
+          <!-- 8. TUT Event Management -->
           <article class="project-feature" data-category="backend logistics" id="tut-event-management">
             <div class="project-feature-main">
               <div>
@@ -385,7 +533,7 @@
             </div>
           </article>
 
-          <!-- 6. Secondary Systems: PestVisionAI, FitZone, VSM Digital -->
+          <!-- 9. Secondary Systems: PestVisionAI, FitZone, Lifestyle Survey -->
           <article class="project-feature" id="additional-systems">
             <div class="project-feature-main">
               <div>
@@ -394,7 +542,7 @@
                   <span class="mono-tag" style="font-size:0.7rem;">Applied Engineering</span>
                 </div>
                 <h2 class="project-name">Additional Software Systems</h2>
-                <p class="project-tagline">Academic Distinctions, Competition Finalists, and Commercial Integrations</p>
+                <p class="project-tagline">Academic Distinctions, Competition Finalists, and Interactive Utilities</p>
 
                 <div class="project-desc-block">
                   <p>
@@ -402,9 +550,6 @@
                   </p>
                   <p>
                     <strong>• FitZone Gym Management:</strong> Led a 6-person team through the full SDLC for a final-year academic software engineering project at TUT. Graded with <strong>Distinction</strong>. Built using PHP, MySQL, and responsive frontend architecture.
-                  </p>
-                  <p>
-                    <strong>• VSM Digital Services:</strong> Full-stack platform combining loan application review workflows and event photography packages with PayFast payment integration.
                   </p>
                   <p>
                     <strong>• Lifestyle Preferences Survey:</strong> In-browser SQLite data analysis utility running relational queries via WebAssembly (sql.js).

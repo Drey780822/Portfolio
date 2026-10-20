@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case Study: merSETA Layer 0 Ingestion & Mathematical Reconciliation Engine (merseta-ingest). Fail-closed data pipeline, zero float drift, and AGSA audit compliance." />
+  <link rel="canonical" href="https://thabangs-portfolio.netlify.app/work/merseta-ingest/" />
+
+  <!-- Robots & Search Engine Indexing Directives -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="merSETA Layer 0 Ingestion Engine — Case Study | Thabang Dikotope" />
+  <meta property="og:description" content="Fail-closed data platform extracting and mathematically reconciling South African national labor and skills filings with zero floating-point drift." />
+  <meta property="og:url" content="https://thabangs-portfolio.netlify.app/work/merseta-ingest/" />
+  <meta property="og:image" content="https://thabangs-portfolio.netlify.app/assets/images/projects%20images/merseta_ingest_hero_banner_1792498437509.jpg" />
+
+  <title>merSETA Layer 0 Ingestion Engine — Case Study | Thabang Dikotope</title>
+
+  <!-- Typography: Manrope & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <div id="readingProgress" aria-hidden="true"></div>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand-link" aria-label="Thabang Dikotope Portfolio Home">
+        <span class="brand-emblem" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M12 6v13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 11h4.5a3.5 3.5 0 0 1 0 7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="20" cy="6" r="1.5" fill="var(--accent-cyan, #06B6D4)"/>
+          </svg>
+        </span>
+        <span class="brand-name">Thabang Dikotope</span>
+      </a>
+
+      <!-- Desktop Nav Centered -->
+      <nav class="nav-desktop" role="navigation" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="../../work/index.html" class="nav-item-link active">Work</a></li>
+          <li><a href="../../about/index.html" class="nav-item-link">About</a></li>
+          <li><a href="../../research/index.html" class="nav-item-link">Research</a></li>
+          <li><a href="../../experience/index.html" class="nav-item-link">Experience</a></li>
+          <li><a href="../../contact/index.html" class="nav-item-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions Anchored Right -->
+      <div class="nav-actions">
+        <button id="navAssistantBtn" class="nav-assistant-pill" type="button" aria-label="Open AI Portfolio Assistant (Ctrl+K)">
+          <span class="nav-pulse"></span>
+          <span>AI RECORD</span>
+          <kbd class="nav-kbd">⌘K</kbd>
+        </button>
+        <a href="../../contact/index.html" class="nav-btn-initiate">Initiate →</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <div class="mobile-drawer-header">
+        <span class="brand-name">Navigation</span>
+      </div>
+      <a href="../../index.html" class="mobile-drawer-link">Home</a>
+      <a href="../../work/index.html" class="mobile-drawer-link active">Work</a>
+      <a href="../../about/index.html" class="mobile-drawer-link">About</a>
+      <a href="../../research/index.html" class="mobile-drawer-link">Research & AI</a>
+      <a href="../../experience/index.html" class="mobile-drawer-link">Experience</a>
+      <a href="../../contact/index.html" class="mobile-drawer-link">Contact</a>
+      <button id="mobileDrawerAssistantBtn" class="mobile-drawer-assistant-btn" type="button">
+        <span class="nav-pulse"></span>
+        <span>Ask Portfolio Assistant</span>
+        <kbd class="nav-kbd" style="margin-left:auto;">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+
+    <!-- NOTION PANORAMIC COVER BANNER -->
+    <div class="notion-cover-container" aria-hidden="true">
+      <img src="../../assets/images/projects images/merseta_ingest_hero_banner_1792498437509.jpg" alt="merSETA Layer 0 Ingestion and Mathematical Reconciliation Architecture Banner" class="notion-cover-img" loading="eager" />
+      <div class="notion-cover-gradient"></div>
+    </div>
+
+    <article class="case-study-hero">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../../work/index.html">Work</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">merSETA Layer 0 Ingestion</span>
+        </nav>
+
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap;">
+          <span class="badge badge-live">Production Platform</span>
+          <span class="mono-tag" style="font-size:0.75rem;">Wits–merSETA Initiative</span>
+          <span class="mono-tag" style="font-size:0.75rem; color:var(--accent-cyan);">Zero IEEE 754 Drift</span>
+        </div>
+
+        <h1 class="case-study-title">merSETA Layer 0 Ingestion & Mathematical Reconciliation Engine</h1>
+        <p class="case-study-lead">
+          A mission-critical, fail-closed data ingestion pipeline that ingests, extracts, cleans, mathematically audits, and vaults unstructured South African skills demand and labor market documents before downstream release.
+        </p>
+
+        <div class="case-study-meta-grid">
+          <div class="meta-box">
+            <h5>Role</h5>
+            <p>Backend / Data Platform Engineer</p>
+          </div>
+          <div class="meta-box">
+            <h5>Institution</h5>
+            <p>Wits University & merSETA</p>
+          </div>
+          <div class="meta-box">
+            <h5>Testing Telemetry</h5>
+            <p>332 Unit Tests (100% Hermetic)</p>
+          </div>
+          <div class="meta-box">
+            <h5>Verification Standard</h5>
+            <p>AGSA Audit Compliance</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="case-study-body">
+      <div class="container container-narrow">
+        <div class="case-study-content">
+
+          <!-- Section 1: Overview & Problem Context -->
+          <section class="study-section">
+            <h2>1. Project Context & The Core Problem</h2>
+            <p>
+              In South Africa, governmental labor forecasting, national qualification frameworks, and multi-million rand industrial skills levies depend heavily on unstructured PDF/CSV filings. Sector Education and Training Authorities (SETAs), such as <strong>merSETA</strong>, process hundreds of complex submissions annually—including Sector Skills Plans (SSPs), Workplace Skills Plans (WSPs), Annual Training Reports (ATRs), and TVET college enrolments.
+            </p>
+            <p>
+              Historically, extraction pipelines in public planning institutions suffered from three systemic points of failure:
+            </p>
+            <ul>
+              <li><strong>OCR and Coordinate Drift:</strong> Extracting tabular data from heterogeneous PDFs frequently misaligned column cells, truncated leading negative numbers, or merged adjacent rows.</li>
+              <li><strong>Corrupted Policy Forecasting:</strong> Traditional ingestion scripts blindly ingested corrupted figures into downstream machine learning models, leading national skills shortage forecasts to rely on mathematically impossible numbers.</li>
+              <li><strong>Auditor-General Compliance Failure:</strong> Extraction workflows lacked verifiable cryptographic provenance, failing to meet the strict non-repudiation standards of the Auditor-General of South Africa (AGSA).</li>
+            </ul>
+          </section>
+
+          <!-- Section 2: Core Engineering Philosophy -->
+          <section class="study-section">
+            <h2>2. The Fail-Closed Engineering Philosophy</h2>
+            <p>
+              The core architectural tenet of <code>merseta-ingest</code> is: <strong>Mathematical accuracy over ingestion volume.</strong>
+            </p>
+            <p>
+              Unlike conventional web crawlers or loose ETL pipelines that prioritize high completion rates, this engine operates on a strict <em>fail-closed</em> policy. It is vastly preferable to reject 10 ambiguous documents for human review than to permit a single mathematically false line item to enter national skills intelligence models.
+            </p>
+            <div class="notion-callout" style="border-left: 3px solid var(--accent-cyan); background: rgba(6, 182, 212, 0.05); padding: 1rem 1.25rem; border-radius: var(--radius-sm); margin: 1.5rem 0;">
+              <strong>The Zero-Float Mandate:</strong> Standard IEEE 754 floating-point types (e.g. standard Python <code>float</code>) are strictly forbidden across financial, headcount, and ledger calculations. All calculations use Python's exact <code>Decimal</code> module with a deterministic <code>ROUND_HALF_UP</code> rounding policy.
+            </div>
+          </section>
+
+          <!-- Section 3: The 10-Step Ingestion Lifecycle -->
+          <section class="study-section">
+            <h2>3. The 10-Step Fail-Closed Ingestion Lifecycle</h2>
+            <p>
+              The system processes incoming labor market documents through a durable, step-by-step lifecycle:
+            </p>
+
+            <div class="architecture-schematic" aria-label="merSETA Layer 0 10-Step Ingestion Lifecycle">
+              <div class="schematic-header">
+                <span class="schematic-title">
+                  <span class="schematic-tag">[ ENGINE // LIFECYCLE-10 ]</span>
+                  Fail-Closed Verification & Two-Phase Publish Flow
+                </span>
+              </div>
+              <pre style="background:#090D16; color:#8AD8E8; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:0.78rem; overflow-x:auto; line-height:1.5;">
+[Dropzone Watcher] (500ms Backoff Heuristic)
+       │
+       ▼
+[Cryptographic Pre-Hashing] (SHA-256 Non-Repudiation)
+       │
+       ▼
+[Supabase Vault] (raw-unstructured/{YYYY}/{sha256}.ext)
+       │
+       ▼
+[Vector vs Raster Triage] (PyMuPDF Tree Analysis >= 8)
+       │
+       ▼
+[Precision Extraction] (pdfplumber Bounding Box Isolation)
+       │
+       ▼
+[Schema Mapping] (OFO Code Normalization & Pydantic v2)
+       │
+       ▼
+[Mathematical Watchdog] (Decimal Reconciliation Bridge)
+       │
+       ├──► Arithmetic Mismatch ──► [Quarantine: STAGED_FOR_REVIEW]
+       │
+       ▼ Arithmetic Verified (100% Match)
+[Fail-Closed Gate] (VERIFIED_AUTO)
+       │
+       ▼
+[2-Phase Publish] (DB: PUBLICATION_PENDING ──► Rust Orchestrator)
+       │
+       ▼
+[Metadata Sync] (Parity with Layer 0 Authoritative Schema)</pre>
+            </div>
+
+            <ol style="padding-left:1.25rem; line-height:1.7; margin-top:1.5rem;">
+              <li><strong>Document Ingestion & Dropzone Watcher:</strong> Monitors inbound dropzone directories with a custom 2-probe file copy stability heuristic (sampling file size over a 500ms backoff) to avoid ingesting partial or locked files during OS network transfers.</li>
+              <li><strong>Cryptographic Pre-Hashing:</strong> Computes the SHA-256 checksum immediately upon detection—before any extraction or parsing begins—to guarantee content-addressed storage and non-repudiation.</li>
+              <li><strong>Immutable Vault Storage:</strong> Persists the original file in Supabase Storage under <code>raw-unstructured/{YYYY}/{sha256}.{ext}</code> while registering an initial tracking record in PostgreSQL (<code>layer0.raw_documents</code>).</li>
+              <li><strong>Vector vs. Raster Triage (Page Router):</strong> Analyzes the internal PDF drawing tree with PyMuPDF (<code>GRID_DRAWING_THRESHOLD >= 8</code>) and character density metrics to distinguish digitally native tables from scanned image fallbacks (<code>OCR_FALLBACK</code>).</li>
+              <li><strong>Precision Table Extraction:</strong> Utilizes <code>pdfplumber</code> bounding boxes to isolate cell structures and headers deterministically.</li>
+              <li><strong>Domain Schema Mapping:</strong> Normalizes South African Organising Framework for Occupations (OFO) codes, standardizes NQF levels, and maps aliases against strict Pydantic v2 domain schemas.</li>
+              <li><strong>Mathematical Watchdog (The Reconciliation Bridge):** Performs strict arithmetic verification between printed table totals and computed row sums using exact Python <code>Decimal</code> math. It disambiguates subtotals from grand totals and quarantines any table where an individual row fails validation—even if remaining rows accidentally sum to the total.</li>
+              <li><strong>Fail-Closed Publication Gate:</strong> Only documents achieving <code>VERIFIED_AUTO</code> are eligible for downstream release. Mismatched or ambiguous documents are quarantined to <code>STAGED_FOR_REVIEW</code> with an exact arithmetic delta logged.</li>
+              <li><strong>Crash-Resilient Downstream Dispatch:</strong> Implements a durable two-phase publish pattern. Marks <code>PUBLICATION_PENDING</code> in the database <em>before</em> initiating the HTTP push to the downstream Rust analytics orchestrator. If a network timeout occurs, status shifts to <code>PUBLICATION_UNCERTAIN</code> and halts—forbidding blind retries to prevent duplicate data corruption.</li>
+              <li><strong>Post-Reconciliation Metadata Synchronisation:</strong> Automatically updates vault metadata (<code>verification_status</code>, <code>page_count</code>, <code>checksum_delta</code>) to maintain 100% database parity with the authoritative Layer 0 schema.</li>
+            </ol>
+          </section>
+
+          <!-- Section 4: Key Technical Decisions -->
+          <section class="study-section">
+            <h2>4. Key Architectural Decisions & Trade-Offs</h2>
+            <div class="table-container">
+              <table class="decision-table">
+                <thead>
+                  <tr>
+                    <th>Decision</th>
+                    <th>Alternative Rejected</th>
+                    <th>Engineering Justification</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Python Decimal Math</strong></td>
+                    <td>Native IEEE 754 <code>float</code></td>
+                    <td>Eliminates binary floating-point drift (e.g. <code>0.1 + 0.2 != 0.3</code>). Essential for government audit compliance and financial levy totals.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2-Probe File Watcher</strong></td>
+                    <td>Instant Event Trigger</td>
+                    <td>Prevents parsing half-copied files during heavy operating system multi-megabyte transfers over SMB/NFS mounts.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Two-Phase DB Commit</strong></td>
+                    <td>Immediate HTTP Retry</td>
+                    <td>Prevents duplicate insertion into the downstream Rust orchestrator during packet drops or transient timeouts.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>PyMuPDF Vector Tree</strong></td>
+                    <td>Uniform OCR for All Pages</td>
+                    <td>12x faster execution by reserving expensive OCR vision models strictly for scanned documents while parsing digital PDFs natively.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Section 5: Verification & Quality -->
+          <section class="study-section">
+            <h2>5. Testing & Verification Telemetry</h2>
+            <p>
+              The engine features a comprehensive, hermetic test suite designed for isolated CI/CD pipelines:
+            </p>
+            <ul>
+              <li><strong>332 Hermetic Unit Tests:</strong> 100% offline execution utilizing mock HTTP transports and deterministic document fixtures, running end-to-end in <strong>under 25 seconds</strong> with zero external network calls.</li>
+              <li><strong>Ruff Linter & Formatter:</strong> Zero warnings or lint exceptions across the entire codebase.</li>
+              <li><strong>Defensive Systems Protection:</strong> Integrated SSRF guardrails and DNS-pinning mitigations on all external HTTP requests.</li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Thabang Dikotope</h3>
+          <p>Graduate Software Engineer focused on reliable backend systems, full-stack applications, and responsible AI engineering.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="../../index.html">Home</a>
+            <a href="../../work/index.html">Selected Work</a>
+            <a href="../../research/index.html">Research & AI</a>
+            <a href="../../experience/index.html">Experience</a>
+            <a href="../../about/index.html">About & Credentials</a>
+            <a href="../../contact/index.html">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Thabang Dikotope. Built with verified engineering rigor.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/assistant.js"></script>
+</body>
+</html>
